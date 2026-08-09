@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PK IMM FAI UMY | Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#350e14",
+                        "primary-fixed": "#ffdadb",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdad5",
+                        "on-secondary-fixed": "#410000",
+                        "on-surface": "#1b1c1c",
+                        "error": "#ba1a1a",
+                        "background": "#fbf9f8",
+                        "primary-container": "#4b2025",
+                        "surface-container-highest": "#e4e2e1",
+                        "outline": "#847374",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "tertiary-container": "#caa900",
+                        "on-tertiary-fixed": "#221b00",
+                        "inverse-primary": "#f9b5ba",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#854f54",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-container": "#4c3e00",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "inverse-surface": "#303030",
+                        "tertiary-fixed": "#ffe173",
+                        "tertiary": "#705d00",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#69393d",
+                        "on-background": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#d93728",
+                        "on-surface-variant": "#514344",
+                        "inverse-on-surface": "#f3f0f0",
+                        "outline-variant": "#d6c2c2",
+                        "on-primary-container": "#c28589",
+                        "secondary": "#b51b11",
+                        "surface": "#fbf9f8",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#f9b5ba",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-low": "#f6f3f2",
+                        "tertiary-fixed-dim": "#e8c423",
+                        "surface-container-high": "#eae8e7",
+                        "primary": "#310c11",
+                        "on-secondary-fixed-variant": "#930001",
+                        "surface-bright": "#fbf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "glass": "20px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "label-md": ["Montserrat"],
+                        "body-md": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #fbf9f8; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 0px 20px 40px rgba(75, 32, 37, 0.08);
+        }
+        .nav-scrolled {
+            background-color: #310c11 !important;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 h-20 transition-all duration-300 bg-transparent flex items-center" id="top-nav">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="flex items-center gap-4">
+<img alt="Logo PK IMM FAI UMY" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBclyGHCaIA-wxM2ZFeetlfGM_rm9qHoTfDQua2X7vIFJk5V5jathrKiJOD1Bz8ClZcdcDwEEibGx2u7ncaFLpXWpK3sSZ-FhV6fGdadnaukX7JV0tyhCJv0Nt6FkwiEnJUOcwgYZECR0QpVKKZNVolh_dyBS-Fys0VkPweyjYBHejHEPZmgnMYfe3LrDoQI2roHnB2hNsR8egMiseJoNLLQL0sN6YRpSeC9S7L68kkF0EJdttv9HxQ"/>
+<span class="font-headline-md text-headline-md font-bold text-white uppercase tracking-tight">PK IMM FAI UMY</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md uppercase tracking-wider text-secondary font-bold border-b-2 border-secondary" href="#">Home</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white hover:text-secondary-fixed transition-all" href="#">Profil</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white hover:text-secondary-fixed transition-all" href="#">Bidang</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white hover:text-secondary-fixed transition-all" href="#">Dokumentasi</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white hover:text-secondary-fixed transition-all" href="#">Berita</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white hover:text-secondary-fixed transition-all" href="#">Kalender</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white hover:text-secondary-fixed transition-all" href="#">Kontak</a>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-label-md hover:opacity-90 transition-all">Join IMM</button>
+</div>
+</div>
+</nav>
+<!-- 1. Hero Section -->
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-[#4B2025] via-[#C92B1E] to-[#D4B100] opacity-90"></div>
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-quality photograph of a vibrant university campus during a sunny afternoon, with modern Islamic architecture blending into green spaces. The scene captures the intellectual spirit of the IMM organization, illuminated by golden hour lighting that enhances the warm maroon and red color palette of the brand. The atmosphere is professional, inspiring, and forward-looking, perfectly suited for an academic and spiritual leadership theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0fSSmWIjgEUzujaVP_EgM4cASDehFGA-UZs34nvQZEheVX1fOl1pJYW4V5VX4JFqlSoCwh0622ItTDL6V31KZBPUVN_8FW9MetSAcVYVYC1MofTkkr-HSdK-Hs7_UHBHlfRh__iYK2MV3JrWvO1-kz3iLgroaNVTE7dGwjYRNuZO8l7v9EOOpUMAFdCh6HqJpiaJhcffnpeQkrOK84i5qHF_g665wHSk6cBZjVrWsVJod57xdMl1h"/>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop text-white">
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight">PK IMM FAI UMY: Bergerak Bersama, Berkarya untuk Peradaban</h1>
+<p class="font-body-lg text-body-lg mb-10 opacity-90">Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan.</p>
+<div class="flex flex-wrap gap-4 mb-16">
+<button class="bg-secondary text-white px-8 py-4 rounded-full font-label-md hover:scale-105 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">photo_library</span> Lihat Dokumentasi
+                    </button>
+<button class="bg-tertiary text-on-tertiary px-8 py-4 rounded-full font-label-md hover:scale-105 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">article</span> Baca Berita
+                    </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-t border-white/20">
+<div>
+<div class="text-4xl font-bold">10</div>
+<div class="text-sm uppercase tracking-widest opacity-70">Bidang</div>
+</div>
+<div>
+<div class="text-4xl font-bold">100+</div>
+<div class="text-sm uppercase tracking-widest opacity-70">Dokumentasi</div>
+</div>
+<div>
+<div class="text-4xl font-bold">50+</div>
+<div class="text-sm uppercase tracking-widest opacity-70">Berita</div>
+</div>
+<div>
+<div class="text-4xl font-bold">1000+</div>
+<div class="text-sm uppercase tracking-widest opacity-70">Kader</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Tentang Kami -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 fade-up">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-tertiary/20 rounded-full blur-3xl"></div>
+<img class="rounded-glass shadow-2xl relative z-10 w-full object-cover aspect-video" data-alt="A professional group photo of diverse Islamic student leaders sitting around a glass table in a modern, sunlit meeting room. They are engaged in an intellectual discussion, with digital devices and notebooks open. The lighting is soft and high-key, reflecting a light-mode aesthetic with subtle maroon and gold accents throughout the furniture and decor, representing the PK IMM FAI UMY's collaborative spirit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUowByrgBQ4Xd0cwt8Lqke6a7sHaVcOs9r-DZkC03YKevWBUCmPSvAXVyzGYDIsREaHh43fGS85jWhjn3LySXxrw3w2x1y1BZOio81G8m_oqZUsseelXPOwqS6yBfEPY-fH6fHmAGZhjQOjr2cmi03jVFxSj2op8xHeU7g3Cf7T6QvpGjD9xJ9zp0gGUuTDo1sWSinDUUx88-oOuzYTvnmfcdP6RuEuMKwQw0nBY7q5jElN7kCCjQN"/>
+</div>
+</div>
+<div class="flex-1 fade-up">
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Tentang Kami</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Menciptakan Kader Berintelektual Tinggi &amp; Berakhlak Mulia</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Ikatan Mahasiswa Muhammadiyah (IMM) adalah organisasi otonom Muhammadiyah yang bergerak di bidang keagamaan, kemahasiswaan, dan kemasyarakatan. PK IMM FAI UMY berkomitmen untuk menjadi inkubator kepemimpinan yang berlandaskan Trilogi IMM: Keagamaan, Kemahasiswaan, dan Kemasyarakatan.</p>
+<button class="border-2 border-primary text-primary px-8 py-3 rounded-full font-label-md hover:bg-primary hover:text-white transition-all">Selengkapnya</button>
+</div>
+</div>
+</section>
+<!-- 3. Bidang (Bento Grid) -->
+<section class="py-section-gap bg-[#F9EAEA]">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16 fade-up">
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Struktur Organisasi</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Bidang PK IMM FAI UMY</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<!-- Bidang Cards -->
+<script>
+                    const bidang = [
+                        { name: 'Organisasi', icon: 'account_tree', desc: 'Penguatan sistem manajemen internal.' },
+                        { name: 'Kaderisasi', icon: 'groups', desc: 'Pusat pengembangan kader unggul.' },
+                        { name: 'RPK', icon: 'science', desc: 'Riset dan Pengembangan Keilmuan.' },
+                        { name: 'Hikmah', icon: 'policy', desc: 'Gerakan politik dan advokasi sosial.' },
+                        { name: 'TKK', icon: 'mosque', desc: 'Tabligh dan Kajian Keislaman.' },
+                        { name: 'SPM', icon: 'volunteer_activism', desc: 'Sosial Pemberdayaan Masyarakat.' },
+                        { name: 'SBO', icon: 'palette', desc: 'Seni, Budaya, dan Olahraga.' },
+                        { name: 'IMMawati', icon: 'woman', desc: 'Pemberdayaan dan isu perempuan.' },
+                        { name: 'Ekonomi', icon: 'payments', desc: 'Kewirausahaan dan kemandirian.' },
+                        { name: 'Medkom', icon: 'podcasts', desc: 'Media, Komunikasi, dan Informasi.' }
+                    ];
+                    bidang.forEach(item => {
+                        document.write(`
+                            <div class="glass-card p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300 fade-up">
+                                <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined text-3xl">${item.icon}</span>
+                                </div>
+                                <h3 class="font-headline-md text-primary mb-3">${item.name}</h3>
+                                <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">${item.desc}</p>
+                                <button class="mt-auto text-secondary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Detail <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                </button>
+                            </div>
+                        `);
+                    });
+                </script>
+</div>
+</div>
+</section>
+<!-- 4. Dokumentasi -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 fade-up">
+<div>
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Lens IMM</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Jejak Langkah Kami</h2>
+</div>
+<div class="flex gap-4 mt-8 md:mt-0">
+<button class="bg-primary text-white px-6 py-2 rounded-full text-sm">Semua</button>
+<button class="bg-surface-container-high px-6 py-2 rounded-full text-sm hover:bg-primary/10">Pengkaderan</button>
+<button class="bg-surface-container-high px-6 py-2 rounded-full text-sm hover:bg-primary/10">Kajian</button>
+<button class="bg-surface-container-high px-6 py-2 rounded-full text-sm hover:bg-primary/10">Seminar</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-up">
+<div class="col-span-2 row-span-2 rounded-glass overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A grand seminar event held in a prestigious university hall, with hundreds of students listening to a keynote speaker. The stage is decorated with PK IMM FAI UMY branding. The lighting is cinematic and warm, highlighting the diverse audience and the vibrant academic atmosphere of the event." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjjYaHUmgwwN9ZaQy9LqmFkVW5nEvtlsPSdvvlumJrfSvzIqDyIqdn8-2Zc9e715BJrc2W4XBCYdOwZtpVSp-uk8uG7mPvVAQEVTSatpB-MOOdYo2tu2ROyKk0CfjvY4Q1i489Ed11MuAFpX76yjRnsXwUCKz1cQn19X0OZbVMLAXIAkIbVlIxBVL6vuI9DCaFvHWurULkvLDR7S5fcCsVPGRpuOOmdECjX1CG0zBrRtwv3VO92bGr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<p class="text-white font-bold">Seminar Nasional Kebangsaan</p>
+</div>
+</div>
+<div class="rounded-glass overflow-hidden h-64 group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close-up shot of a group of IMM students engaged in a deep theological study circle (kajian), sitting in a circle on a patterned carpet inside a beautifully designed mosque. Soft daylight streams through geometric windows, creating a peaceful and spiritual ambiance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBekRX3pKKUclwdcqw3VrzXGCa0yZ823sQpf0OzpG6zRbeM6Y24YfacRvtn-70w17zsMquhXWxsE75ekz8HCN_XeWHdH6_HqDx4YPJhdItMI-awkfW7GbEYtvG-K-9we0JQg8jSmhr9iUM-72iOqiouvntNTz6UTSNsN_DG11q3oESbjngJG2H73b1vrkNKrMa1PrL_t5B4qrdprw1f7aKDy9PDa0nEsRXIKt9alt_67HzyLoO34lfT"/>
+</div>
+<div class="rounded-glass overflow-hidden h-64 group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Dynamic outdoor shot of students participating in a leadership training camp. They are engaged in team-building exercises in a lush green park, with the sun setting in the background. The mood is energetic and youthful, emphasizing growth and camaraderie." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOx_OYWTnbVeLgq0evX4ef69T1o6mmdKNwH2J9Z7TdLtp_euGpcKtCdFQ_o40IZgWBb6qu5qUq1LG5E9TAUL_LLhPeDjY-b2k_FLQ0L1GmQf5auj3fI4CatZRhP3alwL1TfyEmZQY-lZStAilhDzsbldF1cN2JTCKsLtiJ4jjH-7epcvmh3qefwFr-CUDKXIxDvFRV8vg1eZ9h8rmu_1eYjA8HuS4aDDYDTF_UHy3F4RwtRvkdHwyE"/>
+</div>
+<div class="rounded-glass overflow-hidden h-64 group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A community service project in a rural village where IMM students are teaching local children. The scene is heartwarming, filled with smiles and interaction. Bright, natural lighting emphasizes the altruistic nature of the organization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXd830NxwB2XJFGqM2B01S6rlObBlS0PJBFmoX5R9mGdkBphYtp0IW5Xq2SG93VEU-a0siSwjjWiwVF0cOaQD7eb4dQDHgY_7jDQrNw-UfAdeSPjIY-X3Fx_7feurOFZiN58nCHZBVKlQcPI8ZPlo021kfE8VLQXv9R1E0sw_5PPaR774je6KIKRCSVs0QEvhbRLz7RrjEW8ZCqsXONBPLoxGAEysUUyoUm2Wf1Wzr4mhpiKMYn4-h"/>
+</div>
+<div class="rounded-glass overflow-hidden h-64 group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An artistic shot of a calligraphy workshop hosted by PK IMM, featuring students meticulously working on intricate Islamic art. The focus is on the hands and the ink, with a soft blur in the background capturing the studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMBZE7XMulRkP2ZLP1_5_XVoZJmN78tWl0hB7G8B6-0hu_Uv-CqGF7y78U2Eo12IGwm4v1f96Kw4VC5LLFA4jin5l8UANuthdqNSobtgCSO-t0DXwiiJ9mvDIkfusDCRkpP2XE6Xw5UtNVm8Ma5Ux4xyKbW-6Ve2KvJoT7qZ1OQCe-vgPkEakpKiUfgcpiJdYUNBcRTE_9ApuE5UhCtiQyapz0FXJJkgN0XTBDksd_2EtWxJSDM0kn"/>
+</div>
+</div>
+<div class="text-center mt-12 fade-up">
+<button class="bg-secondary text-white px-10 py-4 rounded-full font-label-md hover:shadow-lg transition-all">Lihat Semua Dokumentasi</button>
+</div>
+</div>
+</section>
+<!-- 5. Berita Terbaru -->
+<section class="py-section-gap bg-[#F9EAEA]">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16 fade-up">
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Warta IMM</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Berita &amp; Artikel Terbaru</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-up">
+<!-- News Cards -->
+<script>
+                    for(let i=1; i<=6; i++) {
+                        document.write(`
+                            <div class="glass-card overflow-hidden hover:shadow-xl transition-all group">
+                                <div class="h-56 overflow-hidden relative">
+                                    <div class="absolute top-4 left-4 z-10 bg-secondary text-white text-xs px-3 py-1 rounded-full uppercase font-bold">Pendidikan</div>
+                                    <img src="placeholder" data-alt="A high-quality news thumbnail showing a recent IMM activity, such as a student demonstration, an academic conference, or a social action event. The image is crisp, with a journalistic feel, featuring strong lead lines and vibrant colors that align with the brand identity." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                </div>
+                                <div class="p-8">
+                                    <div class="text-sm text-on-surface-variant mb-3">12 Januari 2026</div>
+                                    <h3 class="font-headline-md text-primary mb-4 line-clamp-2 hover:text-secondary transition-colors cursor-pointer">Langkah Strategis PK IMM FAI UMY dalam Menyongsong Indonesia Emas 2045</h3>
+                                    <p class="text-on-surface-variant line-clamp-3 mb-6">Organisasi kemahasiswaan dituntut untuk terus beradaptasi dengan perkembangan zaman...</p>
+                                    <a href="#" class="text-primary font-bold inline-flex items-center gap-2 border-b-2 border-primary/20 hover:border-primary transition-all">Baca Selengkapnya <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+</div>
+<div class="text-center mt-16 fade-up">
+<button class="border-2 border-primary text-primary px-10 py-4 rounded-full font-label-md hover:bg-primary hover:text-white transition-all">Lihat Semua Berita</button>
+</div>
+</div>
+</section>
+<!-- 6. Agenda & 7. Kalender -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div class="fade-up">
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Agenda Terdekat</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Jangan Lewatkan!</h2>
+<div class="bg-gradient-to-br from-primary to-[#4B2025] rounded-glass p-8 text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]">event_available</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-tertiary text-on-tertiary px-4 py-1 rounded-full text-xs font-bold uppercase">Akan Datang</span>
+<span class="text-white/60 text-sm italic">Sisa 3 Hari Lagi</span>
+</div>
+<h3 class="text-3xl font-bold mb-6">Musyawarah Komisariat XXVIII</h3>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">location_on</span>
+<span>Ruang Sidang Utama FAI UMY</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">schedule</span>
+<span>08.00 - Selesai, 15 Maret 2026</span>
+</div>
+</div>
+<p class="text-white/80 mb-8 leading-relaxed">Membangun kepemimpinan yang berintegritas dan visioner untuk membawa PK IMM FAI UMY ke arah yang lebih progresif dan berkemajuan.</p>
+<button class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-tertiary hover:text-on-tertiary transition-all">Daftar Sekarang</button>
+</div>
+</div>
+</div>
+<div class="fade-up">
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Kalender Organisasi</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Timeline Kegiatan</h2>
+<div class="glass-card p-8">
+<!-- Placeholder Calendar Widget -->
+<div class="grid grid-cols-7 gap-4 mb-8">
+<script>
+                            const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+                            days.forEach(d => document.write(`<div class="text-center font-bold text-on-surface-variant text-xs uppercase">${d}</div>`));
+                            for(let i=1; i<=31; i++) {
+                                let active = i === 15 ? 'bg-secondary text-white ring-4 ring-secondary/20' : 'hover:bg-primary/5';
+                                document.write(`<div class="aspect-square flex items-center justify-center rounded-full text-sm cursor-pointer transition-all ${active}">${i}</div>`);
+                            }
+                        </script>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 p-4 rounded-xl bg-primary/5">
+<div class="w-12 h-12 bg-white rounded-lg shadow-sm flex flex-col items-center justify-center">
+<span class="text-xs font-bold text-secondary">MAR</span>
+<span class="text-lg font-bold">15</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Musyawarah Komisariat</h4>
+<p class="text-xs text-on-surface-variant">08:00 WIB • R. Sidang FAI</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-xl border border-outline-variant">
+<div class="w-12 h-12 bg-white rounded-lg shadow-sm flex flex-col items-center justify-center">
+<span class="text-xs font-bold text-secondary">MAR</span>
+<span class="text-lg font-bold">20</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Kajian Rutin Pekanan</h4>
+<p class="text-xs text-on-surface-variant">15:30 WIB • Masjid KH Ahmad Dahlan</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 border-2 border-primary/20 text-primary rounded-full font-bold hover:bg-primary hover:text-white transition-all">Lihat Kalender Lengkap</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Visi & Misi -->
+<section class="py-section-gap bg-[#F9EAEA]">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="fade-up">
+<div class="glass-card p-12 relative overflow-hidden">
+<div class="absolute -right-10 -top-10 text-primary/5">
+<span class="material-symbols-outlined text-[200px]">auto_awesome</span>
+</div>
+<span class="bg-secondary text-white px-4 py-1 rounded-full text-xs font-bold uppercase mb-6 inline-block">Visi Kami</span>
+<h2 class="text-4xl font-extrabold text-primary mb-8 leading-tight">Terwujudnya Kader IMM yang Unggul dalam Intelektual, Spiritual, dan Humanitas demi Kemajuan Peradaban Bangsa.</h2>
+<div class="w-20 h-2 bg-tertiary"></div>
+</div>
+</div>
+<div class="fade-up">
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Misi Kami</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Strategi Perjuangan</h2>
+<div class="space-y-6">
+<script>
+                        const misi = [
+                            'Menanamkan nilai-nilai dasar keislaman dan kemuhammadiyahan secara mendalam.',
+                            'Menciptakan budaya riset dan keilmuan yang progresif di lingkungan mahasiswa.',
+                            'Membangun jejaring sosial dan advokasi yang berdampak nyata bagi masyarakat.',
+                            'Mengembangkan potensi kepemimpinan kader yang adaptif terhadap era digital.',
+                            'Mewujudkan tata kelola organisasi yang transparan, akuntabel, dan profesional.'
+                        ];
+                        misi.forEach((m, i) => {
+                            document.write(`
+                                <div class="flex gap-6 group">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">${i+1}</div>
+                                    <p class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">${m}</p>
+                                </div>
+                            `);
+                        });
+                    </script>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. Pengurus Harian -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16 fade-up">
+<span class="text-secondary font-label-md uppercase tracking-widest mb-4 block">Nakhoda Organisasi</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Pengurus Harian Utama</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 fade-up">
+<div class="text-center group">
+<div class="relative mb-8 mx-auto w-64 h-64">
+<div class="absolute inset-0 bg-tertiary rounded-full scale-105 group-hover:rotate-12 transition-transform duration-500"></div>
+<img class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white" data-alt="A professional studio portrait of a male student leader, wearing a neat IMM jacket. He has a confident and friendly expression. The background is a soft, solid neutral color, emphasizing the person. Lighting is balanced and flattering, suitable for an organizational leadership profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFKpvW0Nav5v6s03Srx3RmvcvTeyx2u8SRNxp-meLUfDxVZNoE9AjiUYnslrOQwlUf04kz3CQS7gvowwnUWxManB-g0P4wALO7asPAkHbwuUQd6_FdLHfNcA04jnc8DKLh_AyI4qQWQFgKIsCeOfeSi6DiAFzQN7CkjcoDXyh6VScwBRdazmkXxoq3TMTjQT0VrE-Ii1Jb-kS3cS_UiLrOJhc0yHVsdqZWrSJ1KtXyeYB-eXTyzQ16"/>
+</div>
+<h3 class="text-2xl font-bold text-primary">Ahmad Fauzi</h3>
+<p class="text-secondary font-bold uppercase tracking-widest text-sm mb-4">Ketua Umum</p>
+<div class="flex justify-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">alternate_email</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">link</span>
+</div>
+</div>
+<div class="text-center group">
+<div class="relative mb-8 mx-auto w-64 h-64">
+<div class="absolute inset-0 bg-primary rounded-full scale-105 group-hover:rotate-12 transition-transform duration-500"></div>
+<img class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white" data-alt="A professional studio portrait of a male student leader, looking intelligent and focused, wearing professional attire. The background is a soft, warm neutral color. Lighting is professional and highlights the subject's features, suggesting a responsible and capable secretary figure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF_xF_A-WjeeCom1R2uGIKyXugWrih6EDVuc4kDfAbyMVz_URB6dbzgl-0Zq8GixR1uDjN_iDYA7VZ8_wUE9bPtclJs1vlFgTu8i8jXWjbyi763y_jE2QFdrldcrAoObiMmgrqlxyZHUl24ihLtBL3ccpWoIMlHKkcw9zfCfIfwhwu-C4Zv1P6KKYKvXNHFP_ddq53cSwmxv8UqOufvjXFRq1GFlzCn0EK4AHKEc1loKTdQilgu6dP"/>
+</div>
+<h3 class="text-2xl font-bold text-primary">Ridho Alfian</h3>
+<p class="text-secondary font-bold uppercase tracking-widest text-sm mb-4">Sekretaris Umum</p>
+<div class="flex justify-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">alternate_email</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">link</span>
+</div>
+</div>
+<div class="text-center group">
+<div class="relative mb-8 mx-auto w-64 h-64">
+<div class="absolute inset-0 bg-secondary rounded-full scale-105 group-hover:rotate-12 transition-transform duration-500"></div>
+<img class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white" data-alt="A professional studio portrait of a female student leader wearing a stylish hijab and an IMM jacket. She has a warm, welcoming smile. The background is soft and minimalist. The image conveys a sense of reliability and leadership, fitting for a treasurer role." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2pnkqdWAuDgdLEybjuB4rftkD_9t-DyEmYdoOWhflt2WEc9fPaZZcPO8xyGLgXHU8KldukcJmFfQxLvY5r2c2inIjYpKJHlL8hkFhf4YykhjKC9rHL0JZjoT19XuQkd0i7PyvweJhRmuUTwF7CsMY5L66angaNG1J502HpFY6QRIs2oPabOSCWcdr1mLnHMTdbo9aBEHAhOHaYEOLX98CysBz_O92F_6qSyi-doPNJbn12CPcxLSU"/>
+</div>
+<h3 class="text-2xl font-bold text-primary">Siti Nurhaliza</h3>
+<p class="text-secondary font-bold uppercase tracking-widest text-sm mb-4">Bendahara Umum</p>
+<div class="flex justify-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">alternate_email</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">link</span>
+</div>
+</div>
+</div>
+<div class="text-center mt-16 fade-up">
+<button class="bg-primary text-white px-10 py-4 rounded-full font-label-md hover:bg-[#4B2025] transition-all">Lihat Struktur Organisasi Lengkap</button>
+</div>
+</div>
+</section>
+<!-- 10. CTA Section -->
+<section class="py-section-gap relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-[#4B2025] to-[#C92B1E]"></div>
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop text-center text-white fade-up">
+<h2 class="font-display-lg text-display-lg mb-8">Siap Menjadi Bagian dari Sejarah?</h2>
+<p class="font-body-lg text-body-lg mb-12 max-w-2xl mx-auto opacity-90">Bergabunglah bersama ribuan kader lainnya untuk bertransformasi menjadi insan kamil yang bermanfaat bagi umat dan bangsa. Perjalanan intelektualmu dimulai di sini.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-tertiary text-on-tertiary px-12 py-5 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl">Daftar Sekarang</button>
+<button class="bg-transparent border-2 border-white px-12 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition-all">Hubungi Kami</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-highest pt-section-gap pb-12 rounded-t-[20px] shadow-[0px_-10px_30px_rgba(75,32,37,0.05)]">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-4 mb-8">
+<img alt="Logo PK IMM FAI UMY" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBclyGHCaIA-wxM2ZFeetlfGM_rm9qHoTfDQua2X7vIFJk5V5jathrKiJOD1Bz8ClZcdcDwEEibGx2u7ncaFLpXWpK3sSZ-FhV6fGdadnaukX7JV0tyhCJv0Nt6FkwiEnJUOcwgYZECR0QpVKKZNVolh_dyBS-Fys0VkPweyjYBHejHEPZmgnMYfe3LrDoQI2roHnB2hNsR8egMiseJoNLLQL0sN6YRpSeC9S7L68kkF0EJdttv9HxQ"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">PK IMM FAI UMY</span>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Wadah perkaderan mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta yang berlandaskan intelektualitas, religiusitas, dan humanitas.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer"><span class="material-symbols-outlined text-sm">public</span></div>
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer"><span class="material-symbols-outlined text-sm">mail</span></div>
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer"><span class="material-symbols-outlined text-sm">phone</span></div>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-8 text-lg">Navigasi</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Profil</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Bidang</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Dokumentasi</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Berita</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-8 text-lg">Tautan Cepat</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Kalender</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Agenda</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Kontak</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block" href="#">Join IMM</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-8 text-lg">Sekretariat</h4>
+<p class="text-on-surface-variant mb-6">Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta.</p>
+<div class="w-full h-32 rounded-xl bg-surface-container overflow-hidden grayscale">
+<div class="w-full h-full flex items-center justify-center" data-location="Universitas Muhammadiyah Yogyakarta" style="">
+<span class="material-symbols-outlined text-primary/30 text-4xl">map</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop pt-8 border-t border-outline-variant text-center">
+<p class="text-on-surface-variant font-body-md">© 2026 PK IMM FAI UMY. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+        // Sticky Navbar Logic
+        const nav = document.getElementById('top-nav');
+        const navLinks = nav.querySelectorAll('a, span');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.remove('nav-scrolled');
+                nav.classList.add('bg-transparent');
+            }
+        });
+
+        // Intersection Observer for fade-up animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body></html>
