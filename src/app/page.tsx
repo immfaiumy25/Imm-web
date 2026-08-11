@@ -114,7 +114,7 @@ export default function Home() {
               style={{ opacity: `calc(1 - (var(--intro-progress, 0) * 2))` }}
             >
               <span className="animate-bounce mb-2">↓</span>
-              SCROLL UP
+              SCROLL DOWN
             </div>
 
             {/* REAL CONTENT (Fades in as it expands) */}
