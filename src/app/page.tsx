@@ -5,6 +5,7 @@ import { DisableZoom } from "@/components/DisableZoom";
 import SpotlightCard from "@/components/SpotlightCard";
 import CardSwap, { Card } from "@/components/CardSwap";
 import MagicBento from "@/components/MagicBento";
+import BorderGlow from "@/components/BorderGlow";
 
 const bidangData = [
   { name: "Organisasi", desc: "Penguatan sistem manajemen internal.", icon: "account_tree" },
@@ -371,11 +372,79 @@ export default function Home() {
       {/* ========================
           BERITA SECTION (Gray)
           ======================== */}
-      <section id="berita" className="w-full min-h-[70vh] bg-gray-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Berita & Artikel</h2>
-        <p className="text-lg text-gray-600 max-w-[800px] text-center">
+      <section id="berita" className="w-full min-h-[70vh] bg-[#f8f9fa] text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Berita & Artikel</h2>
+        <p className="text-lg text-gray-600 max-w-[800px] text-center mb-12">
           Informasi terkini, opini, dan publikasi kajian yang diangkat oleh para kader IMM FAI UMY.
         </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1200px]">
+          <BorderGlow
+            edgeSensitivity={30}
+            glowColor="359 99 44" /* #6d0100 HSL approximation */
+            backgroundColor="#ffffff"
+            borderRadius={24}
+            glowRadius={30}
+            glowIntensity={0.8}
+            coneSpread={30}
+            animated={true}
+            colors={['#6d0100', '#f92727', '#f8cf0f']}
+            className="w-full h-full"
+          >
+            <div className="p-8 h-full flex flex-col">
+              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">OPINI</div>
+              <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Peran Mahasiswa dalam Membangun Peradaban Bangsa di Era Digital</h3>
+              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6">
+                Mahasiswa tidak hanya dituntut untuk unggul secara akademis, tetapi juga harus peka terhadap isu-isu sosial kemasyarakatan...
+              </p>
+              <div className="text-xs text-gray-400 font-medium">12 Agustus 2026 • Oleh: Kader IMM</div>
+            </div>
+          </BorderGlow>
+
+          <BorderGlow
+            edgeSensitivity={30}
+            glowColor="359 99 44"
+            backgroundColor="#ffffff"
+            borderRadius={24}
+            glowRadius={30}
+            glowIntensity={0.8}
+            coneSpread={30}
+            animated={true}
+            colors={['#6d0100', '#f92727', '#f8cf0f']}
+            className="w-full h-full"
+          >
+            <div className="p-8 h-full flex flex-col">
+              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KEGIATAN</div>
+              <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Sukses Penyelenggaraan Darul Arqam Dasar 2026</h3>
+              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6">
+                Alhamdulillah, perkaderan tingkat dasar DAD tahun ini berhasil melahirkan puluhan kader militan yang siap bergerak...
+              </p>
+              <div className="text-xs text-gray-400 font-medium">5 Agustus 2026 • Tim Media</div>
+            </div>
+          </BorderGlow>
+
+          <BorderGlow
+            edgeSensitivity={30}
+            glowColor="359 99 44"
+            backgroundColor="#ffffff"
+            borderRadius={24}
+            glowRadius={30}
+            glowIntensity={0.8}
+            coneSpread={30}
+            animated={true}
+            colors={['#6d0100', '#f92727', '#f8cf0f']}
+            className="w-full h-full"
+          >
+            <div className="p-8 h-full flex flex-col">
+              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KAJIAN</div>
+              <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Menelaah Kembali Nilai Dasar Perjuangan (NDP) IMM</h3>
+              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6">
+                Kajian rutin mingguan ini membahas secara mendalam mengenai implementasi NDP IMM dalam konteks kekinian...
+              </p>
+              <div className="text-xs text-gray-400 font-medium">28 Juli 2026 • Bidang RPK</div>
+            </div>
+          </BorderGlow>
+        </div>
       </section>
 
       {/* ========================
