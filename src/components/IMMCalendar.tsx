@@ -161,7 +161,7 @@ export default function IMMCalendar() {
           {selectedDayEvents.length > 0 ? (
             <div className="space-y-4">
               {selectedDayEvents.map((evt, idx) => (
-                <div key={idx} className="bg-white/10 p-4 rounded-xl border border-white/20 border-l-4 border-l-[#f8cf0f] backdrop-blur-sm hover:bg-white/20 transition-colors">
+                <div key={idx} className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition-colors">
                   <h5 className="font-normal text-lg text-white mb-2">{evt.title}</h5>
                   {evt.time && (
                     <div className="flex items-center text-sm text-white/80 mb-1 font-normal">
