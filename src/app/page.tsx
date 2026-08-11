@@ -27,8 +27,6 @@ export default function Home() {
   const [activeSectionTitle, setActiveSectionTitle] = useState('PK IMM FAI UMY');
   const [isIntroFinished, setIsIntroFinished] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
-  const hasStartedTypingRef = useRef(false);
-  const [hasStartedTyping, setHasStartedTyping] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,11 +46,6 @@ export default function Home() {
         setIsIntroFinished(true);
       } else {
         setIsIntroFinished(false);
-      }
-      
-      if (progress > 0.1 && !hasStartedTypingRef.current) {
-        hasStartedTypingRef.current = true;
-        setHasStartedTyping(true);
       }
 
       // 2. Navbar Theme & Title Logic
@@ -178,16 +171,12 @@ export default function Home() {
               }}
             >
               <h1 className="font-serif text-5xl md:text-7xl font-normal leading-tight tracking-tight mb-6">
-                <TypewriterText text="Bergerak Bersama " start={hasStartedTyping} speed={100} />
+                <TypewriterText text="Bergerak Bersama " />
                 <br className="hidden md:block"/>
-                <TypewriterText text="Berkarya untuk Peradaban" start={hasStartedTyping} speed={100} />
+                <TypewriterText text="Berkarya untuk Peradaban" />
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-[700px] font-light mb-10 min-h-[150px] md:min-h-[120px]">
-                <TypewriterText 
-                  text="Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan." 
-                  start={hasStartedTyping} 
-                  speed={40} 
-                />
+                <TypewriterText text="Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan." />
               </p>
               <button className="bg-white text-[#6d0100] rounded-full px-8 py-4 font-normal hover:scale-105 transition-transform shadow-xl">
                 Get Started

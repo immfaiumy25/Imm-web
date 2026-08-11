@@ -1,39 +1,31 @@
 "use client";
 import { useState, useEffect } from "react";
 
-interface TypewriterTextProps {
-  text: string;
-  start: boolean;
-  speed?: number;
-  delay?: number;
-}
-
-export default function TypewriterText({ text, start, speed = 40, delay = 0 }: TypewriterTextProps) {
+export default function TypewriterText({ text }: { text: string }) {
   const [displayed, setDisplayed] = useState("");
   
   useEffect(() => {
-    if (!start) {
-      setDisplayed("");
-      return;
-    }
-    
-    let timer: NodeJS.Timeout;
-    let i = 0;
-    const delayTimer = setTimeout(() => {
-      timer = setInterval(() => {
-        setDisplayed(text.slice(0, i + 1));
-        i++;
-        if (i >= text.length) {
-          clearInterval(timer);
-        }
-      }, speed);
-    }, delay);
-    
-    return () => {
-      clearTimeout(delayTimer);
-      clearInterval(timer);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const introMaxScroll = window.innerHeight * 0.65;
+      let progress = scrollY / introMaxScroll;
+      
+      const startProgress = 0.15;
+      const endProgress = 0.85;
+      
+      let mappedProgress = (progress - startProgress) / (endProgress - startProgress);
+      if (mappedProgress < 0) mappedProgress = 0;
+      if (mappedProgress > 1) mappedProgress = 1;
+      
+      const charsToShow = Math.floor(mappedProgress * text.length);
+      setDisplayed(text.slice(0, charsToShow));
     };
-  }, [text, start, speed, delay]);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial setup
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [text]);
 
   return <span>{displayed}</span>;
 }
