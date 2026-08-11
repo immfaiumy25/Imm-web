@@ -405,7 +405,7 @@ export default function Home() {
             }}
           >
             <div className="w-full h-48 relative overflow-hidden bg-gray-200">
-              <img src="/dokumentasi/sekolah-kader.jpeg" alt="Kompas Profetik ISP" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="/berita/berita-1.jpg" alt="Kompas Profetik ISP" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6 flex flex-col flex-grow">
               <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KABAR MUHAMMADIYAH</div>
@@ -435,7 +435,7 @@ export default function Home() {
             }}
           >
             <div className="w-full h-48 relative overflow-hidden bg-gray-200">
-              <img src="/dokumentasi/furab.jpeg" alt="Dahlan Culture Festival" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="/berita/berita-2.webp" alt="Dahlan Culture Festival" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6 flex flex-col flex-grow">
               <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">RRI BUDAYA</div>
@@ -465,7 +465,7 @@ export default function Home() {
             }}
           >
             <div className="w-full h-48 relative overflow-hidden bg-gray-200">
-              <img src="/dokumentasi/bahlil.jpeg" alt="Majalah BAHL1L" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="/berita/berita-3.jpg" alt="Majalah BAHL1L" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6 flex flex-col flex-grow">
               <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">WARTA PTM</div>
