@@ -462,10 +462,7 @@ export default function Home() {
           KALENDER SECTION
           ======================== */}
       <section id="kalender" className="w-full min-h-[70vh] bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white p-8 md:p-[60px] flex flex-col items-center justify-center relative overflow-hidden">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-white text-center drop-shadow-md">Kalender Kegiatan</h2>
-        <p className="text-lg text-white/90 max-w-[800px] text-center mb-12 drop-shadow-sm font-medium">
-          Jadwal program kerja, kajian rutin, dan event-event penting komisariat.
-        </p>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-white text-center drop-shadow-md">Kalender Kegiatan</h2>
         
         <div className="w-full max-w-[1400px] relative z-10">
           <IMMCalendar />
