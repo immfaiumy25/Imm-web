@@ -536,18 +536,61 @@ export default function Home() {
       {/* ========================
           KONTAK SECTION (Dark)
           ======================== */}
-      <section id="kontak" className="w-full min-h-[50vh] bg-[#280000] text-white p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6">Kontak Kami</h2>
-        <p className="text-lg text-white/70 max-w-[800px] text-center mb-8">
-          Silakan hubungi kami untuk informasi pendaftaran, kerjasama, maupun pertanyaan lainnya.
-        </p>
-        <div className="flex gap-4">
-          <button className="bg-white text-[#280000] px-6 py-3 rounded-full font-normal hover:bg-gray-200 transition-colors">
-            Email Kami
-          </button>
-          <button className="bg-transparent border border-white px-6 py-3 rounded-full font-normal hover:bg-white/10 transition-colors">
-            Instagram
-          </button>
+      <section id="kontak" className="w-full bg-[#280000] text-white p-8 md:p-[60px] pt-16 md:pt-24 border-t border-white/10">
+        <div className="max-w-[1450px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          
+          {/* Column 1: Info & Socials */}
+          <div className="flex flex-col items-start">
+            <div className="flex items-center gap-3 mb-6">
+              <img src="/logo.png" alt="IMM Logo" className="w-[56px] h-[56px] object-contain drop-shadow-md" />
+              <span className="font-serif text-2xl font-normal">PK IMM FAI UMY</span>
+            </div>
+            <p className="text-white/70 font-normal text-sm md:text-base leading-relaxed mb-8">
+              Wadah perkaderan mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta yang berlandaskan intelektualitas, religiusitas, dan humanitas.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <span className="material-symbols-outlined font-normal text-white">public</span>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <span className="material-symbols-outlined font-normal text-white">mail</span>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <span className="material-symbols-outlined font-normal text-white">phone</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: Navigasi */}
+          <div className="flex flex-col items-start">
+            <h3 className="font-serif text-2xl font-normal mb-6 text-white">Navigasi</h3>
+            <div className="flex flex-col gap-4">
+              <a href="#profile" className="text-white/70 hover:text-white transition-colors font-normal">Profil</a>
+              <a href="#bidang" className="text-white/70 hover:text-white transition-colors font-normal">Bidang</a>
+              <a href="#dokumentasi" className="text-white/70 hover:text-white transition-colors font-normal">Dokumentasi</a>
+              <a href="#berita" className="text-white/70 hover:text-white transition-colors font-normal">Berita</a>
+            </div>
+          </div>
+
+          {/* Column 3: Tautan Cepat */}
+          <div className="flex flex-col items-start">
+            <h3 className="font-serif text-2xl font-normal mb-6 text-white">Tautan Cepat</h3>
+            <div className="flex flex-col gap-4">
+              <a href="#kalender" className="text-white/70 hover:text-white transition-colors font-normal">Kalender</a>
+              <a href="#agenda" className="text-white/70 hover:text-white transition-colors font-normal">Agenda</a>
+              <a href="#kontak" className="text-white/70 hover:text-white transition-colors font-normal">Kontak</a>
+              <a href="#join" className="text-white/70 hover:text-white transition-colors font-normal">Join IMM</a>
+            </div>
+          </div>
+
+          {/* Column 4: Sekretariat */}
+          <div className="flex flex-col items-start">
+            <h3 className="font-serif text-2xl font-normal mb-6 text-white">Sekretariat</h3>
+            <p className="text-white/70 font-normal text-sm md:text-base leading-relaxed">
+              Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta.
+            </p>
+          </div>
+
         </div>
       </section>
 
