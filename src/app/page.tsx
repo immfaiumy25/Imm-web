@@ -22,6 +22,7 @@ const bidangData = [
 
 export default function Home() {
   const [navbarTheme, setNavbarTheme] = useState('dark');
+  const [activeSectionTitle, setActiveSectionTitle] = useState('PK IMM FAI UMY');
   const [isIntroFinished, setIsIntroFinished] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -45,25 +46,34 @@ export default function Home() {
         setIsIntroFinished(false);
       }
 
-      // 2. Navbar Theme Logic
+      // 2. Navbar Theme & Title Logic
       // Check which section is currently at the top of the viewport
+      // Ordered from bottom to top so the first one that is at the top is the current section
       const sections = [
-        { id: 'dokumentasi', theme: 'light' }, // Dokumentasi is white bg -> dark text (theme: light, meaning light background, needs dark text)
-        { id: 'bidang', theme: 'dark' },       // Bidang is dark bg -> white text
-        { id: 'profile', theme: 'light' },     // Profile is white bg -> dark text
+        { id: 'kontak', theme: 'dark', title: 'Kontak Kami' },
+        { id: 'creative-minority', theme: 'light', title: 'Creative Minority' },
+        { id: 'kalender', theme: 'light', title: 'Kalender Kegiatan' },
+        { id: 'berita', theme: 'light', title: 'Berita & Artikel' },
+        { id: 'dokumentasi', theme: 'light', title: 'Dokumentasi' },
+        { id: 'bidang', theme: 'dark', title: 'Bidang Organisasi' },
+        { id: 'profile', theme: 'light', title: 'Profil Kami' },
+        { id: 'home', theme: 'dark', title: 'PK IMM FAI UMY' }
       ];
 
       let currentTheme = 'dark'; // Default for hero (dark bg -> white text)
+      let currentTitle = 'PK IMM FAI UMY';
 
       for (const section of sections) {
         const el = document.getElementById(section.id);
-        if (el && el.getBoundingClientRect().top <= 100) {
+        if (el && el.getBoundingClientRect().top <= 120) {
           currentTheme = section.theme;
+          currentTitle = section.title;
           break; // Stop at the first section that is at the top
         }
       }
 
       setNavbarTheme(currentTheme);
+      setActiveSectionTitle(currentTitle);
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
@@ -95,9 +105,9 @@ export default function Home() {
             WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)' 
           }}
         >
-          <div className={`flex items-center gap-3 font-normal tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${navbarTheme === 'light' ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
+          <div className={`flex items-center gap-3 font-medium tracking-[-0.02em] text-base md:text-lg transition-colors duration-300 ${navbarTheme === 'light' ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
             <img src="/logo.png" alt="IMM Logo" className="w-[56px] h-[56px] object-contain drop-shadow-md" />
-            PK IMM FAI UMY
+            <span className="transition-all duration-300 w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">{activeSectionTitle}</span>
           </div>
           
           {/* Navbar Links */}
