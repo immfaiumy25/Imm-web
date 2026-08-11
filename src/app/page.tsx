@@ -89,7 +89,7 @@ export default function Home() {
       {/* =======================
           HOME SECTION (Gradient)
           ======================= */}
-      <section id="home" className="relative w-full block bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32 pb-[20vh]">
+      <section id="home" className="relative w-full block bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32">
 
         {/* Scroll Track */}
         <div className="h-[160vh]">
