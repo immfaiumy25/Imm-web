@@ -290,9 +290,9 @@ export default function Home() {
       </section>
 
       {/* ========================
-          BIDANG SECTION (Gray)
+          BIDANG SECTION
           ======================== */}
-      <section id="bidang" className="w-full min-h-[70vh] bg-gray-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
+      <section id="bidang" className="w-full min-h-[70vh] bg-gradient-to-b from-gray-50 via-white to-red-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
         <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100]">Bidang</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-[1450px]">
