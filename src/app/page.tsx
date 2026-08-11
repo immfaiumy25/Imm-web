@@ -541,12 +541,12 @@ export default function Home() {
               href="https://maps.google.com/?q=Gedung+Ki+Bagus+Hadikusumo+UMY+Yogyakarta" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#f92727] font-normal text-sm md:text-base leading-relaxed transition-colors hover:underline mb-8"
+              className="text-gray-600 hover:text-[#f92727] font-normal text-sm md:text-base leading-relaxed transition-colors hover:underline mb-4"
             >
               Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta.
             </a>
             
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               <a href="mailto:immfaiumy25@gmail.com" className="flex items-center gap-3 text-gray-600 hover:text-[#f92727] transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#f92727]/10 transition-colors shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
