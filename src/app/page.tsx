@@ -107,6 +107,7 @@ export default function Home() {
             <a href="#dokumentasi" className="hover:opacity-70 transition-opacity">Dokumentasi</a>
             <a href="#berita" className="hover:opacity-70 transition-opacity">Berita</a>
             <a href="#kalender" className="hover:opacity-70 transition-opacity">Kalender</a>
+            <a href="#creative-minority" className="hover:opacity-70 transition-opacity">Creative Minority</a>
             <a href="#kontak" className="hover:opacity-70 transition-opacity">Kontak</a>
           </div>
           
