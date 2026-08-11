@@ -65,9 +65,9 @@ export default function Home() {
             WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)' 
           }}
         >
-          <div className={`flex items-center gap-[8px] font-normal tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${isScrolled ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
-            <i className={`w-[24px] h-[24px] rounded-[7px_7px_7px_2px] -rotate-8 border backdrop-blur-md transition-colors duration-300 ${isScrolled ? 'bg-[#280000]/10 border-[#280000]/20' : 'bg-white/40 border-white/50'}`}></i>
-            Organisasi
+          <div className={`flex items-center gap-3 font-normal tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${isScrolled ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
+            <img src="/logo.png" alt="IMM Logo" className="w-[40px] h-[40px] object-contain drop-shadow-md" />
+            PK IMM FAI UMY
           </div>
           
           {/* Navbar Links */}
