@@ -292,62 +292,30 @@ export default function Home() {
       {/* ========================
           BIDANG SECTION
           ======================== */}
-      <section id="bidang" className="relative w-full min-h-[70vh] bg-gradient-to-br from-white via-red-50 to-red-200 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center overflow-hidden">
-        {/* Decorative background blur */}
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-red-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-30"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-red-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
-
-        <h2 className="relative z-10 font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100]">Bidang</h2>
+      <section 
+        id="bidang" 
+        className="relative w-full min-h-[70vh] text-white p-8 md:p-[60px] flex flex-col items-center justify-center overflow-hidden"
+        style={{ background: 'linear-gradient(145deg, #6d0100 0%, #a90a05 40%, #f92727 65%, #f8cf0f 100%)' }}
+      >
+        <h2 className="relative z-10 font-serif text-4xl md:text-6xl font-normal mb-12 text-white">Bidang</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-[1450px]">
-          {bidangData.map((bidang, i) => {
-            const isDark = i % 3 === 2;
-            const isVibrant = i % 3 === 1;
-            const isLight = i % 3 === 0;
-            
-            let bgClass = "bg-[linear-gradient(135deg,#fff_0%,#fff_35%,#ffcfcf_100%)]"; // Tile A
-            let textClass = "text-[#280000]";
-            let descClass = "text-gray-600";
-            let iconBgClass = "bg-[#6d0100]/5 group-hover:bg-[#6d0100]/10";
-            let iconColorClass = "text-[#6d0100]";
-            let detailClass = "text-[#6d0100]";
-            let spotlightColor = "rgba(109, 1, 0, 0.1)";
-
-            if (isVibrant) {
-              bgClass = "bg-[linear-gradient(135deg,#f8cf0f_0%,#f7aa09_45%,#f92727_100%)] border-none"; // Tile B
-              textClass = "text-white";
-              descClass = "text-white/90";
-              iconBgClass = "bg-white/20 group-hover:bg-white/30";
-              iconColorClass = "text-white";
-              detailClass = "text-white";
-              spotlightColor = "rgba(255, 255, 255, 0.25)";
-            } else if (isDark) {
-              bgClass = "bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] border-none"; // Panel Main
-              textClass = "text-white";
-              descClass = "text-white/80";
-              iconBgClass = "bg-white/10 group-hover:bg-white/20";
-              iconColorClass = "text-[#f8cf0f]";
-              detailClass = "text-[#f8cf0f]";
-              spotlightColor = "rgba(248, 207, 15, 0.2)";
-            }
-
-            return (
-              <SpotlightCard key={i} className={`p-8 flex flex-col justify-between group cursor-pointer h-full ${bgClass}`} spotlightColor={spotlightColor}>
-                <div>
-                  <div className={`w-14 h-14 rounded-2xl ${iconBgClass} flex items-center justify-center mb-6 transition-colors`}>
-                    <span className={`material-symbols-outlined text-3xl ${iconColorClass}`}>{bidang.icon}</span>
-                  </div>
-                  <h3 className={`text-2xl font-serif font-normal mb-3 ${textClass}`}>{bidang.name}</h3>
-                  <p className={`font-light leading-relaxed ${descClass}`}>{bidang.desc}</p>
+          {bidangData.map((bidang, i) => (
+            <SpotlightCard key={i} className="p-8 flex flex-col justify-between group cursor-pointer h-full bg-white" spotlightColor="rgba(109, 1, 0, 0.1)">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#6d0100]/5 flex items-center justify-center mb-6 group-hover:bg-[#6d0100]/10 transition-colors">
+                  <span className="material-symbols-outlined text-3xl text-[#6d0100]">{bidang.icon}</span>
                 </div>
-                
-                <div className={`mt-8 flex items-center font-medium opacity-80 group-hover:opacity-100 transition-opacity ${detailClass}`}>
-                  <span>Detail</span>
-                  <span className="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </div>
-              </SpotlightCard>
-            );
-          })}
+                <h3 className="text-2xl font-serif font-normal text-[#280000] mb-3">{bidang.name}</h3>
+                <p className="text-gray-600 font-light leading-relaxed">{bidang.desc}</p>
+              </div>
+              
+              <div className="mt-8 flex items-center text-[#6d0100] font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+                <span>Detail</span>
+                <span className="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </SpotlightCard>
+          ))}
         </div>
       </section>
 
