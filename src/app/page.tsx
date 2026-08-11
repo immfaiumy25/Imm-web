@@ -451,32 +451,57 @@ export default function Home() {
       </section>
 
       {/* ========================
-          DOKUMENTASI SECTION (White)
+          DOKUMENTASI & BERITA CANVAS
           ======================== */}
-      <section id="dokumentasi" className="w-full min-h-[80vh] bg-white text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center overflow-hidden">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100] text-center">Dokumentasi</h2>
+      <div 
+        className="group relative w-full bg-[#f8f9fa] overflow-hidden"
+        onMouseMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+          e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+        }}
+      >
+        {/* Unified Mouse Spotlight */}
+        <div 
+          className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+          style={{
+            background: 'radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(249, 39, 39, 0.08), transparent 40%)'
+          }}
+        />
         
-        <div className="w-full max-w-[1200px] mx-auto relative z-10 flex justify-center">
-          <MagicBento 
-            textAutoHide={false}
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
-            spotlightRadius={400}
-            particleCount={15}
-            glowColor="109, 1, 0"
-          />
-        </div>
-      </section>
+        {/* Unified Background Effects (Grid + Noise) */}
+        <div className="absolute inset-0 bg-[radial-gradient(#d1d5db_2px,transparent_2px)] [background-size:32px_32px] opacity-50 z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
-      {/* ========================
-          BERITA SECTION (Gray)
-          ======================== */}
-      <section id="berita" className="w-full min-h-[70vh] bg-[#f8f9fa] text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100] text-center">Berita & Artikel</h2>
+        {/* ========================
+            DOKUMENTASI SECTION
+            ======================== */}
+        <section id="dokumentasi" className="relative w-full min-h-[80vh] text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
+          <h2 className="relative z-10 font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100] text-center">Dokumentasi</h2>
+          
+          <div className="w-full max-w-[1200px] mx-auto relative z-10 flex justify-center">
+            <MagicBento 
+              textAutoHide={false}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={true}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={400}
+              particleCount={15}
+              glowColor="109, 1, 0"
+            />
+          </div>
+        </section>
+
+        {/* ========================
+            BERITA SECTION
+            ======================== */}
+        <section id="berita" className="relative w-full min-h-[70vh] text-[#280000] p-8 md:p-[60px] pb-[100px] flex flex-col items-center justify-center">
+          <h2 className="relative z-10 font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100] text-center">Berita & Artikel</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1200px] relative z-10">
           {/* Card 1 */}
@@ -567,6 +592,7 @@ export default function Home() {
           </a>
         </div>
       </section>
+      </div> {/* End of DOKUMENTASI & BERITA CANVAS */}
 
       {/* ========================
           KALENDER SECTION
@@ -576,6 +602,28 @@ export default function Home() {
         
         <div className="w-full max-w-[1400px] relative z-10">
           <IMMCalendar />
+        </div>
+      </section>
+
+      {/* ========================
+          CALL TO ACTION SECTION
+          ======================== */}
+      <section className="relative w-full bg-[#6d0100] text-white py-24 md:py-32 px-8 flex flex-col items-center justify-center overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-[0.05]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+
+        <div className="relative z-10 max-w-[800px] text-center flex flex-col items-center gap-8">
+          <h2 className="font-serif text-4xl md:text-5xl font-normal leading-tight tracking-tight">
+            Siap Menjadi Bagian dari Sejarah?
+          </h2>
+          <p className="text-lg md:text-xl font-light text-white/80 leading-relaxed max-w-[700px]">
+            Bergabunglah bersama ribuan kader lainnya untuk bertransformasi menjadi insan kamil yang bermanfaat bagi umat dan bangsa. Perjalanan intelektualmu dimulai di sini.
+          </p>
+          <a 
+            href="#"
+            className="mt-4 px-8 py-4 bg-white text-[#6d0100] rounded-full font-normal text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300"
+          >
+            Join IMM
+          </a>
         </div>
       </section>
 
