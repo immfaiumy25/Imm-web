@@ -70,25 +70,12 @@ export default function IMMCalendar() {
     days.push(
       <div 
         key={`day-${i}`} 
-        className={`p-2 md:p-4 border-b border-r border-gray-100 min-h-[100px] md:min-h-[120px] transition-colors hover:bg-red-50/50 
+        className={`p-2 md:p-4 border-b border-r border-gray-100 min-h-[100px] md:min-h-[120px] transition-colors hover:bg-red-50/50 flex items-center justify-center
         ${isToday ? 'bg-red-50/30' : 'bg-white'}`}
       >
-        <div className="flex justify-between items-start">
-          <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-medium ${isToday ? 'bg-[#6d0100] text-white shadow-md' : 'text-gray-700'}`}>
-            {i}
-          </span>
-        </div>
-        <div className="mt-2 space-y-1.5 overflow-y-auto max-h-[80px] custom-scrollbar">
-          {dayEvents.map((evt, idx) => (
-            <div 
-              key={idx} 
-              className="text-xs bg-[#f8cf0f]/20 text-[#6d0100] px-2 py-1.5 rounded-md border border-[#f8cf0f]/30 truncate font-medium"
-              title={evt.title}
-            >
-              {evt.title}
-            </div>
-          ))}
-        </div>
+        <span className={`inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl font-medium ${isToday ? 'bg-[#6d0100] text-white shadow-md' : 'text-gray-700'}`}>
+          {i}
+        </span>
       </div>
     );
   }
