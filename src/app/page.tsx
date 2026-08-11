@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { DisableZoom } from "@/components/DisableZoom";
 import SpotlightCard from "@/components/SpotlightCard";
 import CardSwap, { Card } from "@/components/CardSwap";
+import MagicBento from "@/components/MagicBento";
 
 const bidangData = [
   { name: "Organisasi", desc: "Penguatan sistem manajemen internal.", icon: "account_tree" },
@@ -343,47 +344,26 @@ export default function Home() {
       {/* ========================
           DOKUMENTASI SECTION (White)
           ======================== */}
-      <section id="dokumentasi" className="w-full min-h-[80vh] bg-white text-[#280000] p-8 md:p-[60px] flex flex-col lg:flex-row items-center justify-center gap-12 overflow-hidden">
-        <div className="flex-1 w-full max-w-xl text-center lg:text-left z-10">
-          <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Dokumentasi</h2>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            Galeri visual pergerakan, aksi nyata, dan berbagai program kerja IMM FAI UMY. 
-            Merekam setiap momen perjuangan dan kebersamaan ikatan.
-          </p>
-          <button className="bg-gradient-to-r from-[#6d0100] to-[#9f0905] text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            Lihat Semua Galeri
-          </button>
-        </div>
+      <section id="dokumentasi" className="w-full min-h-[80vh] bg-white text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center overflow-hidden">
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Dokumentasi</h2>
+        <p className="text-lg text-gray-600 mb-12 text-center max-w-2xl">
+          Galeri visual pergerakan, aksi nyata, dan berbagai program kerja IMM FAI UMY. 
+          Merekam setiap momen perjuangan dan kebersamaan ikatan.
+        </p>
         
-        <div className="flex-1 w-full flex justify-center items-center mt-12 lg:mt-0" style={{ height: '500px', position: 'relative' }}>
-          <CardSwap
-            cardDistance={60}
-            verticalDistance={30}
-            delay={3500}
-            pauseOnHover={true}
-          >
-            <Card className="w-[300px] h-[350px] sm:w-[350px] sm:h-[400px] rounded-[24px] overflow-hidden shadow-2xl border-[6px] border-white bg-[#6d0100]">
-              <img src="/Pengurus-1.png" alt="Dokumentasi 1" className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" />
-              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 pt-16">
-                <div className="text-yellow-400 text-xs font-bold tracking-widest mb-1">PROGRAM KERJA</div>
-                <h3 className="text-white font-serif text-2xl leading-tight">Masa Ta'aruf Mahasiswa</h3>
-              </div>
-            </Card>
-            <Card className="w-[300px] h-[350px] sm:w-[350px] sm:h-[400px] rounded-[24px] overflow-hidden shadow-2xl border-[6px] border-white bg-[#6d0100]">
-              <img src="/Pengurus-2.png" alt="Dokumentasi 2" className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" />
-              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 pt-16">
-                <div className="text-yellow-400 text-xs font-bold tracking-widest mb-1">KAJIAN</div>
-                <h3 className="text-white font-serif text-2xl leading-tight">Diskusi Intelektual Rutin</h3>
-              </div>
-            </Card>
-            <Card className="w-[300px] h-[350px] sm:w-[350px] sm:h-[400px] rounded-[24px] overflow-hidden shadow-2xl border-[6px] border-white bg-[#6d0100]">
-              <img src="/Pengurus-4.png" alt="Dokumentasi 3" className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" />
-              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 pt-16">
-                <div className="text-yellow-400 text-xs font-bold tracking-widest mb-1">PENGKADERAN</div>
-                <h3 className="text-white font-serif text-2xl leading-tight">Darul Arqam Dasar</h3>
-              </div>
-            </Card>
-          </CardSwap>
+        <div className="w-full max-w-[1200px] mx-auto relative z-10 flex justify-center">
+          <MagicBento 
+            textAutoHide={false}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={400}
+            particleCount={15}
+            glowColor="109, 1, 0"
+          />
         </div>
       </section>
 
