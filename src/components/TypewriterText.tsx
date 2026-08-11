@@ -1,14 +1,23 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function TypewriterText({ text }: { text: string }) {
   const [displayed, setDisplayed] = useState("");
+  const isLockedRef = useRef(false);
   
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const introMaxScroll = window.innerHeight * 0.65;
       let progress = scrollY / introMaxScroll;
+      
+      if (progress >= 1) {
+        isLockedRef.current = true;
+      }
+      
+      if (isLockedRef.current) {
+        progress = 1;
+      }
       
       const startProgress = 0.15;
       const endProgress = 0.85;

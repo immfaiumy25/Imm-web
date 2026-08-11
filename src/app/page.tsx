@@ -28,6 +28,8 @@ export default function Home() {
   const [isIntroFinished, setIsIntroFinished] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
+  const isIntroLockedRef = useRef(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -35,8 +37,17 @@ export default function Home() {
       // 1. Intro Animation Logic
       const introMaxScroll = window.innerHeight * 0.65;
       let progress = scrollY / introMaxScroll;
-      if (progress < 0) progress = 0;
-      if (progress > 1) progress = 1;
+      
+      if (progress >= 1) {
+        isIntroLockedRef.current = true;
+      }
+      
+      if (isIntroLockedRef.current) {
+        progress = 1;
+      } else {
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+      }
       
       if (heroRef.current) {
         heroRef.current.style.setProperty('--intro-progress', progress.toString());
