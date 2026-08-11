@@ -100,10 +100,10 @@ export default function IMMCalendar() {
   }
 
   return (
-    <div className="w-full bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100 flex flex-col lg:flex-row">
+    <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
       
       {/* Calendar Area (2 parts) */}
-      <div className="w-full lg:w-2/3 flex flex-col border-b lg:border-b-0 lg:border-r border-gray-100">
+      <div className="w-full lg:w-2/3 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100 flex flex-col">
         <div className="flex flex-col sm:flex-row justify-between items-center p-6 bg-[#6d0100] text-white gap-4">
           <div className="flex flex-col">
             <h3 className="text-2xl md:text-3xl font-serif font-normal">{monthNames[month]} {year}</h3>
@@ -141,7 +141,7 @@ export default function IMMCalendar() {
       </div>
 
       {/* Agenda Area (1 part) */}
-      <div className="w-full lg:w-1/3 bg-[#f8f9fa] flex flex-col min-h-[300px]">
+      <div className="w-full lg:w-1/3 bg-[#f8f9fa] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100 flex flex-col min-h-[400px] lg:sticky lg:top-24">
         <div className="p-6 border-b border-gray-200 bg-white">
           <h4 className="text-xl font-serif text-[#6d0100] font-normal mb-1">Agenda Harian</h4>
           <p className="text-sm text-gray-500 font-normal">
