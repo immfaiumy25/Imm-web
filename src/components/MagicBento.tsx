@@ -7,6 +7,7 @@ export interface BentoCardProps {
   title?: string;
   description?: string;
   label?: string;
+  image?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
 }
@@ -32,40 +33,46 @@ const MOBILE_BREAKPOINT = 768;
 
 const cardData: BentoCardProps[] = [
   {
-    color: '#ffffff',
-    title: 'Masa Ta\'aruf',
-    description: 'Dokumentasi kegiatan orientasi dan pengenalan kampus bagi mahasiswa baru.',
-    label: 'Kaderisasi'
+    color: '#120F17',
+    title: 'Sekolah Kader',
+    description: 'Dokumentasi kegiatan kaderisasi untuk mencetak kader unggul IMM FAI UMY.',
+    label: 'Kaderisasi',
+    image: '/dokumentasi/sekolah-kader.jpeg'
   },
   {
-    color: '#ffffff',
-    title: 'Darul Arqam Dasar',
-    description: 'Pelatihan kepemimpinan tingkat dasar untuk membentuk kader militan.',
-    label: 'Perkaderan'
+    color: '#120F17',
+    title: 'BAHL1L',
+    description: 'Bahas Literasi 1 Lembar, diskusi santai namun bermakna untuk mengasah intelektual.',
+    label: 'Intelektual',
+    image: '/dokumentasi/bahlil.jpeg'
   },
   {
-    color: '#ffffff',
-    title: 'Kajian Rutin',
-    description: 'Diskusi intelektual dan pendalaman materi keagamaan secara berkala.',
-    label: 'Intelektual'
+    color: '#120F17',
+    title: 'FURAB',
+    description: 'Fun Run Bersama Warga Desa Ledhok Timoho. Membangun kedekatan sosial melalui olahraga.',
+    label: 'Masyarakat',
+    image: '/dokumentasi/furab.jpeg'
   },
   {
-    color: '#ffffff',
-    title: 'Aksi Sosial',
-    description: 'Terjun langsung ke masyarakat sebagai bentuk kepedulian sosial IMM.',
-    label: 'Masyarakat'
+    color: '#120F17',
+    title: 'Saur On The Road',
+    description: 'Aksi sosial berbagi makanan sahur untuk masyarakat sekitar di bulan Ramadhan.',
+    label: 'Sosial',
+    image: '/dokumentasi/saur-on-the-road.jpeg'
   },
   {
-    color: '#ffffff',
-    title: 'Rapat Kerja',
-    description: 'Konsolidasi dan perumusan program kerja kepengurusan.',
-    label: 'Organisasi'
+    color: '#120F17',
+    title: 'Sekolah Lentera',
+    description: 'Program pengabdian masyarakat untuk memberikan akses pendidikan yang lebih baik.',
+    label: 'Pengabdian',
+    image: '/dokumentasi/sekolah-lentera.jpeg'
   },
   {
-    color: '#ffffff',
-    title: 'Semarak IMM',
-    description: 'Berbagai kegiatan seni, budaya, dan olahraga untuk merekatkan ikatan.',
-    label: 'SBO'
+    color: '#120F17',
+    title: 'Malam Keakraban',
+    description: 'Merekatkan ukhuwah antar kader PK IMM FAI UMY melalui kegiatan keakraban.',
+    label: 'Organisasi',
+    image: '/dokumentasi/makrab.jpeg'
   }
 ];
 
@@ -564,12 +571,18 @@ const MagicBento: React.FC<BentoProps> = ({
                 clickEffect={clickEffect}
                 enableMagnetism={enableMagnetism}
               >
-                <div className="magic-bento-card__header">
-                  <div className="magic-bento-card__label">{card.label}</div>
+                {card.image && (
+                  <div className="absolute inset-0 z-0">
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover opacity-70" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                  </div>
+                )}
+                <div className="magic-bento-card__header relative z-10 text-white">
+                  <div className="magic-bento-card__label text-yellow-400">{card.label}</div>
                 </div>
-                <div className="magic-bento-card__content">
-                  <h2 className="magic-bento-card__title">{card.title}</h2>
-                  <p className="magic-bento-card__description">{card.description}</p>
+                <div className="magic-bento-card__content relative z-10 text-white">
+                  <h2 className="magic-bento-card__title text-white">{card.title}</h2>
+                  <p className="magic-bento-card__description text-white/80">{card.description}</p>
                 </div>
               </ParticleCard>
             );
@@ -688,12 +701,18 @@ const MagicBento: React.FC<BentoProps> = ({
                 el.addEventListener('click', handleClick);
               }}
             >
-              <div className="magic-bento-card__header">
-                <div className="magic-bento-card__label">{card.label}</div>
+              {card.image && (
+                <div className="absolute inset-0 z-0">
+                  <img src={card.image} alt={card.title} className="w-full h-full object-cover opacity-70" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                </div>
+              )}
+              <div className="magic-bento-card__header relative z-10 text-white">
+                <div className="magic-bento-card__label text-yellow-400">{card.label}</div>
               </div>
-              <div className="magic-bento-card__content">
-                <h2 className="magic-bento-card__title">{card.title}</h2>
-                <p className="magic-bento-card__description">{card.description}</p>
+              <div className="magic-bento-card__content relative z-10 text-white">
+                <h2 className="magic-bento-card__title text-white">{card.title}</h2>
+                <p className="magic-bento-card__description text-white/80">{card.description}</p>
               </div>
             </div>
           );
