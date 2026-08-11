@@ -12,22 +12,27 @@ export default function TypewriterText({ text, start, speed = 40, delay = 0 }: T
   const [displayed, setDisplayed] = useState("");
   
   useEffect(() => {
-    if (!start) return;
+    if (!start) {
+      setDisplayed("");
+      return;
+    }
     
+    let timer: NodeJS.Timeout;
     let i = 0;
     const delayTimer = setTimeout(() => {
-      const timer = setInterval(() => {
+      timer = setInterval(() => {
         setDisplayed(text.slice(0, i + 1));
         i++;
         if (i >= text.length) {
           clearInterval(timer);
         }
       }, speed);
-      
-      return () => clearInterval(timer);
     }, delay);
     
-    return () => clearTimeout(delayTimer);
+    return () => {
+      clearTimeout(delayTimer);
+      clearInterval(timer);
+    };
   }, [text, start, speed, delay]);
 
   return <span>{displayed}</span>;
