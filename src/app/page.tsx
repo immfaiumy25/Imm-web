@@ -53,7 +53,7 @@ export default function Home() {
       const sections = [
         { id: 'kontak', theme: 'dark', title: 'Kontak Kami' },
         { id: 'creative-minority', theme: 'light', title: 'Creative Minority' },
-        { id: 'kalender', theme: 'light', title: 'Kalender Kegiatan' },
+        { id: 'kalender', theme: 'dark', title: 'Kalender Kegiatan' },
         { id: 'berita', theme: 'light', title: 'Berita & Artikel' },
         { id: 'dokumentasi', theme: 'light', title: 'Dokumentasi' },
         { id: 'bidang', theme: 'dark', title: 'Bidang Organisasi' },
