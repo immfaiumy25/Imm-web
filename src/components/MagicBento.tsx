@@ -577,9 +577,6 @@ const MagicBento: React.FC<BentoProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
                   </div>
                 )}
-                <div className="magic-bento-card__header relative z-10 text-white">
-                  <div className="magic-bento-card__label text-yellow-400">{card.label}</div>
-                </div>
                 <div className="magic-bento-card__content relative z-10 text-white">
                   <h2 className="magic-bento-card__title text-white">{card.title}</h2>
                   <p className="magic-bento-card__description text-white/80">{card.description}</p>
@@ -707,9 +704,6 @@ const MagicBento: React.FC<BentoProps> = ({
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
                 </div>
               )}
-              <div className="magic-bento-card__header relative z-10 text-white">
-                <div className="magic-bento-card__label text-yellow-400">{card.label}</div>
-              </div>
               <div className="magic-bento-card__content relative z-10 text-white">
                 <h2 className="magic-bento-card__title text-white">{card.title}</h2>
                 <p className="magic-bento-card__description text-white/80">{card.description}</p>
