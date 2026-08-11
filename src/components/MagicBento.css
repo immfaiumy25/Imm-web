@@ -127,6 +127,11 @@
     width: 100%;
     min-height: 180px;
   }
+
+  /* Cuma nampilin 3 foto aja di mobile */
+  .magic-bento-card:nth-child(n+4) {
+    display: none !important;
+  }
 }
 
 @media (min-width: 600px) {

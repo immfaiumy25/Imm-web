@@ -27,6 +27,7 @@ export default function Home() {
   const [navbarTheme, setNavbarTheme] = useState('dark');
   const [activeSectionTitle, setActiveSectionTitle] = useState('PK IMM FAI UMY');
   const [isIntroFinished, setIsIntroFinished] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   const isIntroLockedRef = useRef(false);
@@ -135,10 +136,49 @@ export default function Home() {
             <a href="#kontak" className="hover:opacity-70 transition-opacity">Kontak</a>
           </div>
           
-          <button className={`pointer-events-auto rounded-[10px] px-[16px] py-[8px] text-sm font-normal backdrop-blur-md shadow-lg transition-all duration-300 ${navbarTheme === 'light' ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
-            Join IMM
-          </button>
+          <div className="flex items-center gap-4 pointer-events-auto">
+            {/* Desktop Join Button */}
+            <button className={`hidden md:block rounded-[10px] px-[16px] py-[8px] text-sm font-normal backdrop-blur-md shadow-lg transition-all duration-300 ${navbarTheme === 'light' ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
+              Join IMM
+            </button>
+            
+            {/* Mobile Hamburger */}
+            <button 
+              className={`md:hidden p-1 focus:outline-none transition-colors ${navbarTheme === 'light' ? 'text-[#280000]' : 'text-white'}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              <span className="material-symbols-outlined text-3xl">
+                {isMobileMenuOpen ? 'close' : 'menu'}
+              </span>
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile Menu Dropdown */}
+        <div 
+          className={`md:hidden pointer-events-auto absolute top-[76px] left-4 right-4 rounded-[26px] border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-300 origin-top ${isMobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}
+          style={{ 
+            background: 'rgba(255, 255, 255, 0.4)',
+            backdropFilter: 'url(#liquid-glass) blur(24px)', 
+            WebkitBackdropFilter: 'url(#liquid-glass) blur(24px)' 
+          }}
+        >
+          <div className="flex flex-col p-6 gap-4 text-[#280000] font-medium text-lg">
+            <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Home</a>
+            <a href="#profile" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Profile</a>
+            <a href="#bidang" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Bidang</a>
+            <a href="#dokumentasi" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Dokumentasi</a>
+            <a href="#berita" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Berita</a>
+            <a href="#kalender" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Kalender</a>
+            <Link href="/creative-minority" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Creative Minority</Link>
+            <a href="#kontak" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Kontak</a>
+            <hr className="border-[#280000]/10 my-2" />
+            <button className="bg-[#6d0100] text-white py-3 rounded-xl font-normal hover:bg-[#a90a05] transition-colors w-full">
+              Join IMM
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* =======================
@@ -422,11 +462,11 @@ export default function Home() {
       >
         <h2 className="relative z-10 font-serif text-4xl md:text-6xl font-normal mb-12 text-white">Bidang</h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-[1450px]">
+        <div className="grid grid-flow-col auto-cols-[calc(50%-8px)] md:auto-cols-auto md:grid-flow-row md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 w-full max-w-[1450px] overflow-x-auto md:overflow-x-visible snap-x snap-mandatory pb-6 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {bidangData.map((bidang, i) => (
             <SpotlightCard 
               key={i} 
-              className="p-8 flex flex-col justify-between group cursor-pointer h-full bg-white/20 border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)]" 
+              className="snap-start p-6 md:p-8 flex flex-col justify-between group cursor-pointer h-full bg-white/20 border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)]" 
               spotlightColor="rgba(255, 255, 255, 0.25)"
               style={{
                 backdropFilter: 'url(#liquid-glass) blur(16px)',
