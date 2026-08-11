@@ -189,9 +189,7 @@ export default function Home() {
               <p className="text-white/80 text-lg md:text-xl max-w-[700px] font-light mb-10 min-h-[150px] md:min-h-[120px]">
                 <TypewriterText text="Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan." />
               </p>
-              <button className="bg-white text-[#6d0100] rounded-full px-8 py-4 font-normal hover:scale-105 transition-transform shadow-xl">
-                Get Started
-              </button>
+
             </div>
 
           </div>
