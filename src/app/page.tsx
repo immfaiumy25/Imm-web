@@ -12,7 +12,7 @@ export default function Home() {
       const scrollY = window.scrollY;
       
       // 1. Intro Animation Logic
-      const introMaxScroll = window.innerHeight * 0.8;
+      const introMaxScroll = window.innerHeight * 0.65;
       let progress = scrollY / introMaxScroll;
       if (progress < 0) progress = 0;
       if (progress > 1) progress = 1;
@@ -89,10 +89,12 @@ export default function Home() {
       {/* =======================
           HOME SECTION (Gradient)
           ======================= */}
-      <section id="home" className="relative w-full h-[200vh] block bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32">
+      <section id="home" className="relative w-full block bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32 pb-[20vh]">
 
-        {/* Liquid Glass Hero Card - Pinned during intro */}
-        <div className="sticky top-[128px] w-full p-4 md:p-[26px] flex items-center justify-center z-10" style={{ height: 'calc(100vh - 128px)' }}>
+        {/* Scroll Track */}
+        <div className="h-[160vh]">
+          {/* Liquid Glass Hero Card - Pinned during intro */}
+          <div className="sticky top-[128px] w-full p-4 md:p-[26px] flex items-center justify-center z-10" style={{ height: 'calc(100vh - 128px)' }}>
           <div 
             ref={heroRef}
             className="mx-auto rounded-[32px] border border-white/20 shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden relative"
@@ -102,8 +104,7 @@ export default function Home() {
               WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
               width: `calc(250px + (100% - 250px) * var(--intro-progress, 0))`,
               maxWidth: `calc(250px + (1450px - 250px) * var(--intro-progress, 0))`,
-              height: `calc(250px + (100% - 250px) * var(--intro-progress, 0))`,
-              minHeight: `calc(250px + (600px - 250px) * var(--intro-progress, 0))`
+              height: `calc(250px + (100% - 250px) * var(--intro-progress, 0))`
             }}
           >
             
@@ -137,6 +138,7 @@ export default function Home() {
             </div>
 
           </div>
+        </div>
         </div>
       </section>
 
