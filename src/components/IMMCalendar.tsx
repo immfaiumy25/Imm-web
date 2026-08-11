@@ -73,7 +73,7 @@ export default function IMMCalendar() {
         className={`p-2 md:p-4 border-b border-r border-gray-100 min-h-[100px] md:min-h-[120px] transition-colors hover:bg-red-50/50 flex items-center justify-center
         ${isToday ? 'bg-red-50/30' : 'bg-white'}`}
       >
-        <span className={`inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl font-medium ${isToday ? 'bg-[#6d0100] text-white shadow-md' : 'text-gray-700'}`}>
+        <span className={`inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl font-normal ${isToday ? 'bg-[#6d0100] text-white shadow-md' : 'text-gray-700'}`}>
           {i}
         </span>
       </div>
@@ -93,8 +93,8 @@ export default function IMMCalendar() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-center p-6 bg-[#6d0100] text-white gap-4">
         <div className="flex flex-col">
-          <h3 className="text-2xl md:text-3xl font-serif">{monthNames[month]} {year}</h3>
-          <p className="text-white/70 text-sm mt-1">Agenda & Jadwal Kegiatan Komisariat</p>
+          <h3 className="text-2xl md:text-3xl font-serif font-normal">{monthNames[month]} {year}</h3>
+          <p className="text-white/70 text-sm mt-1 font-normal">Agenda & Jadwal Kegiatan Komisariat</p>
         </div>
         <div className="flex gap-2 bg-black/20 p-1.5 rounded-lg backdrop-blur-sm">
           <button onClick={handlePrevMonth} className="p-2 hover:bg-white/20 rounded-md transition-colors" aria-label="Previous Month">
@@ -102,8 +102,8 @@ export default function IMMCalendar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <button onClick={() => setCurrentDate(new Date())} className="px-4 py-2 hover:bg-white/20 rounded-md transition-colors text-sm font-semibold tracking-wide">
-            HARI INI
+          <button onClick={() => setCurrentDate(new Date())} className="px-4 py-2 hover:bg-white/20 rounded-md transition-colors text-sm font-normal tracking-wide">
+            Hari Ini
           </button>
           <button onClick={handleNextMonth} className="p-2 hover:bg-white/20 rounded-md transition-colors" aria-label="Next Month">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,7 +116,7 @@ export default function IMMCalendar() {
       {/* Days of week header */}
       <div className="grid grid-cols-7 border-b border-gray-200 bg-gray-50">
         {dayNames.map((day, idx) => (
-          <div key={day} className={`p-3 text-center text-xs md:text-sm font-bold tracking-wider uppercase ${idx === 0 ? 'text-red-600' : 'text-gray-600'}`}>
+          <div key={day} className={`p-3 text-center text-xs md:text-sm font-normal tracking-wider ${idx === 0 ? 'text-red-600' : 'text-gray-600'}`}>
             <span className="hidden md:inline">{day}</span>
             <span className="md:hidden">{day.slice(0, 3)}</span>
           </div>
