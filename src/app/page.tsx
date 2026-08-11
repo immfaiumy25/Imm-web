@@ -330,16 +330,19 @@ export default function Home() {
               <div className="bg-white/40 backdrop-blur-md rounded-[32px] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-shadow border border-white/50 flex flex-col items-center">
                 <h4 className="font-serif text-2xl font-normal text-[#280000] mb-6">Visi</h4>
                 <p className="text-gray-700 font-normal leading-relaxed text-center">
-                  Menjadi pimpinan komisariat yang unggul dalam mencetak kader ikatan yang religius, intelektual, dan humanis berlandaskan nilai-nilai profetik.
+                  "Revitalisasi gerakan IMM FAI UMY yang mengutamakan perkaderan dan pergerakan berbasis nilai-nilai sehingga terciptanya gerakan yang inklusif dan adaptif".
                 </p>
               </div>
               <div className="bg-white/40 backdrop-blur-md rounded-[32px] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-shadow border border-white/50 flex flex-col items-center">
                 <h4 className="font-serif text-2xl font-normal text-[#280000] mb-6">Misi</h4>
                 <ul className="text-gray-700 font-normal leading-relaxed list-disc list-outside ml-4 space-y-3">
-                  <li>Menanamkan nilai-nilai keislaman dan kemuhammadiyahan dalam setiap langkah perkaderan.</li>
-                  <li>Meningkatkan tradisi intelektual melalui kajian, diskusi, dan literasi berkelanjutan.</li>
-                  <li>Mengaktualisasikan peran sosial kemasyarakatan mahasiswa sebagai bentuk humanitas.</li>
-                  <li>Membangun iklim organisasi yang solid, inklusif, dan profesional.</li>
+                  <li>Reaktualisasi gerakan keilmuan sebagai basis terciptanya organisasi yang berintelektual.</li>
+                  <li>Revitalisasi metode perkaderan yang adaptif menyesuaikan modernisasi manusia.</li>
+                  <li>Mengoptimalkan digitalisasi organisasi sebagai basis penguatan dakwah dan pergerakan.</li>
+                  <li>Membangun kepemimpinan yang berasaskan kolektif dan profesionalitas.</li>
+                  <li>Mengusahakan pergerakan yang inklusif dengan top-down dan bottom-up.</li>
+                  <li>Memaksimalkan digitalisasi gerakan untuk memperluas jaringan dan penyebaran nilai profetik.</li>
+                  <li>Internalisasi pengembangan diri kader sehingga berdampak positif bagi lingkungan.</li>
                 </ul>
               </div>
             </div>
