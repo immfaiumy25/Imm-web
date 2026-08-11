@@ -53,6 +53,12 @@
   display: flex;
   position: relative;
   color: #280000;
+  transition: opacity 0.3s ease;
+}
+
+.magic-bento-card:hover .magic-bento-card__header,
+.magic-bento-card:hover .magic-bento-card__content {
+  opacity: 0;
 }
 
 .magic-bento-card__header {
