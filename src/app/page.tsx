@@ -18,7 +18,7 @@ const bidangData = [
 ];
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [navbarTheme, setNavbarTheme] = useState('dark');
   const [isIntroFinished, setIsIntroFinished] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -42,13 +42,25 @@ export default function Home() {
         setIsIntroFinished(false);
       }
 
-      // 2. Navbar Transition Logic (scrolled past hero)
-      const profileSection = document.getElementById('profile');
-      if (profileSection && profileSection.getBoundingClientRect().top <= 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      // 2. Navbar Theme Logic
+      // Check which section is currently at the top of the viewport
+      const sections = [
+        { id: 'dokumentasi', theme: 'light' }, // Dokumentasi is white bg -> dark text (theme: light, meaning light background, needs dark text)
+        { id: 'bidang', theme: 'dark' },       // Bidang is dark bg -> white text
+        { id: 'profile', theme: 'light' },     // Profile is white bg -> dark text
+      ];
+
+      let currentTheme = 'dark'; // Default for hero (dark bg -> white text)
+
+      for (const section of sections) {
+        const el = document.getElementById(section.id);
+        if (el && el.getBoundingClientRect().top <= 100) {
+          currentTheme = section.theme;
+          break; // Stop at the first section that is at the top
+        }
       }
+
+      setNavbarTheme(currentTheme);
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
@@ -80,13 +92,13 @@ export default function Home() {
             WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)' 
           }}
         >
-          <div className={`flex items-center gap-3 font-normal tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${isScrolled ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
+          <div className={`flex items-center gap-3 font-normal tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${navbarTheme === 'light' ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
             <img src="/logo.png" alt="IMM Logo" className="w-[56px] h-[56px] object-contain drop-shadow-md" />
             PK IMM FAI UMY
           </div>
           
           {/* Navbar Links */}
-          <div className={`hidden md:flex items-center gap-6 font-normal text-sm tracking-wide transition-colors duration-300 ${isScrolled ? 'text-[#280000] font-medium' : 'text-white drop-shadow-md'}`}>
+          <div className={`hidden md:flex items-center gap-6 font-normal text-sm tracking-wide transition-colors duration-300 ${navbarTheme === 'light' ? 'text-[#280000] font-medium' : 'text-white drop-shadow-md'}`}>
             <a href="#home" className="hover:opacity-70 transition-opacity">Home</a>
             <a href="#profile" className="hover:opacity-70 transition-opacity">Profile</a>
             <a href="#bidang" className="hover:opacity-70 transition-opacity">Bidang</a>
@@ -96,7 +108,7 @@ export default function Home() {
             <a href="#kontak" className="hover:opacity-70 transition-opacity">Kontak</a>
           </div>
           
-          <button className={`pointer-events-auto rounded-[10px] px-[16px] py-[8px] text-sm font-normal backdrop-blur-md shadow-lg transition-all duration-300 ${isScrolled ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
+          <button className={`pointer-events-auto rounded-[10px] px-[16px] py-[8px] text-sm font-normal backdrop-blur-md shadow-lg transition-all duration-300 ${navbarTheme === 'light' ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
             Login
           </button>
         </nav>
