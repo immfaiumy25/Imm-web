@@ -586,9 +586,14 @@ export default function Home() {
           {/* Column 4: Sekretariat */}
           <div className="flex flex-col items-start">
             <h3 className="font-serif text-2xl font-normal mb-6 text-white">Sekretariat</h3>
-            <p className="text-white/70 font-normal text-sm md:text-base leading-relaxed">
+            <a 
+              href="https://maps.google.com/?q=Gedung+Ki+Bagus+Hadikusumo+UMY+Yogyakarta" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white font-normal text-sm md:text-base leading-relaxed transition-colors hover:underline"
+            >
               Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta.
-            </p>
+            </a>
           </div>
 
         </div>
