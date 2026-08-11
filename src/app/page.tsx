@@ -1,4 +1,23 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hero section is approx 100vh. We change color slightly before it fully leaves.
+      if (window.scrollY > window.innerHeight - 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main className="min-h-screen flex flex-col overflow-x-hidden">
       
@@ -13,41 +32,43 @@ export default function Home() {
       </svg>
 
       {/* =======================
+          FIXED NAVBAR
+          ======================= */}
+      <div className="fixed top-4 left-0 right-0 w-full px-4 md:px-[26px] z-50 pointer-events-none">
+        <nav 
+          className="pointer-events-auto h-[60px] px-8 md:px-[60px] flex items-center justify-between max-w-[1450px] w-full mx-auto rounded-[26px] border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.15)]"
+          style={{ 
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'url(#liquid-glass) blur(16px)', 
+            WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)' 
+          }}
+        >
+          <div className={`flex items-center gap-[8px] font-black tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${isScrolled ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
+            <i className={`w-[24px] h-[24px] rounded-[7px_7px_7px_2px] -rotate-8 border backdrop-blur-md transition-colors duration-300 ${isScrolled ? 'bg-[#280000]/10 border-[#280000]/20' : 'bg-white/40 border-white/50'}`}></i>
+            Organisasi
+          </div>
+          
+          {/* Navbar Links */}
+          <div className={`hidden md:flex items-center gap-6 font-normal text-sm tracking-wide transition-colors duration-300 ${isScrolled ? 'text-[#280000] font-medium' : 'text-white drop-shadow-md'}`}>
+            <a href="#home" className="hover:opacity-70 transition-opacity">Home</a>
+            <a href="#profile" className="hover:opacity-70 transition-opacity">Profile</a>
+            <a href="#bidang" className="hover:opacity-70 transition-opacity">Bidang</a>
+            <a href="#dokumentasi" className="hover:opacity-70 transition-opacity">Dokumentasi</a>
+            <a href="#berita" className="hover:opacity-70 transition-opacity">Berita</a>
+            <a href="#kalender" className="hover:opacity-70 transition-opacity">Kalender</a>
+            <a href="#kontak" className="hover:opacity-70 transition-opacity">Kontak</a>
+          </div>
+          
+          <button className={`pointer-events-auto rounded-[10px] px-[16px] py-[8px] text-sm font-extrabold backdrop-blur-md shadow-lg transition-all duration-300 ${isScrolled ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
+            Login
+          </button>
+        </nav>
+      </div>
+
+      {/* =======================
           HOME SECTION (Gradient)
           ======================= */}
-      <section id="home" className="relative w-full min-h-screen flex flex-col bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white">
-        
-        {/* Navbar Wrapper */}
-        <div className="w-full px-4 md:px-[26px] mt-4 md:mt-6 mb-2 sticky top-4 z-50">
-          <nav 
-            className="h-[60px] px-8 md:px-[60px] flex items-center justify-between max-w-[1450px] w-full mx-auto rounded-[26px] border border-white/20 shadow-lg"
-            style={{ 
-              background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'url(#liquid-glass) blur(12px)', 
-              WebkitBackdropFilter: 'url(#liquid-glass) blur(12px)' 
-            }}
-          >
-            <div className="flex items-center gap-[8px] font-black tracking-[-0.04em] text-base md:text-lg text-white">
-              <i className="w-[24px] h-[24px] rounded-[7px_7px_7px_2px] bg-white/40 -rotate-8 border border-white/50 backdrop-blur-md"></i>
-              Organisasi
-            </div>
-            
-            {/* Navbar Links */}
-            <div className="hidden md:flex items-center gap-6 font-normal text-sm tracking-wide">
-              <a href="#home" className="hover:text-white/70 transition-colors">Home</a>
-              <a href="#profile" className="hover:text-white/70 transition-colors">Profile</a>
-              <a href="#bidang" className="hover:text-white/70 transition-colors">Bidang</a>
-              <a href="#dokumentasi" className="hover:text-white/70 transition-colors">Dokumentasi</a>
-              <a href="#berita" className="hover:text-white/70 transition-colors">Berita</a>
-              <a href="#kalender" className="hover:text-white/70 transition-colors">Kalender</a>
-              <a href="#kontak" className="hover:text-white/70 transition-colors">Kontak</a>
-            </div>
-            
-            <button className="bg-white/20 border border-white/30 text-white rounded-[10px] px-[16px] py-[8px] text-sm font-extrabold hover:bg-white/30 transition-colors backdrop-blur-md">
-              Explore
-            </button>
-          </nav>
-        </div>
+      <section id="home" className="relative w-full min-h-screen flex flex-col bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32">
 
         {/* Liquid Glass Hero Card */}
         <div className="flex-1 w-full p-4 md:p-[26px] flex items-center justify-center relative z-10">
