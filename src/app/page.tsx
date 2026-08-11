@@ -384,10 +384,7 @@ export default function Home() {
           BERITA SECTION (Gray)
           ======================== */}
       <section id="berita" className="w-full min-h-[70vh] bg-[#f8f9fa] text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Berita & Artikel</h2>
-        <p className="text-lg text-gray-600 max-w-[800px] text-center mb-12">
-          Informasi terkini, opini, dan publikasi kajian yang diangkat oleh para kader IMM FAI UMY.
-        </p>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100] text-center">Berita & Artikel</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1200px] relative z-10">
           {/* Card 1 */}
