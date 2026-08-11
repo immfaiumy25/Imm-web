@@ -54,7 +54,7 @@ export default function Home() {
         { id: 'kontak', theme: 'dark', title: 'Kontak Kami' },
         { id: 'creative-minority', theme: 'light', title: 'Creative Minority' },
         { id: 'kalender', theme: 'dark', title: 'Kalender Kegiatan' },
-        { id: 'berita', theme: 'dark', title: 'Berita & Artikel' },
+        { id: 'berita', theme: 'light', title: 'Berita & Artikel' },
         { id: 'dokumentasi', theme: 'light', title: 'Dokumentasi' },
         { id: 'bidang', theme: 'dark', title: 'Bidang Organisasi' },
         { id: 'profile', theme: 'light', title: 'Profil Kami' },
@@ -381,11 +381,11 @@ export default function Home() {
       </section>
 
       {/* ========================
-          BERITA SECTION
+          BERITA SECTION (Gray)
           ======================== */}
-      <section id="berita" className="w-full min-h-[70vh] bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white p-8 md:p-[60px] flex flex-col items-center justify-center relative overflow-hidden">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-white text-center drop-shadow-md">Berita & Artikel</h2>
-        <p className="text-lg text-white/90 max-w-[800px] text-center mb-12 drop-shadow-sm font-medium">
+      <section id="berita" className="w-full min-h-[70vh] bg-[#f8f9fa] text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Berita & Artikel</h2>
+        <p className="text-lg text-gray-600 max-w-[800px] text-center mb-12">
           Informasi terkini, opini, dan publikasi kajian yang diangkat oleh para kader IMM FAI UMY.
         </p>
 
@@ -393,55 +393,55 @@ export default function Home() {
           <div 
             className="w-full h-full rounded-[24px] p-8 flex flex-col hover:scale-105 transition-transform cursor-pointer"
             style={{ 
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
               WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.2)',
-              border: '1px solid rgba(255, 255, 255, 0.2)'
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
-            <div className="text-xs font-bold text-[#f8cf0f] tracking-wider mb-3 drop-shadow-md">OPINI</div>
-            <h3 className="text-xl font-serif text-white mb-4 line-clamp-2">Peran Mahasiswa dalam Membangun Peradaban Bangsa di Era Digital</h3>
-            <p className="text-white/80 text-sm flex-grow line-clamp-3 mb-6 font-normal">
+            <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">OPINI</div>
+            <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Peran Mahasiswa dalam Membangun Peradaban Bangsa di Era Digital</h3>
+            <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
               Mahasiswa tidak hanya dituntut untuk unggul secara akademis, tetapi juga harus peka terhadap isu-isu sosial kemasyarakatan...
             </p>
-            <div className="text-xs text-white/60 font-medium">12 Agustus 2026 • Oleh: Kader IMM</div>
+            <div className="text-xs text-gray-500 font-medium">12 Agustus 2026 • Oleh: Kader IMM</div>
           </div>
 
           <div 
             className="w-full h-full rounded-[24px] p-8 flex flex-col hover:scale-105 transition-transform cursor-pointer"
             style={{ 
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
               WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.2)',
-              border: '1px solid rgba(255, 255, 255, 0.2)'
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
-            <div className="text-xs font-bold text-[#f8cf0f] tracking-wider mb-3 drop-shadow-md">KEGIATAN</div>
-            <h3 className="text-xl font-serif text-white mb-4 line-clamp-2">Sukses Penyelenggaraan Darul Arqam Dasar 2026</h3>
-            <p className="text-white/80 text-sm flex-grow line-clamp-3 mb-6 font-normal">
+            <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KEGIATAN</div>
+            <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Sukses Penyelenggaraan Darul Arqam Dasar 2026</h3>
+            <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
               Alhamdulillah, perkaderan tingkat dasar DAD tahun ini berhasil melahirkan puluhan kader militan yang siap bergerak...
             </p>
-            <div className="text-xs text-white/60 font-medium">5 Agustus 2026 • Tim Media</div>
+            <div className="text-xs text-gray-500 font-medium">5 Agustus 2026 • Tim Media</div>
           </div>
 
           <div 
             className="w-full h-full rounded-[24px] p-8 flex flex-col hover:scale-105 transition-transform cursor-pointer"
             style={{ 
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
               WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.2)',
-              border: '1px solid rgba(255, 255, 255, 0.2)'
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
-            <div className="text-xs font-bold text-[#f8cf0f] tracking-wider mb-3 drop-shadow-md">KAJIAN</div>
-            <h3 className="text-xl font-serif text-white mb-4 line-clamp-2">Menelaah Kembali Nilai Dasar Perjuangan (NDP) IMM</h3>
-            <p className="text-white/80 text-sm flex-grow line-clamp-3 mb-6 font-normal">
+            <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KAJIAN</div>
+            <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Menelaah Kembali Nilai Dasar Perjuangan (NDP) IMM</h3>
+            <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
               Kajian rutin mingguan ini membahas secara mendalam mengenai implementasi NDP IMM dalam konteks kekinian...
             </p>
-            <div className="text-xs text-white/60 font-medium">28 Juli 2026 • Bidang RPK</div>
+            <div className="text-xs text-gray-500 font-medium">28 Juli 2026 • Bidang RPK</div>
           </div>
         </div>
       </section>
