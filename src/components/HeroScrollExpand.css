@@ -1,0 +1,71 @@
+.hero-scroll-expand {
+  position: relative;
+  width: 100%;
+}
+
+.hero-scroll-expand__track {
+  position: relative;
+  width: 100%;
+}
+
+.hero-scroll-expand__stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+  We interpolate from the initial card layout to full size 
+  using the --progress variable (0 to 1).
+*/
+.hero-scroll-expand__frame {
+  --progress: var(--expand-progress, 0);
+  
+  /* The card is ALWAYS its normal size structurally */
+  width: 100%;
+  max-width: 1450px;
+  min-height: 600px;
+  height: 600px;
+  
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  /* The shadow appears as it reaches full size */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, calc(0.25 * var(--progress)));
+  
+  /* We scale it from small (0.42) to normal (1.0) */
+  /* We also translate it slightly if needed, but flex centering handles position */
+  transform: scale(calc(0.42 + (0.58 * var(--progress))));
+  
+  /* Optional: Fade in the card or keep opacity 1 */
+  opacity: calc(0.5 + (0.5 * var(--progress)));
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, opacity, box-shadow;
+  
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hero-scroll-expand__frame {
+    padding: 4rem;
+  }
+}
+
+.hero-scroll-expand__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  will-change: transform;
+}

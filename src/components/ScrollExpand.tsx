@@ -23,9 +23,11 @@ type ConfigKey =
   | 'useWindowScroll'
   | 'enabled';
 
-export interface ScrollExpandProps {
+export interface ScrollExpandProps extends React.HTMLAttributes<HTMLDivElement> {
+  enabled?: boolean;
   src?: string;
-  mediaType?: 'image' | 'video';
+  mediaType?: 'image' | 'video' | 'custom';
+  customMedia?: ReactNode;
   poster?: string;
   alt?: string;
   title?: string;
@@ -40,7 +42,6 @@ export interface ScrollExpandProps {
   smoothing?: number;
   overlayScrim?: number;
   useWindowScroll?: boolean;
-  enabled?: boolean;
   children?: ReactNode;
   className?: string;
   style?: CSSProperties;
@@ -48,8 +49,10 @@ export interface ScrollExpandProps {
 }
 
 const ScrollExpand: React.FC<ScrollExpandProps> = ({
+  enabled = true,
   src = '',
   mediaType = 'image',
+  customMedia,
   poster = '',
   alt = '',
   title = '',
@@ -64,7 +67,6 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   smoothing = 0.1,
   overlayScrim = 0.45,
   useWindowScroll = false,
-  enabled = true,
   children,
   className = '',
   style,
@@ -74,7 +76,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   const trackRef = useRef<HTMLDivElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const frameRef = useRef<HTMLDivElement | null>(null);
-  const mediaRef = useRef<HTMLImageElement & HTMLVideoElement>(null);
+  const mediaRef = useRef<HTMLImageElement & HTMLVideoElement & HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const scrimRef = useRef<HTMLDivElement | null>(null);
@@ -228,17 +230,21 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   const media =
     mediaType === 'video' ? (
       <video
-        ref={mediaRef}
+        ref={mediaRef as React.RefObject<HTMLVideoElement>}
         className="scroll-expand__media"
         src={src}
         poster={poster}
         autoPlay
         muted
-        loop
         playsInline
+        loop
       />
+    ) : mediaType === 'custom' ? (
+      <div ref={mediaRef as React.RefObject<HTMLDivElement>} className="scroll-expand__media w-full h-full relative flex items-center justify-center">
+        {customMedia}
+      </div>
     ) : (
-      <img ref={mediaRef} className="scroll-expand__media" src={src} alt={alt} draggable={false} />
+      <img ref={mediaRef as React.RefObject<HTMLImageElement>} className="scroll-expand__media" src={src} alt={alt} draggable={false} />
     );
 
   return (

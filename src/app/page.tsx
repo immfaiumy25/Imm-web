@@ -1,25 +1,46 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isIntroFinished, setIsIntroFinished] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Hero section is approx 100vh. We change color slightly before it fully leaves.
-      if (window.scrollY > window.innerHeight - 100) {
+      const scrollY = window.scrollY;
+      
+      // 1. Intro Animation Logic
+      const introMaxScroll = window.innerHeight * 0.8;
+      let progress = scrollY / introMaxScroll;
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+      
+      if (heroRef.current) {
+        heroRef.current.style.setProperty('--intro-progress', progress.toString());
+      }
+      
+      if (progress >= 1) {
+        setIsIntroFinished(true);
+      } else {
+        setIsIntroFinished(false);
+      }
+
+      // 2. Navbar Transition Logic (scrolled past hero)
+      if (scrollY > window.innerHeight * 2 - 100) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <main className="min-h-screen flex flex-col overflow-x-hidden">
+    <main className="min-h-screen flex flex-col">
       
       {/* SVG Filter for Liquid Glass Effect */}
       <svg width="0" height="0" className="absolute pointer-events-none">
@@ -34,7 +55,7 @@ export default function Home() {
       {/* =======================
           FIXED NAVBAR
           ======================= */}
-      <div className="fixed top-4 left-0 right-0 w-full px-4 md:px-[26px] z-50 pointer-events-none">
+      <div className={`fixed top-4 left-0 right-0 w-full px-4 md:px-[26px] z-50 transition-all duration-700 ease-in-out ${isIntroFinished ? 'translate-y-0 opacity-100 pointer-events-none' : '-translate-y-12 opacity-0 pointer-events-none'}`}>
         <nav 
           className="pointer-events-auto h-[60px] px-8 md:px-[60px] flex items-center justify-between max-w-[1450px] w-full mx-auto rounded-[26px] border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.15)]"
           style={{ 
@@ -68,27 +89,53 @@ export default function Home() {
       {/* =======================
           HOME SECTION (Gradient)
           ======================= */}
-      <section id="home" className="relative w-full min-h-screen flex flex-col bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32">
+      <section id="home" className="relative w-full h-[200vh] block bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32">
 
-        {/* Liquid Glass Hero Card */}
-        <div className="flex-1 w-full p-4 md:p-[26px] flex items-center justify-center relative z-10">
+        {/* Liquid Glass Hero Card - Pinned during intro */}
+        <div className="sticky top-[128px] w-full p-4 md:p-[26px] flex items-center justify-center z-10" style={{ height: 'calc(100vh - 128px)' }}>
           <div 
-            className="w-full max-w-[1450px] mx-auto min-h-[400px] md:min-h-[600px] p-8 md:p-12 rounded-[32px] border border-white/20 shadow-2xl flex flex-col justify-center items-center text-center"
+            ref={heroRef}
+            className="mx-auto rounded-[32px] border border-white/20 shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden relative"
             style={{ 
               background: 'rgba(255, 255, 255, 0.05)',
               backdropFilter: 'url(#liquid-glass) blur(16px)', 
-              WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)' 
+              WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
+              width: `calc(250px + (100% - 250px) * var(--intro-progress, 0))`,
+              maxWidth: `calc(250px + (1450px - 250px) * var(--intro-progress, 0))`,
+              height: `calc(250px + (100% - 250px) * var(--intro-progress, 0))`,
+              minHeight: `calc(250px + (600px - 250px) * var(--intro-progress, 0))`
             }}
           >
-            <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
-              Bergerak Bersama <br className="hidden md:block"/> Berkarya untuk Peradaban
-            </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-[700px] font-light mb-10">
-              Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan.
-            </p>
-            <button className="bg-white text-[#6d0100] rounded-full px-8 py-4 font-bold hover:scale-105 transition-transform shadow-xl">
-              Get Started
-            </button>
+            
+            {/* SCROLL UP TEXT (Visible only when small) */}
+            <div 
+              className="absolute inset-0 flex flex-col items-center justify-center font-black tracking-widest text-lg md:text-xl text-white pointer-events-none"
+              style={{ opacity: `calc(1 - (var(--intro-progress, 0) * 2))` }}
+            >
+              <span className="animate-bounce mb-2">↓</span>
+              SCROLL UP
+            </div>
+
+            {/* REAL CONTENT (Fades in as it expands) */}
+            <div 
+              className="w-full h-full flex flex-col justify-center items-center p-8 md:p-12 absolute inset-0"
+              style={{ 
+                opacity: `var(--intro-progress, 0)`,
+                transform: `scale(calc(0.9 + 0.1 * var(--intro-progress, 0)))`,
+                pointerEvents: isIntroFinished ? 'auto' : 'none'
+              }}
+            >
+              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
+                Bergerak Bersama <br className="hidden md:block"/> Berkarya untuk Peradaban
+              </h1>
+              <p className="text-white/80 text-lg md:text-xl max-w-[700px] font-light mb-10">
+                Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan.
+              </p>
+              <button className="bg-white text-[#6d0100] rounded-full px-8 py-4 font-bold hover:scale-105 transition-transform shadow-xl">
+                Get Started
+              </button>
+            </div>
+
           </div>
         </div>
       </section>
