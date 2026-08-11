@@ -5,7 +5,7 @@ export default function AgendaSection() {
   const daysArray = Array.from({ length: 31 }).map((_, i) => i + 1);
 
   return (
-    <section className="py-[var(--spacing-section-gap)] bg-surface">
+    <section id="kalender" className="py-[var(--spacing-section-gap)] bg-white">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)] grid grid-cols-1 lg:grid-cols-2 gap-16">
         <FadeUp>
           <span className="text-secondary font-label-md uppercase tracking-widest mb-4 block">

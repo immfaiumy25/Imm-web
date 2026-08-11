@@ -10,7 +10,7 @@ export default function VisionMissionSection() {
   ];
 
   return (
-    <section className="py-[var(--spacing-section-gap)] bg-[#F9EAEA]">
+    <section className="py-[var(--spacing-section-gap)] bg-white">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)] grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <FadeUp>
           <div className="glass-card p-12 relative overflow-hidden">

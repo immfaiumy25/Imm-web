@@ -3,7 +3,7 @@ import FadeUp from "./FadeUp";
 
 export default function DocumentationSection() {
   return (
-    <section className="py-[var(--spacing-section-gap)] bg-surface">
+    <section id="dokumentasi" className="py-[var(--spacing-section-gap)] bg-white">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)]">
         <FadeUp className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div>

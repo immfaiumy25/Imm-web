@@ -2,7 +2,7 @@ import FadeUp from "./FadeUp";
 
 export default function CTASection() {
   return (
-    <section className="py-[var(--spacing-section-gap)] relative overflow-hidden">
+    <section id="join" className="py-[var(--spacing-section-gap)] relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-[#4B2025] to-[#C92B1E]"></div>
       <div className="absolute inset-0 opacity-10">
         <div

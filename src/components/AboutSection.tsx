@@ -3,7 +3,7 @@ import FadeUp from "./FadeUp";
 
 export default function AboutSection() {
   return (
-    <section className="py-[var(--spacing-section-gap)] bg-surface">
+    <section id="profil" className="py-[var(--spacing-section-gap)] bg-white">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)] flex flex-col md:flex-row items-center gap-16">
         <FadeUp className="flex-1">
           <div className="relative">

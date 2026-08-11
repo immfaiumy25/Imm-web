@@ -6,7 +6,7 @@ export default function NewsSection() {
   const news = Array.from({ length: 6 }).map((_, i) => i);
 
   return (
-    <section className="py-[var(--spacing-section-gap)] bg-[#F9EAEA]">
+    <section id="berita" className="py-[var(--spacing-section-gap)] bg-white">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)]">
         <FadeUp className="text-center mb-16">
           <span className="text-secondary font-label-md uppercase tracking-widest mb-4 block">

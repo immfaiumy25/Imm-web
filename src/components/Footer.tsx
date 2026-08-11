@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-container-highest pt-[var(--spacing-section-gap)] pb-12 rounded-t-[20px] shadow-[0px_-10px_30px_rgba(75,32,37,0.05)]">
+    <footer id="kontak" className="bg-surface-container-highest pt-[var(--spacing-section-gap)] pb-12 rounded-t-[20px] shadow-[0px_-10px_30px_rgba(75,32,37,0.05)]">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)] grid grid-cols-1 md:grid-cols-4 gap-[var(--spacing-gutter)] mb-20">
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center gap-4 mb-8">

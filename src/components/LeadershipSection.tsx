@@ -3,7 +3,7 @@ import FadeUp from "./FadeUp";
 
 export default function LeadershipSection() {
   return (
-    <section className="py-[var(--spacing-section-gap)] bg-surface">
+    <section className="py-[var(--spacing-section-gap)] bg-white">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)]">
         <FadeUp className="text-center mb-16">
           <span className="text-secondary font-label-md uppercase tracking-widest mb-4 block">
