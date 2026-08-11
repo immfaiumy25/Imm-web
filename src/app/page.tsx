@@ -196,8 +196,8 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="https://api.dicebear.com/9.x/avataaars/svg?seed=Felix&backgroundColor=transparent" 
-                      alt="Foto Orang" 
+                      src="/pengurus-1.png" 
+                      alt="Foto Ketua Umum" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
@@ -220,8 +220,8 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="https://api.dicebear.com/9.x/avataaars/svg?seed=Alex&backgroundColor=transparent" 
-                      alt="Foto Orang" 
+                      src="/pengurus-2.png" 
+                      alt="Foto Sekjen" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
@@ -244,8 +244,8 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="https://api.dicebear.com/9.x/avataaars/svg?seed=Sarah&backgroundColor=transparent" 
-                      alt="Foto Orang" 
+                      src="/pengurus-3.png" 
+                      alt="Foto Bendahara" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
@@ -268,8 +268,8 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="https://api.dicebear.com/9.x/avataaars/svg?seed=Leo&backgroundColor=transparent" 
-                      alt="Foto Orang" 
+                      src="/pengurus-4.png" 
+                      alt="Foto Kabid" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
