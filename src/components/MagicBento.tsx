@@ -573,8 +573,8 @@ const MagicBento: React.FC<BentoProps> = ({
               >
                 {card.image && (
                   <div className="absolute inset-0 z-0">
-                    <img src={card.image} alt={card.title} className="w-full h-full object-cover opacity-70" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                   </div>
                 )}
                 <div className="magic-bento-card__content relative z-10 text-white">
@@ -700,8 +700,8 @@ const MagicBento: React.FC<BentoProps> = ({
             >
               {card.image && (
                 <div className="absolute inset-0 z-0">
-                  <img src={card.image} alt={card.title} className="w-full h-full object-cover opacity-70" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                  <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 </div>
               )}
               <div className="magic-bento-card__content relative z-10 text-white">
