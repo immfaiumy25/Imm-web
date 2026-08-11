@@ -8,6 +8,7 @@ import MagicBento from "@/components/MagicBento";
 import BorderGlow from "@/components/BorderGlow";
 import IMMCalendar from "@/components/IMMCalendar";
 import TypewriterText from "@/components/TypewriterText";
+import Link from 'next/link';
 
 const bidangData = [
   { name: "Organisasi", desc: "Penguatan sistem manajemen internal.", icon: "account_tree" },
@@ -63,8 +64,7 @@ export default function Home() {
       // Check which section is currently at the top of the viewport
       // Ordered from bottom to top so the first one that is at the top is the current section
       const sections = [
-        { id: 'kontak', theme: 'dark', title: 'Kontak Kami' },
-        { id: 'creative-minority', theme: 'light', title: 'Creative Minority' },
+        { id: 'kontak', theme: 'light', title: 'Kontak Kami' },
         { id: 'kalender', theme: 'dark', title: 'Kalender Kegiatan' },
         { id: 'berita', theme: 'light', title: 'Berita & Artikel' },
         { id: 'dokumentasi', theme: 'light', title: 'Dokumentasi' },
@@ -131,7 +131,7 @@ export default function Home() {
             <a href="#dokumentasi" className="hover:opacity-70 transition-opacity">Dokumentasi</a>
             <a href="#berita" className="hover:opacity-70 transition-opacity">Berita</a>
             <a href="#kalender" className="hover:opacity-70 transition-opacity">Kalender</a>
-            <a href="#creative-minority" className="hover:opacity-70 transition-opacity">Creative Minority</a>
+            <Link href="/creative-minority" className="hover:opacity-70 transition-opacity">Creative Minority</Link>
             <a href="#kontak" className="hover:opacity-70 transition-opacity">Kontak</a>
           </div>
           
@@ -501,42 +501,9 @@ export default function Home() {
       </section>
 
       {/* ========================
-          CREATIVE MINORITY SECTION (Gray)
+          KONTAK SECTION
           ======================== */}
-      <section id="creative-minority" className="w-full min-h-[70vh] bg-gray-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Creative Minority</h2>
-        <p className="text-lg text-gray-600 max-w-[800px] text-center mb-12">
-          Sebagai agen perubahan intelektual dan sosial, kami mewujudkan visi Creative Minority dalam mengurai masalah umat dan bangsa melalui pendekatan kreatif, kritis, dan solutif.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-[1200px]">
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-yellow-100 text-[#f8cf0f] rounded-xl flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-2xl">lightbulb</span>
-            </div>
-            <h3 className="text-xl font-serif text-[#6d0100] mb-3">Inovasi</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">Mendorong kader untuk selalu berinovasi dalam memecahkan masalah dengan cara-cara baru yang efektif dan berdaya guna.</p>
-          </div>
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-red-100 text-[#f92727] rounded-xl flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-2xl">psychology</span>
-            </div>
-            <h3 className="text-xl font-serif text-[#6d0100] mb-3">Kritis</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">Membangun budaya berpikir kritis yang berbasis pada nilai-nilai dasar perjuangan IMM dan analisis yang tajam.</p>
-          </div>
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-gray-100 text-[#280000] rounded-xl flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-2xl">handshake</span>
-            </div>
-            <h3 className="text-xl font-serif text-[#6d0100] mb-3">Solutif</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">Hadir di tengah masyarakat dengan menawarkan solusi konkret, bukan sekadar kritik atau wacana tanpa tindakan.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================
-          KONTAK SECTION (Dark)
-          ======================== */}
-      <section id="kontak" className="w-full bg-[#280000] text-white p-8 md:p-[60px] pt-16 md:pt-24 border-t border-white/10">
+      <section id="kontak" className="w-full bg-white text-[#280000] p-8 md:p-[60px] pt-16 md:pt-24 border-t border-gray-200">
         <div className="max-w-[1450px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           
           {/* Column 1: Info & Socials */}
@@ -545,52 +512,52 @@ export default function Home() {
               <img src="/logo.png" alt="IMM Logo" className="w-[56px] h-[56px] object-contain drop-shadow-md" />
               <span className="font-serif text-2xl font-normal">PK IMM FAI UMY</span>
             </div>
-            <p className="text-white/70 font-normal text-sm md:text-base leading-relaxed mb-8">
+            <p className="text-gray-600 font-normal text-sm md:text-base leading-relaxed mb-8">
               Wadah perkaderan mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta yang berlandaskan intelektualitas, religiusitas, dan humanitas.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <span className="material-symbols-outlined font-normal text-white">public</span>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <span className="material-symbols-outlined font-normal text-[#280000]">public</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <span className="material-symbols-outlined font-normal text-white">mail</span>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <span className="material-symbols-outlined font-normal text-[#280000]">mail</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <span className="material-symbols-outlined font-normal text-white">phone</span>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <span className="material-symbols-outlined font-normal text-[#280000]">phone</span>
               </a>
             </div>
           </div>
 
           {/* Column 2: Navigasi */}
           <div className="flex flex-col items-start">
-            <h3 className="font-serif text-2xl font-normal mb-6 text-white">Navigasi</h3>
+            <h3 className="font-serif text-2xl font-normal mb-6 text-[#6d0100]">Navigasi</h3>
             <div className="flex flex-col gap-4">
-              <a href="#profile" className="text-white/70 hover:text-white transition-colors font-normal">Profil</a>
-              <a href="#bidang" className="text-white/70 hover:text-white transition-colors font-normal">Bidang</a>
-              <a href="#dokumentasi" className="text-white/70 hover:text-white transition-colors font-normal">Dokumentasi</a>
-              <a href="#berita" className="text-white/70 hover:text-white transition-colors font-normal">Berita</a>
+              <a href="#profile" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Profil</a>
+              <a href="#bidang" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Bidang</a>
+              <a href="#dokumentasi" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Dokumentasi</a>
+              <a href="#berita" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Berita</a>
             </div>
           </div>
 
           {/* Column 3: Tautan Cepat */}
           <div className="flex flex-col items-start">
-            <h3 className="font-serif text-2xl font-normal mb-6 text-white">Tautan Cepat</h3>
+            <h3 className="font-serif text-2xl font-normal mb-6 text-[#6d0100]">Tautan Cepat</h3>
             <div className="flex flex-col gap-4">
-              <a href="#kalender" className="text-white/70 hover:text-white transition-colors font-normal">Kalender</a>
-              <a href="#agenda" className="text-white/70 hover:text-white transition-colors font-normal">Agenda</a>
-              <a href="#kontak" className="text-white/70 hover:text-white transition-colors font-normal">Kontak</a>
-              <a href="#join" className="text-white/70 hover:text-white transition-colors font-normal">Join IMM</a>
+              <a href="#kalender" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Kalender</a>
+              <a href="#agenda" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Agenda</a>
+              <a href="#kontak" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Kontak</a>
+              <a href="#join" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Join IMM</a>
             </div>
           </div>
 
           {/* Column 4: Sekretariat */}
           <div className="flex flex-col items-start">
-            <h3 className="font-serif text-2xl font-normal mb-6 text-white">Sekretariat</h3>
+            <h3 className="font-serif text-2xl font-normal mb-6 text-[#6d0100]">Sekretariat</h3>
             <a 
               href="https://maps.google.com/?q=Gedung+Ki+Bagus+Hadikusumo+UMY+Yogyakarta" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-white font-normal text-sm md:text-base leading-relaxed transition-colors hover:underline"
+              className="text-gray-600 hover:text-[#f92727] font-normal text-sm md:text-base leading-relaxed transition-colors hover:underline"
             >
               Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta.
             </a>
