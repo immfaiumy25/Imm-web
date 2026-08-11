@@ -196,15 +196,15 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="/pengurus-1.png" 
+                      src="/pengurus-4.png" 
                       alt="Foto Ketua Umum" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
-                  <p className="text-[#6d0100] font-medium text-lg">Ketua Umum</p>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Agung Rezki</h4>
+                  <p className="text-[#6d0100] font-medium text-lg">Ketua Umum <span className="text-sm font-normal text-gray-500">(PAI 23)</span></p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
                     Bertanggung jawab atas seluruh kegiatan manajerial dan operasional PK IMM FAI UMY.
                   </p>
@@ -220,15 +220,15 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="/pengurus-2.png" 
-                      alt="Foto Sekjen" 
+                      src="/pengurus-3.png" 
+                      alt="Foto Sekum" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
-                  <p className="text-[#f7aa09] font-medium text-lg">Sekretaris Jenderal</p>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Zulfa Safinatun Najwa</h4>
+                  <p className="text-[#f7aa09] font-medium text-lg">Sekretaris Umum <span className="text-sm font-normal text-gray-500">(KPI 23)</span></p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
                     Mengurus administrasi, korespondensi, dan pengarsipan data organisasi.
                   </p>
@@ -244,17 +244,17 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="/pengurus-3.png" 
-                      alt="Foto Bendahara" 
+                      src="/pengurus-1.png" 
+                      alt="Foto Sek 1" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
-                  <p className="text-[#6d0100] font-medium text-lg">Bendahara</p>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Safira Dewi Maharani</h4>
+                  <p className="text-[#6d0100] font-medium text-lg">Sekretaris Satu <span className="text-sm font-normal text-gray-500">(Eksya 23)</span></p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
-                    Mengelola sirkulasi keuangan dan menyusun anggaran kegiatan kepanitiaan.
+                    Membantu Sekretaris Umum dalam mengelola kesekretariatan dan pendataan.
                   </p>
                 </div>
               </div>
@@ -268,17 +268,17 @@ export default function Home() {
                   ></div>
                   <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
                     <img 
-                      src="/pengurus-4.png" 
-                      alt="Foto Kabid" 
+                      src="/pengurus-2.png" 
+                      alt="Foto Bendum" 
                       className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
-                  <p className="text-[#f92727] font-medium text-lg">Ketua Bidang</p>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Alia Ghaza Partasti</h4>
+                  <p className="text-[#f92727] font-medium text-lg">Bendahara Umum <span className="text-sm font-normal text-gray-500">(Eksya 23)</span></p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
-                    Merancang strategi perkaderan dan pengembangan sumber daya mahasiswa.
+                    Mengelola sirkulasi keuangan organisasi dan pembukuan anggaran kepanitiaan.
                   </p>
                 </div>
               </div>
