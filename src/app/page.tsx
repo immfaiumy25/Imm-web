@@ -6,6 +6,7 @@ import SpotlightCard from "@/components/SpotlightCard";
 import CardSwap, { Card } from "@/components/CardSwap";
 import MagicBento from "@/components/MagicBento";
 import BorderGlow from "@/components/BorderGlow";
+import IMMCalendar from "@/components/IMMCalendar";
 
 const bidangData = [
   { name: "Organisasi", desc: "Penguatan sistem manajemen internal.", icon: "account_tree" },
@@ -461,10 +462,14 @@ export default function Home() {
           KALENDER SECTION (White)
           ======================== */}
       <section id="kalender" className="w-full min-h-[70vh] bg-white text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Kalender Kegiatan</h2>
-        <p className="text-lg text-gray-600 max-w-[800px] text-center">
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Kalender Kegiatan</h2>
+        <p className="text-lg text-gray-600 max-w-[800px] text-center mb-12">
           Jadwal program kerja, kajian rutin, dan event-event penting komisariat.
         </p>
+        
+        <div className="w-full max-w-[1400px]">
+          <IMMCalendar />
+        </div>
       </section>
 
       {/* ========================
