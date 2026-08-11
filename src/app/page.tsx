@@ -413,14 +413,14 @@ export default function Home() {
               <img src="/berita/berita-1.jpg" alt="Kompas Profetik ISP" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6 flex flex-col flex-grow">
-              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KABAR MUHAMMADIYAH</div>
+              <div className="text-xs font-normal text-gray-500 tracking-wider mb-3">Kabar Muhammadiyah</div>
               <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">Menata Ulang Kompas Profetik: Penyusunan Alat Ukur Implementasi ISP dalam Grand Design PK IMM FAI UMY</h3>
               <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
                 Agenda penyusunan alat ukur implementasi Ideologi, Strategi, dan Taktik Perjuangan (ISP) dalam kerangka Grand Design pergerakan komisariat.
               </p>
-              <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
+              <div className="text-xs text-gray-500 font-normal flex items-center justify-between">
                 <span>7 Juli 2026</span>
-                <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
+                <span>Baca</span>
               </div>
             </div>
           </a>
@@ -443,14 +443,14 @@ export default function Home() {
               <img src="/berita/berita-2.webp" alt="Dahlan Culture Festival" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6 flex flex-col flex-grow">
-              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">RRI BUDAYA</div>
+              <div className="text-xs font-normal text-gray-500 tracking-wider mb-3">RRI Budaya</div>
               <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">Dahlan Culture Festival 2026 Perkuat Dakwah Kultural lewat Sastra Profetik</h3>
               <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
                 IMM FAI UMY menggelar Dahlan Culture Festival 2026 sebagai ruang ekspresi bagi kader se-DIY untuk mengaktualisasikan kreativitas dan memperkuat dakwah kultural melalui sastra profetik.
               </p>
-              <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
+              <div className="text-xs text-gray-500 font-normal flex items-center justify-between">
                 <span>23 Juli 2026</span>
-                <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
+                <span>Baca</span>
               </div>
             </div>
           </a>
@@ -473,14 +473,14 @@ export default function Home() {
               <img src="/berita/berita-3.jpg" alt="Majalah BAHL1L" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6 flex flex-col flex-grow">
-              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">WARTA PTM</div>
+              <div className="text-xs font-normal text-gray-500 tracking-wider mb-3">Warta PTM</div>
               <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">IMM FAI UMY Luncurkan Majalah BAHL1L, Angkat Isu Perempuan</h3>
               <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
                 Peluncuran Majalah BAHL1L dan pelaksanaan studium generale yang mengangkat isu keperempuanan sebagai wujud nyata gerakan intelektual kader IMM FAI UMY.
               </p>
-              <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
+              <div className="text-xs text-gray-500 font-normal flex items-center justify-between">
                 <span>28 April 2026</span>
-                <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
+                <span>Baca</span>
               </div>
             </div>
           </a>
