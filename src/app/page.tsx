@@ -301,16 +301,24 @@ export default function Home() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-[1450px]">
           {bidangData.map((bidang, i) => (
-            <SpotlightCard key={i} className="p-8 flex flex-col justify-between group cursor-pointer h-full bg-white" spotlightColor="rgba(109, 1, 0, 0.1)">
+            <SpotlightCard 
+              key={i} 
+              className="p-8 flex flex-col justify-between group cursor-pointer h-full bg-white/20 border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)]" 
+              spotlightColor="rgba(255, 255, 255, 0.25)"
+              style={{
+                backdropFilter: 'url(#liquid-glass) blur(16px)',
+                WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)'
+              }}
+            >
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#6d0100]/5 flex items-center justify-center mb-6 group-hover:bg-[#6d0100]/10 transition-colors">
-                  <span className="material-symbols-outlined text-3xl text-[#6d0100]">{bidang.icon}</span>
+                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6 group-hover:bg-white/30 transition-colors">
+                  <span className="material-symbols-outlined text-3xl text-white">{bidang.icon}</span>
                 </div>
-                <h3 className="text-2xl font-serif font-normal text-[#280000] mb-3">{bidang.name}</h3>
-                <p className="text-gray-600 font-light leading-relaxed">{bidang.desc}</p>
+                <h3 className="text-2xl font-serif font-normal text-white mb-3">{bidang.name}</h3>
+                <p className="text-white/90 font-light leading-relaxed">{bidang.desc}</p>
               </div>
               
-              <div className="mt-8 flex items-center text-[#6d0100] font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+              <div className="mt-8 flex items-center text-white font-medium opacity-80 group-hover:opacity-100 transition-opacity">
                 <span>Detail</span>
                 <span className="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
