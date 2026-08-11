@@ -126,7 +126,7 @@ export default function Home() {
                 pointerEvents: isIntroFinished ? 'auto' : 'none'
               }}
             >
-              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
+              <h1 className="font-serif text-5xl md:text-7xl font-normal leading-tight tracking-tight mb-6">
                 Bergerak Bersama <br className="hidden md:block"/> Berkarya untuk Peradaban
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-[700px] font-light mb-10">
