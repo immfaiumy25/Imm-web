@@ -202,33 +202,64 @@ export default function Home() {
           ======================== */}
       <section id="profile" className="relative w-full bg-white text-[#280000] p-8 md:px-[60px] pb-[100px] md:pb-[200px] flex flex-col items-center justify-start pt-24 md:pt-32 overflow-hidden">
         
-        {/* Background Wavy Line (Option 1) */}
-        <div className="absolute inset-0 pointer-events-none flex justify-center z-0 opacity-50">
-          <svg 
-            width="100%" 
-            height="100%" 
-            viewBox="0 0 1000 3000" 
-            preserveAspectRatio="none"
-            className="w-full h-full"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient id="wavy-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#f92727" stopOpacity="0" />
-                <stop offset="10%" stopColor="#f92727" stopOpacity="1" />
-                <stop offset="50%" stopColor="#f7aa09" stopOpacity="1" />
-                <stop offset="90%" stopColor="#6d0100" stopOpacity="1" />
-                <stop offset="100%" stopColor="#6d0100" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path 
-              d="M 500,0 C 900,500 100,1000 500,1500 C 900,2000 100,2500 500,3000" 
-              fill="none" 
-              stroke="url(#wavy-gradient)" 
-              strokeWidth="4" 
-              strokeLinecap="round"
-            />
-          </svg>
+        <style>{`
+          @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(40px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+          }
+          .animate-blob {
+            animation: blob 15s infinite alternate ease-in-out;
+          }
+          .animation-delay-2000 { animation-delay: 2s; }
+          .animation-delay-4000 { animation-delay: 4s; }
+          
+          @keyframes sway {
+            0% { transform: translateX(-10px); }
+            100% { transform: translateX(10px); }
+          }
+          .animate-sway {
+            animation: sway 8s ease-in-out infinite alternate;
+          }
+        `}</style>
+
+        {/* Ambient Glows & Background Wavy Line */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+          
+          {/* Blobs */}
+          <div className="absolute top-[5%] left-[-10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-[#f92727] rounded-full mix-blend-multiply filter blur-[100px] md:blur-[150px] opacity-15 animate-blob"></div>
+          <div className="absolute top-[40%] right-[-10%] w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-[#f7aa09] rounded-full mix-blend-multiply filter blur-[100px] md:blur-[150px] opacity-15 animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-[-5%] left-[10%] w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-[#6d0100] rounded-full mix-blend-multiply filter blur-[100px] md:blur-[150px] opacity-10 animate-blob animation-delay-4000"></div>
+
+          {/* SVG Line */}
+          <div className="absolute inset-0 flex justify-center opacity-40 animate-sway">
+            <svg 
+              width="100%" 
+              height="100%" 
+              viewBox="0 0 1000 3000" 
+              preserveAspectRatio="none"
+              className="w-full h-full"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="wavy-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#f92727" stopOpacity="0" />
+                  <stop offset="10%" stopColor="#f92727" stopOpacity="1" />
+                  <stop offset="50%" stopColor="#f7aa09" stopOpacity="1" />
+                  <stop offset="90%" stopColor="#6d0100" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#6d0100" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path 
+                d="M 500,0 C 900,500 100,1000 500,1500 C 900,2000 100,2500 500,3000" 
+                fill="none" 
+                stroke="url(#wavy-gradient)" 
+                strokeWidth="4" 
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
         </div>
 
         <div className="relative z-10 w-full max-w-[1450px] mx-auto text-center flex flex-col items-center gap-16 md:gap-24">
