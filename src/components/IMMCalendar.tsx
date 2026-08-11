@@ -100,7 +100,7 @@ export default function IMMCalendar() {
   }
 
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+    <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
       
       {/* Calendar Area (2 parts) */}
       <div className="w-full lg:w-2/3 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100 flex flex-col">
@@ -141,7 +141,7 @@ export default function IMMCalendar() {
       </div>
 
       {/* Agenda Area (1 part) */}
-      <div className="w-full lg:w-1/3 bg-[#f8f9fa] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100 flex flex-col min-h-[400px] lg:sticky lg:top-24">
+      <div className="w-full lg:w-1/3 bg-[#f8f9fa] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100 flex flex-col">
         <div className="p-6 border-b border-gray-200 bg-white">
           <h4 className="text-xl font-serif text-[#6d0100] font-normal mb-1">Agenda Harian</h4>
           <p className="text-sm text-gray-500 font-normal">
@@ -149,7 +149,7 @@ export default function IMMCalendar() {
           </p>
         </div>
         
-        <div className="p-6 flex-grow overflow-y-auto">
+        <div className="p-6 flex-grow">
           {selectedDayEvents.length > 0 ? (
             <div className="space-y-4">
               {selectedDayEvents.map((evt, idx) => (
