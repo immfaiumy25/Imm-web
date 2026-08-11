@@ -28,7 +28,9 @@ export default function Home() {
       }
 
       // 2. Navbar Transition Logic (scrolled past hero)
-      if (scrollY > window.innerHeight * 2 - 100) {
+      const homeSection = document.getElementById('home');
+      const threshold = homeSection ? homeSection.offsetHeight - 100 : window.innerHeight * 1.6;
+      if (scrollY > threshold) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
