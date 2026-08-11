@@ -64,7 +64,7 @@ export default function Home() {
             WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)' 
           }}
         >
-          <div className={`flex items-center gap-[8px] font-black tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${isScrolled ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
+          <div className={`flex items-center gap-[8px] font-normal tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${isScrolled ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
             <i className={`w-[24px] h-[24px] rounded-[7px_7px_7px_2px] -rotate-8 border backdrop-blur-md transition-colors duration-300 ${isScrolled ? 'bg-[#280000]/10 border-[#280000]/20' : 'bg-white/40 border-white/50'}`}></i>
             Organisasi
           </div>
@@ -80,7 +80,7 @@ export default function Home() {
             <a href="#kontak" className="hover:opacity-70 transition-opacity">Kontak</a>
           </div>
           
-          <button className={`pointer-events-auto rounded-[10px] px-[16px] py-[8px] text-sm font-extrabold backdrop-blur-md shadow-lg transition-all duration-300 ${isScrolled ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
+          <button className={`pointer-events-auto rounded-[10px] px-[16px] py-[8px] text-sm font-normal backdrop-blur-md shadow-lg transition-all duration-300 ${isScrolled ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
             Login
           </button>
         </nav>
@@ -110,7 +110,7 @@ export default function Home() {
             
             {/* SCROLL UP TEXT (Visible only when small) */}
             <div 
-              className="absolute inset-0 flex flex-col items-center justify-center font-black tracking-widest text-lg md:text-xl text-white pointer-events-none"
+              className="absolute inset-0 flex flex-col items-center justify-center font-normal tracking-widest text-lg md:text-xl text-white pointer-events-none"
               style={{ opacity: `calc(1 - (var(--intro-progress, 0) * 2))` }}
             >
               <span className="animate-bounce mb-2">↓</span>
@@ -132,7 +132,7 @@ export default function Home() {
               <p className="text-white/80 text-lg md:text-xl max-w-[700px] font-light mb-10">
                 Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan.
               </p>
-              <button className="bg-white text-[#6d0100] rounded-full px-8 py-4 font-bold hover:scale-105 transition-transform shadow-xl">
+              <button className="bg-white text-[#6d0100] rounded-full px-8 py-4 font-normal hover:scale-105 transition-transform shadow-xl">
                 Get Started
               </button>
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-[1450px] mx-auto text-center flex flex-col items-center gap-16 md:gap-24">
           
           <div className="flex flex-col items-center max-w-[1000px]">
-            <h2 className="font-serif text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-6 text-[#6d0100]">
+            <h2 className="font-serif text-4xl md:text-6xl font-normal leading-tight tracking-tight mb-6 text-[#6d0100]">
               Menciptakan Kader Berintelektual Tinggi & Berakhlak Mulia
             </h2>
             <p className="text-lg md:text-xl font-light text-gray-700">
@@ -166,7 +166,7 @@ export default function Home() {
           </div>
 
           <div className="w-full mt-10">
-            <h3 className="font-serif text-3xl md:text-4xl font-bold mb-12 text-[#6d0100] text-center md:text-left">Anggota & Pengurus</h3>
+            <h3 className="font-serif text-3xl md:text-4xl font-normal mb-12 text-[#6d0100] text-center md:text-left">Anggota & Pengurus</h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16">
               
@@ -187,7 +187,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-bold text-[#280000]">Nama Pengurus</h4>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
                   <p className="text-[#6d0100] font-medium text-lg">Ketua Umum</p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
                     Bertanggung jawab atas seluruh kegiatan manajerial dan operasional PK IMM FAI UMY.
@@ -211,7 +211,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-bold text-[#280000]">Nama Pengurus</h4>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
                   <p className="text-[#f7aa09] font-medium text-lg">Sekretaris Jenderal</p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
                     Mengurus administrasi, korespondensi, dan pengarsipan data organisasi.
@@ -235,7 +235,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-bold text-[#280000]">Nama Pengurus</h4>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
                   <p className="text-[#6d0100] font-medium text-lg">Bendahara</p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
                     Mengelola sirkulasi keuangan dan menyusun anggaran kegiatan kepanitiaan.
@@ -259,7 +259,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-bold text-[#280000]">Nama Pengurus</h4>
+                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Nama Pengurus</h4>
                   <p className="text-[#f92727] font-medium text-lg">Ketua Bidang</p>
                   <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
                     Merancang strategi perkaderan dan pengembangan sumber daya mahasiswa.
@@ -277,7 +277,7 @@ export default function Home() {
           BIDANG SECTION (Gray)
           ======================== */}
       <section id="bidang" className="w-full min-h-[70vh] bg-gray-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-[#6d0100]">Bidang</h2>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Bidang</h2>
         <p className="text-lg text-gray-600 max-w-[800px] text-center">
           Daftar bidang-bidang dalam organisasi beserta program kerja dan susunan pengurusnya.
         </p>
@@ -287,7 +287,7 @@ export default function Home() {
           DOKUMENTASI SECTION (White)
           ======================== */}
       <section id="dokumentasi" className="w-full min-h-[70vh] bg-white text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-[#6d0100]">Dokumentasi</h2>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Dokumentasi</h2>
         <p className="text-lg text-gray-600 max-w-[800px] text-center">
           Galeri foto dan video dari berbagai kegiatan serta program kerja IMM FAI UMY.
         </p>
@@ -297,7 +297,7 @@ export default function Home() {
           BERITA SECTION (Gray)
           ======================== */}
       <section id="berita" className="w-full min-h-[70vh] bg-gray-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-[#6d0100]">Berita & Artikel</h2>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Berita & Artikel</h2>
         <p className="text-lg text-gray-600 max-w-[800px] text-center">
           Informasi terkini, opini, dan publikasi kajian yang diangkat oleh para kader IMM FAI UMY.
         </p>
@@ -307,7 +307,7 @@ export default function Home() {
           KALENDER SECTION (White)
           ======================== */}
       <section id="kalender" className="w-full min-h-[70vh] bg-white text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-[#6d0100]">Kalender Kegiatan</h2>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Kalender Kegiatan</h2>
         <p className="text-lg text-gray-600 max-w-[800px] text-center">
           Jadwal program kerja, kajian rutin, dan event-event penting komisariat.
         </p>
@@ -317,15 +317,15 @@ export default function Home() {
           KONTAK SECTION (Dark)
           ======================== */}
       <section id="kontak" className="w-full min-h-[50vh] bg-[#280000] text-white p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-bold mb-6">Kontak Kami</h2>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6">Kontak Kami</h2>
         <p className="text-lg text-white/70 max-w-[800px] text-center mb-8">
           Silakan hubungi kami untuk informasi pendaftaran, kerjasama, maupun pertanyaan lainnya.
         </p>
         <div className="flex gap-4">
-          <button className="bg-white text-[#280000] px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors">
+          <button className="bg-white text-[#280000] px-6 py-3 rounded-full font-normal hover:bg-gray-200 transition-colors">
             Email Kami
           </button>
-          <button className="bg-transparent border border-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">
+          <button className="bg-transparent border border-white px-6 py-3 rounded-full font-normal hover:bg-white/10 transition-colors">
             Instagram
           </button>
         </div>
