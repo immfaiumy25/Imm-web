@@ -358,11 +358,7 @@ export default function Home() {
           DOKUMENTASI SECTION (White)
           ======================== */}
       <section id="dokumentasi" className="w-full min-h-[80vh] bg-white text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center overflow-hidden">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Dokumentasi</h2>
-        <p className="text-lg text-gray-600 mb-12 text-center max-w-2xl">
-          Galeri visual pergerakan, aksi nyata, dan berbagai program kerja IMM FAI UMY. 
-          Merekam setiap momen perjuangan dan kebersamaan ikatan.
-        </p>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100] text-center">Dokumentasi</h2>
         
         <div className="w-full max-w-[1200px] mx-auto relative z-10 flex justify-center">
           <MagicBento 
