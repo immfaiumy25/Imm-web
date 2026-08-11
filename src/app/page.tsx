@@ -221,7 +221,7 @@ export default function Home() {
           </div>
 
           <div className="w-full mt-10">
-            <h3 className="font-serif text-3xl md:text-4xl font-normal mb-12 text-[#6d0100] text-center md:text-left">Anggota & Pengurus</h3>
+            <h3 className="font-serif text-3xl md:text-4xl font-normal mb-12 text-[#6d0100] text-center md:text-left">Pengurus Harian</h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16">
               
@@ -321,7 +321,27 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              
+            </div>
+          </div>
+
+          <div className="w-full mt-20">
+            <h3 className="font-serif text-3xl md:text-4xl font-normal mb-12 text-[#6d0100] text-center">Visi dan Misi</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              <div className="bg-white/40 backdrop-blur-md rounded-[32px] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-shadow border border-white/50 flex flex-col items-center">
+                <h4 className="font-serif text-2xl font-normal text-[#280000] mb-6">Visi</h4>
+                <p className="text-gray-700 font-normal leading-relaxed text-center">
+                  Menjadi pimpinan komisariat yang unggul dalam mencetak kader ikatan yang religius, intelektual, dan humanis berlandaskan nilai-nilai profetik.
+                </p>
+              </div>
+              <div className="bg-white/40 backdrop-blur-md rounded-[32px] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-shadow border border-white/50 flex flex-col items-center">
+                <h4 className="font-serif text-2xl font-normal text-[#280000] mb-6">Misi</h4>
+                <ul className="text-gray-700 font-normal leading-relaxed list-disc list-outside ml-4 space-y-3">
+                  <li>Menanamkan nilai-nilai keislaman dan kemuhammadiyahan dalam setiap langkah perkaderan.</li>
+                  <li>Meningkatkan tradisi intelektual melalui kajian, diskusi, dan literasi berkelanjutan.</li>
+                  <li>Mengaktualisasikan peran sosial kemasyarakatan mahasiswa sebagai bentuk humanitas.</li>
+                  <li>Membangun iklim organisasi yang solid, inklusif, dan profesional.</li>
+                </ul>
+              </div>
             </div>
           </div>
           
