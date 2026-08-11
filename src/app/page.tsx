@@ -390,8 +390,12 @@ export default function Home() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1200px] relative z-10">
-          <div 
-            className="w-full h-full rounded-[24px] p-8 flex flex-col hover:scale-105 transition-transform cursor-pointer"
+          {/* Card 1 */}
+          <a 
+            href="https://share.google/ldoJxY0qIybghHsc9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 transition-transform cursor-pointer overflow-hidden group"
             style={{ 
               background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
@@ -400,16 +404,28 @@ export default function Home() {
               border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
-            <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">OPINI</div>
-            <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Peran Mahasiswa dalam Membangun Peradaban Bangsa di Era Digital</h3>
-            <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
-              Mahasiswa tidak hanya dituntut untuk unggul secara akademis, tetapi juga harus peka terhadap isu-isu sosial kemasyarakatan...
-            </p>
-            <div className="text-xs text-gray-500 font-medium">12 Agustus 2026 • Oleh: Kader IMM</div>
-          </div>
+            <div className="w-full h-48 relative overflow-hidden bg-gray-200">
+              <img src="/dokumentasi/sekolah-kader.jpeg" alt="Kompas Profetik ISP" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KABAR MUHAMMADIYAH</div>
+              <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">Menata Ulang Kompas Profetik: Penyusunan Alat Ukur Implementasi ISP dalam Grand Design PK IMM FAI UMY</h3>
+              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
+                Agenda penyusunan alat ukur implementasi Ideologi, Strategi, dan Taktik Perjuangan (ISP) dalam kerangka Grand Design pergerakan komisariat.
+              </p>
+              <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
+                <span>Terbaru</span>
+                <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
+              </div>
+            </div>
+          </a>
 
-          <div 
-            className="w-full h-full rounded-[24px] p-8 flex flex-col hover:scale-105 transition-transform cursor-pointer"
+          {/* Card 2 */}
+          <a 
+            href="https://rri.co.id/yogyakarta/budaya/2590526/dahlan-culture-festival-2026-perkuat-dakwah-kultural-lewat-sastra-profetik?nocache=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 transition-transform cursor-pointer overflow-hidden group"
             style={{ 
               background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
@@ -418,16 +434,28 @@ export default function Home() {
               border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
-            <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KEGIATAN</div>
-            <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Sukses Penyelenggaraan Darul Arqam Dasar 2026</h3>
-            <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
-              Alhamdulillah, perkaderan tingkat dasar DAD tahun ini berhasil melahirkan puluhan kader militan yang siap bergerak...
-            </p>
-            <div className="text-xs text-gray-500 font-medium">5 Agustus 2026 • Tim Media</div>
-          </div>
+            <div className="w-full h-48 relative overflow-hidden bg-gray-200">
+              <img src="/dokumentasi/furab.jpeg" alt="Dahlan Culture Festival" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">RRI BUDAYA</div>
+              <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">Dahlan Culture Festival 2026 Perkuat Dakwah Kultural lewat Sastra Profetik</h3>
+              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
+                IMM FAI UMY menggelar Dahlan Culture Festival 2026 sebagai ruang ekspresi bagi kader se-DIY untuk mengaktualisasikan kreativitas dan memperkuat dakwah kultural melalui sastra profetik.
+              </p>
+              <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
+                <span>18 Juli 2026</span>
+                <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
+              </div>
+            </div>
+          </a>
 
-          <div 
-            className="w-full h-full rounded-[24px] p-8 flex flex-col hover:scale-105 transition-transform cursor-pointer"
+          {/* Card 3 */}
+          <a 
+            href="https://wartaptm.id/imm-fai-umy-luncurkan-majalah-bahlil-angkat-isu-perempuan-lewat-studium-generale/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 transition-transform cursor-pointer overflow-hidden group"
             style={{ 
               background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
@@ -436,13 +464,21 @@ export default function Home() {
               border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
-            <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">KAJIAN</div>
-            <h3 className="text-xl font-serif text-[#280000] mb-4 line-clamp-2">Menelaah Kembali Nilai Dasar Perjuangan (NDP) IMM</h3>
-            <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
-              Kajian rutin mingguan ini membahas secara mendalam mengenai implementasi NDP IMM dalam konteks kekinian...
-            </p>
-            <div className="text-xs text-gray-500 font-medium">28 Juli 2026 • Bidang RPK</div>
-          </div>
+            <div className="w-full h-48 relative overflow-hidden bg-gray-200">
+              <img src="/dokumentasi/bahlil.jpeg" alt="Majalah BAHL1L" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <div className="text-xs font-bold text-[#f92727] tracking-wider mb-3">WARTA PTM</div>
+              <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">IMM FAI UMY Luncurkan Majalah BAHL1L, Angkat Isu Perempuan</h3>
+              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
+                Peluncuran Majalah BAHL1L dan pelaksanaan studium generale yang mengangkat isu keperempuanan sebagai wujud nyata gerakan intelektual kader IMM FAI UMY.
+              </p>
+              <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
+                <span>Agustus 2026</span>
+                <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
 
