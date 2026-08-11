@@ -89,18 +89,12 @@ export default function Home() {
       {/* =======================
           HOME SECTION (Gradient)
           ======================= */}
-      <section id="home" className="relative w-full block bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pb-[20vh]">
+      <section id="home" className="relative w-full block bg-[linear-gradient(145deg,#6d0100_0%,#a90a05_40%,#f92727_65%,#f8cf0f_100%)] text-white pt-32">
 
         {/* Scroll Track */}
         <div className="h-[160vh]">
           {/* Liquid Glass Hero Card - Pinned during intro */}
-          <div 
-            className="sticky top-0 w-full px-4 md:px-[26px] pb-4 md:pb-[26px] flex items-center justify-center z-10" 
-            style={{ 
-              height: '100vh',
-              paddingTop: `calc(16px + (128px * var(--intro-progress, 0)))`
-            }}
-          >
+          <div className="sticky top-[128px] w-full p-4 md:p-[26px] flex items-center justify-center z-10" style={{ height: 'calc(100vh - 128px)' }}>
           <div 
             ref={heroRef}
             className="mx-auto rounded-[32px] border border-white/20 shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden relative"
