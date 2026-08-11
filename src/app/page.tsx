@@ -1,6 +1,21 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { DisableZoom } from "@/components/DisableZoom";
+import SpotlightCard from "@/components/SpotlightCard";
+
+const bidangData = [
+  { name: "Organisasi", desc: "Penguatan sistem manajemen internal.", icon: "account_tree" },
+  { name: "Kaderisasi", desc: "Pusat pengembangan kader unggul.", icon: "groups" },
+  { name: "RPK", desc: "Riset dan Pengembangan Keilmuan.", icon: "science" },
+  { name: "Hikmah", desc: "Gerakan politik dan advokasi sosial.", icon: "policy" },
+  { name: "TKK", desc: "Tabligh dan Kajian Keislaman.", icon: "mosque" },
+  { name: "SPM", desc: "Sosial Pemberdayaan Masyarakat.", icon: "volunteer_activism" },
+  { name: "SBO", desc: "Seni, Budaya, dan Olahraga.", icon: "palette" },
+  { name: "IMMawati", desc: "Pemberdayaan dan isu perempuan.", icon: "woman" },
+  { name: "Ekonomi", desc: "Kewirausahaan dan kemandirian.", icon: "payments" },
+  { name: "Medkom", desc: "Media, Komunikasi, dan Informasi.", icon: "podcasts" },
+];
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -278,10 +293,26 @@ export default function Home() {
           BIDANG SECTION (Gray)
           ======================== */}
       <section id="bidang" className="w-full min-h-[70vh] bg-gray-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
-        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100]">Bidang</h2>
-        <p className="text-lg text-gray-600 max-w-[800px] text-center">
-          Daftar bidang-bidang dalam organisasi beserta program kerja dan susunan pengurusnya.
-        </p>
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100]">Bidang</h2>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-[1450px]">
+          {bidangData.map((bidang, i) => (
+            <SpotlightCard key={i} className="p-8 flex flex-col justify-between group cursor-pointer h-full" spotlightColor="rgba(109, 1, 0, 0.1)">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#6d0100]/5 flex items-center justify-center mb-6 group-hover:bg-[#6d0100]/10 transition-colors">
+                  <span className="material-symbols-outlined text-3xl text-[#6d0100]">{bidang.icon}</span>
+                </div>
+                <h3 className="text-2xl font-serif font-normal text-[#280000] mb-3">{bidang.name}</h3>
+                <p className="text-gray-600 font-light leading-relaxed">{bidang.desc}</p>
+              </div>
+              
+              <div className="mt-8 flex items-center text-[#6d0100] font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+                <span>Detail</span>
+                <span className="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </SpotlightCard>
+          ))}
+        </div>
       </section>
 
       {/* ========================
