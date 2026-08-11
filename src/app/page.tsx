@@ -307,7 +307,7 @@ export default function Home() {
       <section 
         id="bidang" 
         className="relative w-full min-h-[70vh] text-white p-8 md:p-[60px] flex flex-col items-center justify-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #f8cf0f 0%, #f7aa09 45%, #f92727 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #f8cf0f 0%, #f7aa09 15%, #f92727 55%, #c71212 100%)' }}
       >
         <h2 className="relative z-10 font-serif text-4xl md:text-6xl font-normal mb-12 text-white">Bidang</h2>
         
