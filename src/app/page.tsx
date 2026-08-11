@@ -411,7 +411,7 @@ export default function Home() {
                 Agenda penyusunan alat ukur implementasi Ideologi, Strategi, dan Taktik Perjuangan (ISP) dalam kerangka Grand Design pergerakan komisariat.
               </p>
               <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
-                <span>Terbaru</span>
+                <span>7 Juli 2026</span>
                 <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
               </div>
             </div>
@@ -441,7 +441,7 @@ export default function Home() {
                 IMM FAI UMY menggelar Dahlan Culture Festival 2026 sebagai ruang ekspresi bagi kader se-DIY untuk mengaktualisasikan kreativitas dan memperkuat dakwah kultural melalui sastra profetik.
               </p>
               <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
-                <span>18 Juli 2026</span>
+                <span>23 Juli 2026</span>
                 <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
               </div>
             </div>
@@ -471,7 +471,7 @@ export default function Home() {
                 Peluncuran Majalah BAHL1L dan pelaksanaan studium generale yang mengangkat isu keperempuanan sebagai wujud nyata gerakan intelektual kader IMM FAI UMY.
               </p>
               <div className="text-xs text-gray-500 font-medium flex items-center justify-between">
-                <span>Agustus 2026</span>
+                <span>28 April 2026</span>
                 <span className="text-[#f92727] group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
               </div>
             </div>
