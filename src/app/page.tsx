@@ -151,12 +151,13 @@ export default function Home() {
             }}
           >
             
-            {/* LOGO TEXT (Visible only when small) */}
+            {/* SCROLL UP TEXT (Visible only when small) */}
             <div 
-              className="absolute inset-0 flex flex-col items-center justify-center font-serif tracking-widest text-lg md:text-xl text-white pointer-events-none text-center px-4"
+              className="absolute inset-0 flex flex-col items-center justify-center font-normal tracking-widest text-lg md:text-xl text-white pointer-events-none"
               style={{ opacity: `calc(1 - (var(--intro-progress, 0) * 2))` }}
             >
-              PK IMM FAI UMY
+              <span className="animate-bounce mb-2">↓</span>
+              SCROLL UP
             </div>
 
             {/* REAL CONTENT (Fades in as it expands) */}
