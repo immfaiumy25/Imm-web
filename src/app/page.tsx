@@ -388,6 +388,39 @@ export default function Home() {
       </section>
 
       {/* ========================
+          CREATIVE MINORITY SECTION (Gray)
+          ======================== */}
+      <section id="creative-minority" className="w-full min-h-[70vh] bg-gray-50 text-[#280000] p-8 md:p-[60px] flex flex-col items-center justify-center">
+        <h2 className="font-serif text-4xl md:text-6xl font-normal mb-6 text-[#6d0100] text-center">Creative Minority</h2>
+        <p className="text-lg text-gray-600 max-w-[800px] text-center mb-12">
+          Sebagai agen perubahan intelektual dan sosial, kami mewujudkan visi Creative Minority dalam mengurai masalah umat dan bangsa melalui pendekatan kreatif, kritis, dan solutif.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-[1200px]">
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-yellow-100 text-[#f8cf0f] rounded-xl flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-2xl">lightbulb</span>
+            </div>
+            <h3 className="text-xl font-serif text-[#6d0100] mb-3">Inovasi</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">Mendorong kader untuk selalu berinovasi dalam memecahkan masalah dengan cara-cara baru yang efektif dan berdaya guna.</p>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-red-100 text-[#f92727] rounded-xl flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-2xl">psychology</span>
+            </div>
+            <h3 className="text-xl font-serif text-[#6d0100] mb-3">Kritis</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">Membangun budaya berpikir kritis yang berbasis pada nilai-nilai dasar perjuangan IMM dan analisis yang tajam.</p>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-gray-100 text-[#280000] rounded-xl flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-2xl">handshake</span>
+            </div>
+            <h3 className="text-xl font-serif text-[#6d0100] mb-3">Solutif</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">Hadir di tengah masyarakat dengan menawarkan solusi konkret, bukan sekadar kritik atau wacana tanpa tindakan.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================
           KONTAK SECTION (Dark)
           ======================== */}
       <section id="kontak" className="w-full min-h-[50vh] bg-[#280000] text-white p-8 md:p-[60px] flex flex-col items-center justify-center">
