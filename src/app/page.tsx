@@ -66,7 +66,7 @@ export default function Home() {
           }}
         >
           <div className={`flex items-center gap-3 font-normal tracking-[-0.04em] text-base md:text-lg transition-colors duration-300 ${isScrolled ? 'text-[#280000]' : 'text-white drop-shadow-md'}`}>
-            <img src="/logo.png" alt="IMM Logo" className="w-[40px] h-[40px] object-contain drop-shadow-md" />
+            <img src="/logo.png" alt="IMM Logo" className="w-[56px] h-[56px] object-contain drop-shadow-md" />
             PK IMM FAI UMY
           </div>
           
