@@ -200,7 +200,37 @@ export default function Home() {
       {/* ========================
           PROFILE SECTION (White)
           ======================== */}
-      <section id="profile" className="relative w-full bg-white text-[#280000] p-8 md:px-[60px] pb-[100px] md:pb-[200px] flex flex-col items-center justify-start pt-24 md:pt-32">
+      <section id="profile" className="relative w-full bg-white text-[#280000] p-8 md:px-[60px] pb-[100px] md:pb-[200px] flex flex-col items-center justify-start pt-24 md:pt-32 overflow-hidden">
+        
+        {/* Background Wavy Line (Option 1) */}
+        <div className="absolute inset-0 pointer-events-none flex justify-center z-0 opacity-50">
+          <svg 
+            width="100%" 
+            height="100%" 
+            viewBox="0 0 1000 3000" 
+            preserveAspectRatio="none"
+            className="w-full h-full"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient id="wavy-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#f92727" stopOpacity="0" />
+                <stop offset="10%" stopColor="#f92727" stopOpacity="1" />
+                <stop offset="50%" stopColor="#f7aa09" stopOpacity="1" />
+                <stop offset="90%" stopColor="#6d0100" stopOpacity="1" />
+                <stop offset="100%" stopColor="#6d0100" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path 
+              d="M 500,0 C 900,500 100,1000 500,1500 C 900,2000 100,2500 500,3000" 
+              fill="none" 
+              stroke="url(#wavy-gradient)" 
+              strokeWidth="4" 
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+
         <div className="relative z-10 w-full max-w-[1450px] mx-auto text-center flex flex-col items-center gap-16 md:gap-24">
           
           <div className="flex flex-col items-center max-w-[1000px]">
