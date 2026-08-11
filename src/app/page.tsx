@@ -400,12 +400,11 @@ export default function Home() {
             href="https://share.google/ldoJxY0qIybghHsc9"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 transition-transform cursor-pointer overflow-hidden group"
+            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 hover:shadow-2xl shadow-xl transition-all cursor-pointer overflow-hidden group"
             style={{ 
               background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
               WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
               border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
@@ -430,12 +429,11 @@ export default function Home() {
             href="https://rri.co.id/yogyakarta/budaya/2590526/dahlan-culture-festival-2026-perkuat-dakwah-kultural-lewat-sastra-profetik?nocache=true"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 transition-transform cursor-pointer overflow-hidden group"
+            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 hover:shadow-2xl shadow-xl transition-all cursor-pointer overflow-hidden group"
             style={{ 
               background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
               WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
               border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
@@ -460,12 +458,11 @@ export default function Home() {
             href="https://wartaptm.id/imm-fai-umy-luncurkan-majalah-bahlil-angkat-isu-perempuan-lewat-studium-generale/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 transition-transform cursor-pointer overflow-hidden group"
+            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 hover:shadow-2xl shadow-xl transition-all cursor-pointer overflow-hidden group"
             style={{ 
               background: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'url(#liquid-glass) blur(16px)',
               WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
               border: '1px solid rgba(255, 255, 255, 1)'
             }}
           >
