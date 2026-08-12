@@ -3,25 +3,19 @@
 import { useState, useEffect, useRef } from "react";
 import { DisableZoom } from "@/components/DisableZoom";
 import SpotlightCard from "@/components/SpotlightCard";
-import CardSwap, { Card } from "@/components/CardSwap";
+
 import MagicBento from "@/components/MagicBento";
 import BorderGlow from "@/components/BorderGlow";
 import IMMCalendar from "@/components/IMMCalendar";
 import TypewriterText from "@/components/TypewriterText";
 import Link from 'next/link';
-
-const bidangData = [
-  { name: "Organisasi", desc: "Penguatan sistem manajemen internal.", icon: "account_tree" },
-  { name: "Kaderisasi", desc: "Pusat pengembangan kader unggul.", icon: "groups" },
-  { name: "RPK", desc: "Riset dan Pengembangan Keilmuan.", icon: "science" },
-  { name: "Hikmah", desc: "Gerakan politik dan advokasi sosial.", icon: "policy" },
-  { name: "TKK", desc: "Tabligh dan Kajian Keislaman.", icon: "mosque" },
-  { name: "SPM", desc: "Sosial Pemberdayaan Masyarakat.", icon: "volunteer_activism" },
-  { name: "SBO", desc: "Seni, Budaya, dan Olahraga.", icon: "palette" },
-  { name: "IMMawati", desc: "Pemberdayaan dan isu perempuan.", icon: "woman" },
-  { name: "Ekonomi", desc: "Kewirausahaan dan kemandirian.", icon: "payments" },
-  { name: "Medkom", desc: "Media, Komunikasi, dan Informasi.", icon: "podcasts" },
-];
+import { getHomeSettings } from "@/app/actions/homeSettings";
+import { getProfileSettings } from "@/app/actions/profileSettings";
+import { getBidangSettings } from "@/app/actions/bidangSettings";
+import { getDokumentasiSettings } from "@/app/actions/dokumentasiSettings";
+import { getBeritaSettings } from "@/app/actions/beritaSettings";
+import { getEvents } from "@/app/actions/eventActions";
+import { getSettings } from "@/app/actions/settings";
 
 export default function Home() {
   const [navbarTheme, setNavbarTheme] = useState('dark');
@@ -29,8 +23,38 @@ export default function Home() {
   const [isIntroFinished, setIsIntroFinished] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  
+  const [homeText, setHomeText] = useState({
+    title1: "Bergerak Bersama ",
+    title2: "Berkarya untuk Peradaban",
+    desc: "Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan."
+  });
+  
+  const [profileData, setProfileData] = useState<any>(null);
+  const [bidangData, setBidangData] = useState<any[]>([]);
+  const [dokumentasiData, setDokumentasiData] = useState<any[]>([]);
+  const [beritaData, setBeritaData] = useState<any[]>([]);
+  const [eventsData, setEventsData] = useState<any[]>([]);
+  const [siteSettings, setSiteSettings] = useState<Record<string, string>>({});
 
   const isIntroLockedRef = useRef(false);
+
+  useEffect(() => {
+    getHomeSettings().then(data => {
+      setHomeText({
+        title1: data.hero_title_1,
+        title2: data.hero_title_2,
+        desc: data.hero_description
+      });
+    });
+    
+    getProfileSettings().then(data => setProfileData(data));
+    getBidangSettings().then(data => setBidangData(data || []));
+    getDokumentasiSettings().then(data => setDokumentasiData(data || []));
+    getBeritaSettings().then(data => setBeritaData(data || []));
+    getEvents().then(data => setEventsData(data || []));
+    getSettings().then(data => setSiteSettings(data));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,9 +162,9 @@ export default function Home() {
           
           <div className="flex items-center gap-4 pointer-events-auto">
             {/* Desktop Join Button */}
-            <button className={`hidden md:block rounded-[10px] px-[16px] py-[8px] text-sm font-normal backdrop-blur-md shadow-lg transition-all duration-300 ${navbarTheme === 'light' ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
+            <a href={siteSettings?.cta_registration_url || "#"} target="_blank" rel="noopener noreferrer" className={`hidden md:block rounded-[10px] px-[16px] py-[8px] text-sm font-normal backdrop-blur-md shadow-lg transition-all duration-300 ${navbarTheme === 'light' ? 'bg-[#280000] text-white hover:bg-[#6d0100]' : 'bg-white/20 border border-white/40 text-white hover:bg-white/30 drop-shadow-md'}`}>
               Join IMM
-            </button>
+            </a>
             
             {/* Mobile Hamburger */}
             <button 
@@ -174,9 +198,9 @@ export default function Home() {
             <Link href="/creative-minority" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Creative Minority</Link>
             <a href="#kontak" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#6d0100] transition-colors">Kontak</a>
             <hr className="border-[#280000]/10 my-2" />
-            <button className="bg-[#6d0100] text-white py-3 rounded-xl font-normal hover:bg-[#a90a05] transition-colors w-full">
+            <a href={siteSettings?.cta_registration_url || "#"} target="_blank" rel="noopener noreferrer" className="bg-[#6d0100] text-white py-3 rounded-xl font-normal hover:bg-[#a90a05] transition-colors w-full text-center">
               Join IMM
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -222,12 +246,12 @@ export default function Home() {
               }}
             >
               <h1 className="font-serif text-5xl md:text-7xl font-normal leading-tight tracking-tight mb-6">
-                <TypewriterText text="Bergerak Bersama " />
+                <TypewriterText text={homeText.title1} />
                 <br className="hidden md:block"/>
-                <TypewriterText text="Berkarya untuk Peradaban" />
+                <TypewriterText text={homeText.title2} />
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-[700px] font-light mb-10 min-h-[150px] md:min-h-[120px]">
-                <TypewriterText text="Pimpinan Komisariat Ikatan Mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta adalah wadah perkaderan yang progresif, mengintegrasikan intelektualitas, spiritualitas, dan humanitas untuk membangun generasi emas masa depan." />
+                <TypewriterText text={homeText.desc} />
               </p>
 
             </div>
@@ -306,16 +330,16 @@ export default function Home() {
           
           <div className="flex flex-col items-center max-w-[1000px]">
             <h2 className="font-serif text-4xl md:text-6xl font-normal leading-tight tracking-tight mb-6 text-[#6d0100]">
-              Menciptakan Kader Berintelektual Tinggi & Berakhlak Mulia
+              {profileData?.mainTitle || "Menciptakan Kader Berintelektual Tinggi & Berakhlak Mulia"}
             </h2>
             <p className="text-lg md:text-xl font-light text-gray-700">
-              Ikatan Mahasiswa Muhammadiyah (IMM) adalah organisasi otonom Muhammadiyah yang bergerak di bidang keagamaan, kemahasiswaan, dan kemasyarakatan. PK IMM FAI UMY berkomitmen untuk menjadi inkubator kepemimpinan yang berlandaskan Trilogi IMM: Keagamaan, Kemahasiswaan, dan Kemasyarakatan.
+              {profileData?.mainDesc || "Ikatan Mahasiswa Muhammadiyah (IMM) adalah organisasi otonom Muhammadiyah yang bergerak di bidang keagamaan, kemahasiswaan, dan kemasyarakatan."}
             </p>
           </div>
           
           <div className="w-full">
             <img 
-              src="/Profileimm.jpg" 
+              src={profileData?.mainImage || "/Profileimm.jpg"} 
               alt="Profile IMM FAI UMY" 
               className="w-full h-auto max-h-[80vh] object-cover rounded-[32px] shadow-2xl"
             />
@@ -326,102 +350,48 @@ export default function Home() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16">
               
-              {/* Organic Blob Portrait 1 */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
-                <div className="relative w-48 h-48 flex-shrink-0 flex items-end justify-center">
-                  {/* Organic Blob Background */}
-                  <div 
-                    className="absolute inset-0 bg-[linear-gradient(135deg,#6d0100,#f92727)] transition-all duration-500 group-hover:scale-105"
-                    style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}
-                  ></div>
-                  <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
-                    <img 
-                      src="/pengurus-4.png" 
-                      alt="Foto Ketua Umum" 
-                      className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
-                    />
+              {(profileData?.pengurus || []).map((p: any, idx: number) => {
+                const gradients = [
+                  "bg-[linear-gradient(135deg,#6d0100,#f92727)]",
+                  "bg-[linear-gradient(135deg,#f8cf0f,#f7aa09)]",
+                  "bg-[linear-gradient(135deg,#6d0100,#f92727)]",
+                  "bg-[linear-gradient(135deg,#ffcfcf,#f92727)]"
+                ];
+                const borders = [
+                  "60% 40% 30% 70% / 60% 30% 70% 40%",
+                  "40% 60% 70% 30% / 40% 50% 60% 50%",
+                  "50% 50% 40% 60% / 60% 40% 70% 50%",
+                  "70% 30% 50% 50% / 30% 60% 40% 70%"
+                ];
+                
+                return (
+                  <div key={idx} className="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
+                    <div className="relative w-48 h-48 flex-shrink-0 flex items-end justify-center">
+                      <div 
+                        className={`absolute inset-0 ${gradients[idx % 4]} transition-all duration-500 group-hover:scale-105`}
+                        style={{ borderRadius: borders[idx % 4] }}
+                      ></div>
+                      <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
+                        <img 
+                          src={p.img} 
+                          alt={`Foto ${p.name}`} 
+                          className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
+                      <h4 className="font-serif text-2xl font-normal text-[#280000]">{p.name}</h4>
+                      <p className={`${idx % 2 === 0 ? "text-[#6d0100]" : "text-[#f7aa09]"} font-medium text-lg`}>
+                        {p.role} <span className="text-sm font-normal text-gray-500">({p.batch})</span>
+                      </p>
+                      <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
+                        {p.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Agung Rezki</h4>
-                  <p className="text-[#6d0100] font-medium text-lg">Ketua Umum <span className="text-sm font-normal text-gray-500">(PAI 23)</span></p>
-                  <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
-                    Bertanggung jawab atas seluruh kegiatan manajerial dan operasional PK IMM FAI UMY.
-                  </p>
-                </div>
-              </div>
+                );
+              })}
 
-              {/* Organic Blob Portrait 2 */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
-                <div className="relative w-48 h-48 flex-shrink-0 flex items-end justify-center">
-                  <div 
-                    className="absolute inset-0 bg-[linear-gradient(135deg,#f8cf0f,#f7aa09)] transition-all duration-500 group-hover:scale-105"
-                    style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}
-                  ></div>
-                  <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
-                    <img 
-                      src="/pengurus-3.png" 
-                      alt="Foto Sekum" 
-                      className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Zulfa Safinatun Najwa</h4>
-                  <p className="text-[#f7aa09] font-medium text-lg">Sekretaris Umum <span className="text-sm font-normal text-gray-500">(KPI 23)</span></p>
-                  <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
-                    Mengurus administrasi, korespondensi, dan pengarsipan data organisasi.
-                  </p>
-                </div>
-              </div>
-
-              {/* Organic Blob Portrait 3 */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
-                <div className="relative w-48 h-48 flex-shrink-0 flex items-end justify-center">
-                  <div 
-                    className="absolute inset-0 bg-[linear-gradient(135deg,#6d0100,#f92727)] transition-all duration-500 group-hover:scale-105"
-                    style={{ borderRadius: '50% 50% 40% 60% / 60% 40% 70% 50%' }}
-                  ></div>
-                  <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
-                    <img 
-                      src="/pengurus-1.png" 
-                      alt="Foto Sek 1" 
-                      className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Safira Dewi Maharani</h4>
-                  <p className="text-[#6d0100] font-medium text-lg">Sekretaris Satu <span className="text-sm font-normal text-gray-500">(Eksya 23)</span></p>
-                  <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
-                    Membantu Sekretaris Umum dalam mengelola kesekretariatan dan pendataan.
-                  </p>
-                </div>
-              </div>
-
-              {/* Organic Blob Portrait 4 */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
-                <div className="relative w-48 h-48 flex-shrink-0 flex items-end justify-center">
-                  <div 
-                    className="absolute inset-0 bg-[linear-gradient(135deg,#ffcfcf,#f92727)] transition-all duration-500 group-hover:scale-105"
-                    style={{ borderRadius: '70% 30% 50% 50% / 30% 60% 40% 70%' }}
-                  ></div>
-                  <div className="relative z-10 w-[90%] h-[120%] flex items-end justify-center">
-                    <img 
-                      src="/pengurus-2.png" 
-                      alt="Foto Bendum" 
-                      className="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center text-center sm:text-left mt-4 sm:mt-8">
-                  <h4 className="font-serif text-2xl font-normal text-[#280000]">Alia Ghaza Partasti</h4>
-                  <p className="text-[#f92727] font-medium text-lg">Bendahara Umum <span className="text-sm font-normal text-gray-500">(Eksya 23)</span></p>
-                  <p className="text-gray-500 mt-2 text-sm max-w-[250px]">
-                    Mengelola sirkulasi keuangan organisasi dan pembukuan anggaran kepanitiaan.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -431,19 +401,15 @@ export default function Home() {
               <div className="bg-white/40 backdrop-blur-md rounded-[32px] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-shadow border border-white/50 flex flex-col items-center">
                 <h4 className="font-serif text-2xl font-normal text-[#280000] mb-6">Visi</h4>
                 <p className="text-gray-700 font-normal leading-relaxed text-center">
-                  "Revitalisasi gerakan IMM FAI UMY yang mengutamakan perkaderan dan pergerakan berbasis nilai-nilai sehingga terciptanya gerakan yang inklusif dan adaptif".
+                  {profileData?.visi || "\"Revitalisasi gerakan IMM FAI UMY yang mengutamakan perkaderan dan pergerakan berbasis nilai-nilai sehingga terciptanya gerakan yang inklusif dan adaptif\"."}
                 </p>
               </div>
               <div className="bg-white/40 backdrop-blur-md rounded-[32px] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-shadow border border-white/50 flex flex-col items-center">
                 <h4 className="font-serif text-2xl font-normal text-[#280000] mb-6">Misi</h4>
                 <ul className="text-gray-700 font-normal leading-relaxed list-disc list-outside ml-4 space-y-3">
-                  <li>Reaktualisasi gerakan keilmuan sebagai basis terciptanya organisasi yang berintelektual.</li>
-                  <li>Revitalisasi metode perkaderan yang adaptif menyesuaikan modernisasi manusia.</li>
-                  <li>Mengoptimalkan digitalisasi organisasi sebagai basis penguatan dakwah dan pergerakan.</li>
-                  <li>Membangun kepemimpinan yang berasaskan kolektif dan profesionalitas.</li>
-                  <li>Mengusahakan pergerakan yang inklusif dengan top-down dan bottom-up.</li>
-                  <li>Memaksimalkan digitalisasi gerakan untuk memperluas jaringan dan penyebaran nilai profetik.</li>
-                  <li>Internalisasi pengembangan diri kader sehingga berdampak positif bagi lingkungan.</li>
+                  {(profileData?.misi || "").split('\n').filter((m: string) => m.trim() !== "").map((misi: string, idx: number) => (
+                    <li key={idx}>{misi}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -523,6 +489,7 @@ export default function Home() {
           
           <div className="w-full max-w-[1200px] mx-auto relative z-10 flex justify-center">
             <MagicBento 
+              data={dokumentasiData}
               textAutoHide={false}
               enableStars={true}
               enableSpotlight={true}
@@ -544,92 +511,36 @@ export default function Home() {
           <h2 className="relative z-10 font-serif text-4xl md:text-6xl font-normal mb-12 text-[#6d0100] text-center">Berita & Artikel</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1200px] relative z-10">
-          {/* Card 1 */}
-          <a 
-            href="https://share.google/ldoJxY0qIybghHsc9"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 hover:shadow-2xl shadow-xl transition-all cursor-pointer overflow-hidden group"
-            style={{ 
-              background: 'rgba(255, 255, 255, 0.4)',
-              backdropFilter: 'url(#liquid-glass) blur(16px)',
-              WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              border: '1px solid rgba(255, 255, 255, 1)'
-            }}
-          >
-            <div className="w-full h-48 relative overflow-hidden bg-gray-200">
-              <img src="/berita/berita-1.jpg" alt="Kompas Profetik ISP" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <div className="text-xs font-normal text-gray-500 tracking-wider mb-3">Kabar Muhammadiyah</div>
-              <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">Menata Ulang Kompas Profetik: Penyusunan Alat Ukur Implementasi ISP dalam Grand Design PK IMM FAI UMY</h3>
-              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
-                Agenda penyusunan alat ukur implementasi Ideologi, Strategi, dan Taktik Perjuangan (ISP) dalam kerangka Grand Design pergerakan komisariat.
-              </p>
-              <div className="text-xs text-gray-500 font-normal flex items-center justify-between">
-                <span>7 Juli 2026</span>
-                <span>Baca</span>
+          {beritaData.map((berita, i) => (
+            <a 
+              key={i}
+              href={berita.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 hover:shadow-2xl shadow-xl transition-all cursor-pointer overflow-hidden group"
+              style={{ 
+                background: 'rgba(255, 255, 255, 0.4)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                border: '1px solid rgba(255, 255, 255, 1)'
+              }}
+            >
+              <div className="w-full h-48 relative overflow-hidden bg-gray-200">
+                <img src={berita.image} alt={berita.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
-            </div>
-          </a>
-
-          {/* Card 2 */}
-          <a 
-            href="https://rri.co.id/yogyakarta/budaya/2590526/dahlan-culture-festival-2026-perkuat-dakwah-kultural-lewat-sastra-profetik?nocache=true"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 hover:shadow-2xl shadow-xl transition-all cursor-pointer overflow-hidden group"
-            style={{ 
-              background: 'rgba(255, 255, 255, 0.4)',
-              backdropFilter: 'url(#liquid-glass) blur(16px)',
-              WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              border: '1px solid rgba(255, 255, 255, 1)'
-            }}
-          >
-            <div className="w-full h-48 relative overflow-hidden bg-gray-200">
-              <img src="/berita/berita-2.webp" alt="Dahlan Culture Festival" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <div className="text-xs font-normal text-gray-500 tracking-wider mb-3">RRI Budaya</div>
-              <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">Dahlan Culture Festival 2026 Perkuat Dakwah Kultural lewat Sastra Profetik</h3>
-              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
-                IMM FAI UMY menggelar Dahlan Culture Festival 2026 sebagai ruang ekspresi bagi kader se-DIY untuk mengaktualisasikan kreativitas dan memperkuat dakwah kultural melalui sastra profetik.
-              </p>
-              <div className="text-xs text-gray-500 font-normal flex items-center justify-between">
-                <span>23 Juli 2026</span>
-                <span>Baca</span>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="text-xs font-normal text-gray-500 tracking-wider mb-3">{berita.source}</div>
+                <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">{berita.title}</h3>
+                <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
+                  {berita.description}
+                </p>
+                <div className="text-xs text-gray-500 font-normal flex items-center justify-between">
+                  <span>{berita.date}</span>
+                  <span>Baca</span>
+                </div>
               </div>
-            </div>
-          </a>
-
-          {/* Card 3 */}
-          <a 
-            href="https://wartaptm.id/imm-fai-umy-luncurkan-majalah-bahlil-angkat-isu-perempuan-lewat-studium-generale/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full rounded-[24px] flex flex-col hover:scale-105 hover:shadow-2xl shadow-xl transition-all cursor-pointer overflow-hidden group"
-            style={{ 
-              background: 'rgba(255, 255, 255, 0.4)',
-              backdropFilter: 'url(#liquid-glass) blur(16px)',
-              WebkitBackdropFilter: 'url(#liquid-glass) blur(16px)',
-              border: '1px solid rgba(255, 255, 255, 1)'
-            }}
-          >
-            <div className="w-full h-48 relative overflow-hidden bg-gray-200">
-              <img src="/berita/berita-3.jpg" alt="Majalah BAHL1L" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <div className="text-xs font-normal text-gray-500 tracking-wider mb-3">Warta PTM</div>
-              <h3 className="text-xl font-serif text-[#280000] mb-3 line-clamp-2 leading-snug">IMM FAI UMY Luncurkan Majalah BAHL1L, Angkat Isu Perempuan</h3>
-              <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-6 font-normal">
-                Peluncuran Majalah BAHL1L dan pelaksanaan studium generale yang mengangkat isu keperempuanan sebagai wujud nyata gerakan intelektual kader IMM FAI UMY.
-              </p>
-              <div className="text-xs text-gray-500 font-normal flex items-center justify-between">
-                <span>28 April 2026</span>
-                <span>Baca</span>
-              </div>
-            </div>
-          </a>
+            </a>
+          ))}
         </div>
       </section>
       </div> {/* End of DOKUMENTASI & BERITA CANVAS */}
@@ -641,7 +552,7 @@ export default function Home() {
         <h2 className="font-serif text-4xl md:text-6xl font-normal mb-12 text-white text-center drop-shadow-md">Kalender Kegiatan</h2>
         
         <div className="w-full max-w-[1400px] relative z-10">
-          <IMMCalendar />
+          <IMMCalendar events={eventsData} />
         </div>
       </section>
 
@@ -659,7 +570,9 @@ export default function Home() {
             Bergabunglah bersama ribuan kader lainnya untuk bertransformasi menjadi insan kamil yang bermanfaat bagi umat dan bangsa. Perjalanan intelektualmu dimulai di sini.
           </p>
           <a 
-            href="#"
+            href={siteSettings?.cta_registration_url || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 px-8 py-4 bg-white text-[#6d0100] rounded-full font-normal text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300"
           >
             Join IMM
@@ -679,8 +592,8 @@ export default function Home() {
               <img src="/logo.png" alt="IMM Logo" className="w-[56px] h-[56px] object-contain drop-shadow-md" />
               <span className="font-serif text-2xl font-normal">PK IMM FAI UMY</span>
             </div>
-            <p className="text-gray-600 font-normal text-sm md:text-base leading-relaxed mb-8">
-              Wadah perkaderan mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta yang berlandaskan intelektualitas, religiusitas, dan humanitas.
+            <p className="text-gray-600 font-normal text-sm md:text-base leading-relaxed mb-8 whitespace-pre-line">
+              {siteSettings?.footer_description || "Wadah perkaderan mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta yang berlandaskan intelektualitas, religiusitas, dan humanitas."}
             </p>
           </div>
 
@@ -702,7 +615,8 @@ export default function Home() {
               <a href="#kalender" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Kalender</a>
               <a href="#agenda" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Agenda</a>
               <a href="#kontak" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Kontak</a>
-              <a href="#join" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Join IMM</a>
+              <a href={siteSettings?.cta_registration_url || "#"} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Join IMM</a>
+              <a href="/login" className="text-gray-600 hover:text-[#f92727] transition-colors font-normal">Login</a>
             </div>
           </div>
 
@@ -713,37 +627,31 @@ export default function Home() {
               href="https://maps.google.com/?q=Gedung+Ki+Bagus+Hadikusumo+UMY+Yogyakarta" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#f92727] font-normal text-sm md:text-base leading-relaxed transition-colors hover:underline mb-4"
+              className="text-gray-600 hover:text-[#f92727] font-normal text-sm md:text-base leading-relaxed transition-colors hover:underline mb-4 whitespace-pre-line"
             >
-              Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta.
+              {siteSettings?.footer_address || "Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta."}
             </a>
             
             <div className="flex flex-col gap-2">
-              <a href="mailto:immfaiumy25@gmail.com" className="flex items-center gap-3 text-gray-600 hover:text-[#f92727] transition-colors group">
+              <a href={siteSettings?.contact_email ? `mailto:${siteSettings.contact_email}` : "#"} className="flex items-center gap-3 text-gray-600 hover:text-[#f92727] transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#f92727]/10 transition-colors shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
-                  </svg>
+                  <span className="material-symbols-outlined text-sm">mail</span>
                 </div>
-                <span className="font-normal text-sm md:text-base">immfaiumy25@gmail.com</span>
+                <span className="font-normal text-sm md:text-base">{siteSettings?.contact_email || "Belum ada email"}</span>
               </a>
               
-              <a href="https://instagram.com/imm.faiumy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-[#f92727] transition-colors group">
+              <a href={siteSettings?.contact_instagram || "#"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-[#f92727] transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#f92727]/10 transition-colors shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                  </svg>
+                  <span className="material-symbols-outlined text-sm">public</span>
                 </div>
-                <span className="font-normal text-sm md:text-base">@imm.faiumy</span>
+                <span className="font-normal text-sm md:text-base">Instagram</span>
               </a>
               
-              <a href="https://wa.me/6282147020828" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-[#f92727] transition-colors group">
+              <a href={siteSettings?.contact_whatsapp || "#"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-[#f92727] transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#f92727]/10 transition-colors shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-                  </svg>
+                  <span className="material-symbols-outlined text-sm">phone</span>
                 </div>
-                <span className="font-normal text-sm md:text-base">+62 821-4702-0828</span>
+                <span className="font-normal text-sm md:text-base">Hubungi Kami</span>
               </a>
             </div>
           </div>

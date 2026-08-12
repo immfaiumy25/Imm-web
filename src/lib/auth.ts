@@ -6,45 +6,63 @@ import bcrypt from "bcryptjs";
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: "OTP",
       credentials: {
-        username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" },
+        email: { label: "Email", type: "email" },
+        otp: { label: "OTP", type: "text" },
       },
       async authorize(credentials) {
-        if (!credentials?.username || !credentials?.password) {
-          return null;
+        if (!credentials?.email || !credentials?.otp) {
+          throw new Error("Email dan OTP harus diisi.");
         }
 
-        const user = await prisma.user.findUnique({
-          where: { username: credentials.username },
+        // 1. Cari OTP di database
+        const otpRecord = await prisma.otpVerification.findUnique({
+          where: { email: credentials.email },
+        });
+
+        if (!otpRecord) {
+          throw new Error("OTP tidak ditemukan atau belum di-request.");
+        }
+
+        // 2. Cek apakah OTP cocok
+        if (otpRecord.otp !== credentials.otp) {
+          throw new Error("Kode OTP salah.");
+        }
+
+        // 3. Cek apakah OTP expired
+        if (new Date() > otpRecord.expiresAt) {
+          throw new Error("Kode OTP sudah kedaluwarsa.");
+        }
+
+        // 4. Cari user
+        const user = await prisma.user.findFirst({
+          where: { email: credentials.email },
         });
 
         if (!user) {
-          return null;
+          throw new Error("Pengguna tidak ditemukan.");
         }
 
-        const isPasswordValid = await bcrypt.compare(
-          credentials.password,
-          user.password
-        );
-
-        if (!isPasswordValid) {
-          return null;
-        }
+        // 5. Hapus OTP yang sudah digunakan
+        await prisma.otpVerification.delete({
+          where: { email: credentials.email },
+        });
 
         return {
           id: user.id.toString(),
           name: user.username,
+          email: user.email,
         };
       },
     }),
   ],
   session: {
     strategy: "jwt",
+    maxAge: 7 * 24 * 60 * 60, // 7 days (1 week)
   },
   pages: {
-    signIn: "/admin/login",
+    signIn: "/login",
   },
   callbacks: {
     async jwt({ token, user }) {

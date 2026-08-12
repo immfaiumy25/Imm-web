@@ -24,57 +24,13 @@ export interface BentoProps {
   glowColor?: string;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  data?: BentoCardProps[];
 }
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '132, 0, 255';
 const MOBILE_BREAKPOINT = 768;
-
-const cardData: BentoCardProps[] = [
-  {
-    color: '#120F17',
-    title: 'Sekolah Kader',
-    description: 'Dokumentasi kegiatan kaderisasi untuk mencetak kader unggul IMM FAI UMY.',
-    label: 'Kaderisasi',
-    image: '/dokumentasi/sekolah-kader.jpeg'
-  },
-  {
-    color: '#120F17',
-    title: 'BAHL1L',
-    description: 'Bahas Literasi 1 Lembar, diskusi santai namun bermakna untuk mengasah intelektual.',
-    label: 'Intelektual',
-    image: '/dokumentasi/bahlil.jpeg'
-  },
-  {
-    color: '#120F17',
-    title: 'FURAB',
-    description: 'Fun Run Bersama Warga Desa Ledhok Timoho. Membangun kedekatan sosial melalui olahraga.',
-    label: 'Masyarakat',
-    image: '/dokumentasi/furab.jpeg'
-  },
-  {
-    color: '#120F17',
-    title: 'Saur On The Road',
-    description: 'Aksi sosial berbagi makanan sahur untuk masyarakat sekitar di bulan Ramadhan.',
-    label: 'Sosial',
-    image: '/dokumentasi/saur-on-the-road.jpeg'
-  },
-  {
-    color: '#120F17',
-    title: 'Sekolah Lentera',
-    description: 'Program pengabdian masyarakat untuk memberikan akses pendidikan yang lebih baik.',
-    label: 'Pengabdian',
-    image: '/dokumentasi/sekolah-lentera.jpeg'
-  },
-  {
-    color: '#120F17',
-    title: 'Malam Keakraban',
-    description: 'Merekatkan ukhuwah antar kader PK IMM FAI UMY melalui kegiatan keakraban.',
-    label: 'Organisasi',
-    image: '/dokumentasi/makrab.jpeg'
-  }
-];
 
 const createParticleElement = (x: number, y: number, color: string = DEFAULT_GLOW_COLOR): HTMLDivElement => {
   const el = document.createElement('div');
@@ -530,7 +486,8 @@ const MagicBento: React.FC<BentoProps> = ({
   enableTilt = true,
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
-  enableMagnetism = true
+  enableMagnetism = true,
+  data = []
 }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobileDetection();
@@ -549,7 +506,7 @@ const MagicBento: React.FC<BentoProps> = ({
       )}
 
       <BentoCardGrid gridRef={gridRef}>
-        {cardData.map((card, index) => {
+        {data.map((card, index) => {
           const baseClassName = `magic-bento-card ${textAutoHide ? 'magic-bento-card--text-autohide' : ''} ${enableBorderGlow ? 'magic-bento-card--border-glow' : ''}`;
           const cardProps = {
             className: baseClassName,

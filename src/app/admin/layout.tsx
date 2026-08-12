@@ -17,19 +17,48 @@ export default function AdminLayout({
   }
 
   const navItems = [
-    { name: "Dashboard", href: "/admin/dashboard", icon: "dashboard" },
+    { name: "Home", href: "/admin/dashboard", icon: "dashboard" },
+    { name: "Profil", href: "/admin/profil", icon: "badge" },
+    { name: "Bidang", href: "/admin/bidang", icon: "work" },
+    { name: "Dokumentasi", href: "/admin/galeri", icon: "photo_library" },
     { name: "Berita", href: "/admin/berita", icon: "article" },
-    { name: "Agenda", href: "/admin/agenda", icon: "event" },
-    { name: "Galeri", href: "/admin/galeri", icon: "photo_library" },
-    { name: "Settings", href: "/admin/settings", icon: "settings" },
+    { name: "Kalender", href: "/admin/agenda", icon: "event" },
+    { name: "Kontak", href: "/admin/settings", icon: "contacts" },
   ];
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <aside className="w-64 bg-primary text-white flex flex-col">
-        <div className="h-20 flex items-center justify-center border-b border-white/10 font-bold text-lg">
-          PK IMM FAI UMY Admin
+    <div 
+      className="flex h-screen w-full relative overflow-hidden p-4 md:p-6 gap-6"
+      style={{
+        background: "linear-gradient(-45deg, #6d0100, #a90a05, #f92727, #f8cf0f)",
+        backgroundSize: "400% 400%",
+        animation: "adminGradientBG 15s ease infinite"
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes adminGradientBG {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}} />
+      
+      {/* Background Blobs for Glass Effect */}
+      <div className="absolute top-[10%] left-[5%] w-[30%] h-[30%] rounded-full bg-white/10 blur-[80px] pointer-events-none mix-blend-overlay"></div>
+      <div className="absolute bottom-[10%] right-[20%] w-[25%] h-[25%] rounded-full bg-yellow-400/20 blur-[100px] pointer-events-none mix-blend-overlay"></div>
+
+      {/* Liquid Glass Sidebar (Card Form) */}
+      <aside 
+        className="w-64 flex flex-col relative z-20 rounded-[32px] border border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)] overflow-hidden"
+        style={{
+          background: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)'
+        }}
+      >
+        <div className="h-24 flex flex-col items-center justify-center border-b border-white/10">
+          <span className="font-medium text-lg text-white">PK IMM FAI UMY</span>
+          <span className="text-xs text-white/60 font-light">Portal Admin</span>
         </div>
         <nav className="flex-1 py-6 px-4 space-y-2">
           {navItems.map((item) => {
@@ -38,10 +67,10 @@ export default function AdminLayout({
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all font-normal ${
                   isActive
-                    ? "bg-white/20 text-white"
-                    : "text-white/70 hover:bg-white/10 hover:text-white"
+                    ? "bg-white/25 text-white shadow-[0_4px_12px_0_rgba(0,0,0,0.1)] border border-white/40"
+                    : "text-white/70 hover:bg-white/10 hover:text-white border border-transparent"
                 }`}
               >
                 <span className="material-symbols-outlined">{item.icon}</span>
@@ -52,22 +81,30 @@ export default function AdminLayout({
         </nav>
         <div className="p-4 border-t border-white/10">
           <button
-            onClick={() => signOut({ callbackUrl: "/" })}
-            className="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 hover:text-white w-full transition-colors"
+            onClick={() => signOut({ callbackUrl: "/login" })}
+            className="flex items-center justify-center gap-3 px-4 py-3 rounded-2xl text-white/70 hover:bg-white/20 hover:text-white w-full transition-all font-normal"
           >
             <span className="material-symbols-outlined">logout</span>
-            Logout
+            Keluar
           </button>
         </div>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 flex flex-col overflow-hidden">
+      {/* Main Content Area */}
+      <main 
+        className="flex-1 flex flex-col relative z-10 rounded-[32px] border border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)] overflow-hidden"
+        style={{
+          background: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)'
+        }}
+      >
         {/* Top Header */}
-        <header className="h-20 bg-white border-b flex items-center justify-end px-8 shadow-sm">
+        <header className="h-20 border-b border-white/10 flex items-center justify-between px-8 bg-white/5">
+          <div className="text-white font-medium">Dashboard</div>
           <div className="flex items-center gap-4">
-            <span className="font-medium text-gray-700">Admin</span>
-            <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+            <span className="font-normal text-white/80 text-sm">Hai, Admin</span>
+            <div className="w-10 h-10 rounded-full bg-white text-[#6d0100] flex items-center justify-center font-medium shadow-md">
               A
             </div>
           </div>

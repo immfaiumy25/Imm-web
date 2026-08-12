@@ -3,6 +3,14 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
+export async function getSettings() {
+  const settings = await prisma.siteSetting.findMany();
+  return settings.reduce((acc, cur) => {
+    acc[cur.key] = cur.value;
+    return acc;
+  }, {} as Record<string, string>);
+}
+
 export async function updateSetting(key: string, value: string) {
   await prisma.siteSetting.upsert({
     where: { key },
@@ -15,23 +23,25 @@ export async function updateSetting(key: string, value: string) {
 }
 
 export async function updateAllSettings(formData: FormData) {
-  const ctaLink = formData.get("cta_registration_url") as string;
-  const contactWa = formData.get("contact_whatsapp") as string;
+  const keys = [
+    "footer_description",
+    "cta_registration_url",
+    "contact_instagram",
+    "contact_email",
+    "contact_whatsapp",
+    "footer_address"
+  ];
 
-  if (ctaLink !== null) {
-    await prisma.siteSetting.upsert({
-      where: { key: "cta_registration_url" },
-      update: { value: ctaLink },
-      create: { key: "cta_registration_url", value: ctaLink },
-    });
-  }
-
-  if (contactWa !== null) {
-    await prisma.siteSetting.upsert({
-      where: { key: "contact_whatsapp" },
-      update: { value: contactWa },
-      create: { key: "contact_whatsapp", value: contactWa },
-    });
+  for (const key of keys) {
+    const value = formData.get(key);
+    if (value !== null) {
+      const valStr = value.toString();
+      await prisma.siteSetting.upsert({
+        where: { key },
+        update: { value: valStr },
+        create: { key, value: valStr },
+      });
+    }
   }
 
   revalidatePath("/admin/settings");

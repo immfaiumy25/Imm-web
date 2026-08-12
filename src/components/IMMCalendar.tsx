@@ -2,25 +2,47 @@
 
 import React, { useState, useEffect } from 'react';
 
-// Example events
-const dummyEvents = [
-  { date: new Date(2026, 7, 15), title: 'Kajian Rutin NDP', time: '15:30 WIB', location: 'Masjid KH Ahmad Dahlan' },
-  { date: new Date(2026, 7, 20), title: 'Rapat Bidang Organisasi', time: '20:00 WIB', location: 'Sekretariat IMM' },
-  { date: new Date(2026, 7, 25), title: 'Diskusi Isu Terkini', time: '16:00 WIB', location: 'Plaza Bintang' },
-  { date: new Date(2026, 7, 2), title: 'Darul Arqam Dasar', time: '08:00 WIB', location: 'Pusbang' },
-  { date: new Date(2026, 7, 3), title: 'Darul Arqam Dasar', time: '08:00 WIB', location: 'Pusbang' },
-  { date: new Date(2026, 7, 4), title: 'Darul Arqam Dasar', time: '08:00 WIB', location: 'Pusbang' },
-];
+interface IMMCalendarProps {
+  events?: any[];
+  isAdmin?: boolean;
+  onDeleteEvent?: (id: number) => void;
+  onAddEvent?: (date: Date, title: string, time: string, location: string) => void;
+  selectedDate?: Date;
+  onSelectDate?: (date: Date) => void;
+}
 
-export default function IMMCalendar() {
+export default function IMMCalendar({ events = [], isAdmin = false, onDeleteEvent, onAddEvent, selectedDate: externalSelectedDate, onSelectDate }: IMMCalendarProps) {
+  // Convert eventDate string back to Date object for frontend usage
+  const parsedEvents = events.map(e => ({
+    id: e.id,
+    date: new Date(e.eventDate),
+    title: e.title,
+    time: e.description || "",
+    location: e.location || ""
+  }));
+
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [internalSelectedDate, setInternalSelectedDate] = useState<Date>(new Date());
   const [mounted, setMounted] = useState(false);
+  
+  const selectedDate = externalSelectedDate || internalSelectedDate;
+  const handleSelectDate = (d: Date) => {
+    if (onSelectDate) onSelectDate(d);
+    else setInternalSelectedDate(d);
+  };
+  
+  // States for adding a new event
+  const [newTitle, setNewTitle] = useState("");
+  const [newTime, setNewTime] = useState("");
+  const [newLocation, setNewLocation] = useState("");
+  const [isAdding, setIsAdding] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     setCurrentDate(new Date());
-    setSelectedDate(new Date());
+    if (!externalSelectedDate) {
+      setInternalSelectedDate(new Date());
+    }
   }, []);
 
   if (!mounted) return <div className="w-full min-h-[500px] rounded-2xl animate-pulse bg-white/10"></div>;
@@ -48,7 +70,7 @@ export default function IMMCalendar() {
   const today = new Date();
 
   // Selected date events
-  const selectedDayEvents = dummyEvents.filter(
+  const selectedDayEvents = parsedEvents.filter(
     e => e.date.getDate() === selectedDate.getDate() && 
          e.date.getMonth() === selectedDate.getMonth() && 
          e.date.getFullYear() === selectedDate.getFullYear()
@@ -68,14 +90,14 @@ export default function IMMCalendar() {
     const currentDayDate = new Date(year, month, i);
     
     // Check if this date has events to show a small dot
-    const hasEvents = dummyEvents.some(
+    const hasEvents = parsedEvents.some(
       e => e.date.getDate() === i && e.date.getMonth() === month && e.date.getFullYear() === year
     );
 
     days.push(
       <div 
         key={`day-${i}`} 
-        onClick={() => setSelectedDate(currentDayDate)}
+        onClick={() => handleSelectDate(currentDayDate)}
         className={`p-2 md:p-4 border-b border-r border-white/10 min-h-[80px] md:min-h-[100px] transition-all cursor-pointer flex flex-col items-center justify-center relative
         ${!isSelected && 'hover:bg-white/10'}
         ${isSelected ? 'bg-white/20' : ''}`}
@@ -123,7 +145,7 @@ export default function IMMCalendar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <button onClick={() => { setCurrentDate(new Date()); setSelectedDate(new Date()); }} className="px-4 py-2 hover:bg-white/20 rounded-md transition-colors text-sm font-normal tracking-wide text-white">
+            <button onClick={() => { setCurrentDate(new Date()); handleSelectDate(new Date()); }} className="px-4 py-2 hover:bg-white/20 rounded-md transition-colors text-sm font-normal tracking-wide text-white">
               Hari Ini
             </button>
             <button onClick={handleNextMonth} className="p-2 hover:bg-white/20 rounded-md transition-colors text-white" aria-label="Bulan Berikutnya">
@@ -157,12 +179,12 @@ export default function IMMCalendar() {
           </p>
         </div>
         
-        <div className="p-6 flex-grow">
-          {selectedDayEvents.length > 0 ? (
-            <div className="space-y-4">
-              {selectedDayEvents.map((evt, idx) => (
-                <div key={idx} className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition-colors">
-                  <h5 className="font-normal text-lg text-white mb-2">{evt.title}</h5>
+        <div className="p-6 flex-grow flex flex-col">
+          <div className="flex-grow space-y-4">
+            {selectedDayEvents.length > 0 ? (
+              selectedDayEvents.map((evt, idx) => (
+                <div key={idx} className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition-colors relative group">
+                  <h5 className="font-normal text-lg text-white mb-2 pr-8">{evt.title}</h5>
                   {evt.time && (
                     <div className="flex items-center text-sm text-white/80 mb-1 font-normal">
                       <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -180,18 +202,30 @@ export default function IMMCalendar() {
                       {evt.location}
                     </div>
                   )}
+                  {isAdmin && onDeleteEvent && evt.id && (
+                    <button 
+                      onClick={() => onDeleteEvent(evt.id)}
+                      className="absolute top-4 right-4 text-white/40 hover:text-red-400 transition-colors"
+                      title="Hapus Agenda"
+                    >
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      </svg>
+                    </button>
+                  )}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="h-full flex flex-col items-center justify-center text-center text-white/40 mt-10">
-              <svg className="w-16 h-16 mb-4 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <p className="font-normal text-lg text-white/60">Tidak ada agenda</p>
-              <p className="text-sm font-normal mt-1">pada tanggal ini</p>
-            </div>
-          )}
+              ))
+            ) : (
+              <div className="flex flex-col items-center justify-center text-center text-white/40 mt-6">
+                <svg className="w-12 h-12 mb-3 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p className="font-normal text-md text-white/60">Tidak ada agenda</p>
+                <p className="text-xs font-normal mt-1">pada tanggal ini</p>
+              </div>
+            )}
+          </div>
+          
         </div>
       </div>
       

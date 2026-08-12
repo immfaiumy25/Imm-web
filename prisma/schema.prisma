@@ -10,9 +10,20 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   username  String   @unique
+  email     String?  @unique
   password  String
   createdAt DateTime @default(now())
   news      News[]
+}
+
+model OtpVerification {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  otp           String
+  expiresAt     DateTime
+  createdAt     DateTime @default(now())
+  requestCount  Int      @default(0)
+  lastRequestAt DateTime @default(now())
 }
 
 model News {
@@ -47,5 +58,5 @@ model Gallery {
 model SiteSetting {
   id    Int    @id @default(autoincrement())
   key   String @unique
-  value String
+  value String @db.LongText
 }

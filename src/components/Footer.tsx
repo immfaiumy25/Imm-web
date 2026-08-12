@@ -1,7 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { prisma } from "@/lib/prisma";
 
-export default function Footer() {
+export default async function Footer() {
+  const settings = await prisma.siteSetting.findMany();
+  const getVal = (key: string, defaultVal: string) => settings.find(s => s.key === key)?.value || defaultVal;
+
+  const description = getVal("footer_description", "Wadah perkaderan mahasiswa Muhammadiyah Fakultas Agama Islam Universitas Muhammadiyah Yogyakarta yang berlandaskan intelektualitas, religiusitas, dan humanitas.");
+  const instagram = getVal("contact_instagram", "#");
+  const email = getVal("contact_email", "");
+  const whatsapp = getVal("contact_whatsapp", "#");
+  const address = getVal("footer_address", "Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya, Kasihan, Bantul, Yogyakarta.");
+
   return (
     <footer id="kontak" className="bg-surface-container-highest pt-[var(--spacing-section-gap)] pb-12 rounded-t-[20px] shadow-[0px_-10px_30px_rgba(75,32,37,0.05)]">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-margin-desktop)] grid grid-cols-1 md:grid-cols-4 gap-[var(--spacing-gutter)] mb-20">
@@ -19,20 +29,18 @@ export default function Footer() {
             </span>
           </div>
           <p className="text-on-surface-variant mb-8 leading-relaxed">
-            Wadah perkaderan mahasiswa Muhammadiyah Fakultas Agama Islam
-            Universitas Muhammadiyah Yogyakarta yang berlandaskan
-            intelektualitas, religiusitas, dan humanitas.
+            {description}
           </p>
           <div className="flex gap-4">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
+            <a href={instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
               <span className="material-symbols-outlined text-sm">public</span>
-            </div>
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
+            </a>
+            <a href={email ? `mailto:${email}` : "#"} className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
               <span className="material-symbols-outlined text-sm">mail</span>
-            </div>
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
+            </a>
+            <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
               <span className="material-symbols-outlined text-sm">phone</span>
-            </div>
+            </a>
           </div>
         </div>
         <div>
@@ -101,6 +109,14 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                href="/login"
+                className="text-on-surface-variant hover:text-[#f92727] font-medium transition-transform hover:translate-x-1 block"
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="#"
                 className="text-on-surface-variant hover:text-primary transition-transform hover:translate-x-1 block"
               >
@@ -111,9 +127,8 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="font-bold text-primary mb-8 text-lg">Sekretariat</h4>
-          <p className="text-on-surface-variant mb-6">
-            Gedung Ki Bagus Hadikusumo (G6), Kampus Terpadu UMY, Jl. Brawijaya,
-            Kasihan, Bantul, Yogyakarta.
+          <p className="text-on-surface-variant mb-6 whitespace-pre-line">
+            {address}
           </p>
           <div className="w-full h-32 rounded-xl bg-surface-container overflow-hidden grayscale relative">
             <div className="w-full h-full flex items-center justify-center">
