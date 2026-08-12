@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
@@ -13,6 +15,7 @@ export default function AdminLayout({
   const { data: session } = useSession();
   const username = session?.user?.name || "Admin";
   const initial = username.charAt(0).toUpperCase();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Don't show sidebar on login page
   if (pathname === "/admin/login") {
@@ -32,7 +35,7 @@ export default function AdminLayout({
 
   return (
     <div 
-      className="flex h-screen w-full relative overflow-hidden p-4 md:p-6 gap-6"
+      className="flex h-screen w-full relative overflow-hidden p-2 sm:p-4 md:p-6 gap-0 md:gap-6"
       style={{
         background: "linear-gradient(-45deg, #6d0100, #a90a05, #f92727, #f8cf0f)",
         backgroundSize: "400% 400%",
@@ -53,7 +56,7 @@ export default function AdminLayout({
 
       {/* Liquid Glass Sidebar (Card Form) */}
       <aside 
-        className="w-64 flex flex-col relative z-20 rounded-[32px] border border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)] overflow-hidden"
+        className={`w-64 flex flex-col absolute md:relative z-[60] rounded-[32px] border border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)] overflow-hidden h-[calc(100%-16px)] sm:h-[calc(100%-32px)] md:h-full transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-[120%] md:translate-x-0'}`}
         style={{
           background: 'rgba(255, 255, 255, 0.15)',
           backdropFilter: 'blur(20px)',
@@ -71,6 +74,7 @@ export default function AdminLayout({
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all font-normal ${
                   isActive
                     ? "bg-white/25 text-white shadow-[0_4px_12px_0_rgba(0,0,0,0.1)] border border-white/40"
@@ -94,9 +98,17 @@ export default function AdminLayout({
         </div>
       </aside>
 
+      {/* Overlay for mobile */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/40 z-[50] md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Main Content Area */}
       <main 
-        className="flex-1 flex flex-col relative z-10 rounded-[32px] border border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)] overflow-hidden"
+        className="flex-1 flex flex-col relative z-10 rounded-[32px] border border-white/30 shadow-[0_8px_32px_0_rgba(109,1,0,0.37)] overflow-hidden h-full"
         style={{
           background: 'rgba(255, 255, 255, 0.15)',
           backdropFilter: 'blur(20px)',
@@ -104,8 +116,16 @@ export default function AdminLayout({
         }}
       >
         {/* Top Header */}
-        <header className="h-20 border-b border-white/10 flex items-center justify-between px-8 bg-white/5">
-          <div className="text-white font-medium">Dashboard</div>
+        <header className="h-20 border-b border-white/10 flex items-center justify-between px-4 sm:px-8 bg-white/5">
+          <div className="flex items-center gap-3">
+            <button 
+              className="md:hidden text-white hover:bg-white/10 p-2 rounded-xl transition-colors"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <span className="material-symbols-outlined">menu</span>
+            </button>
+            <div className="text-white font-medium truncate hidden sm:block">Dashboard</div>
+          </div>
           <div className="flex items-center gap-4">
             <span className="font-normal text-white/80 text-sm">Hai, {username}</span>
             <div className="w-10 h-10 rounded-full bg-white text-[#6d0100] flex items-center justify-center font-medium shadow-md">
@@ -115,7 +135,7 @@ export default function AdminLayout({
         </header>
 
         {/* Page Content */}
-        <div className="flex-1 overflow-auto p-8">{children}</div>
+        <div className="flex-1 overflow-auto p-4 sm:p-6 md:p-8">{children}</div>
       </main>
     </div>
   );
