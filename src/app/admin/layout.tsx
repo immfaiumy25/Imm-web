@@ -24,6 +24,7 @@ export default function AdminLayout({
     { name: "Berita", href: "/admin/berita", icon: "article" },
     { name: "Kalender", href: "/admin/agenda", icon: "event" },
     { name: "Kontak", href: "/admin/settings", icon: "contacts" },
+    { name: "Kelola Admin", href: "/admin/admins", icon: "manage_accounts" },
   ];
 
   return (
