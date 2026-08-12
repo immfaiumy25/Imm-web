@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function AdminLayout({
   children,
@@ -10,6 +10,9 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const { data: session } = useSession();
+  const username = session?.user?.name || "Admin";
+  const initial = username.charAt(0).toUpperCase();
 
   // Don't show sidebar on login page
   if (pathname === "/admin/login") {
@@ -104,9 +107,9 @@ export default function AdminLayout({
         <header className="h-20 border-b border-white/10 flex items-center justify-between px-8 bg-white/5">
           <div className="text-white font-medium">Dashboard</div>
           <div className="flex items-center gap-4">
-            <span className="font-normal text-white/80 text-sm">Hai, Admin</span>
+            <span className="font-normal text-white/80 text-sm">Hai, {username}</span>
             <div className="w-10 h-10 rounded-full bg-white text-[#6d0100] flex items-center justify-center font-medium shadow-md">
-              A
+              {initial}
             </div>
           </div>
         </header>

@@ -175,7 +175,7 @@ export default function AdminManagementPage() {
                     </button>
                     <button 
                       onClick={() => handleDelete(admin.id, admin.email)}
-                      className={\`flex-1 py-2 rounded-xl text-sm transition-colors \${isMe ? 'bg-red-500/20 text-red-300 opacity-50 cursor-not-allowed' : 'bg-red-500/20 text-red-300 hover:bg-red-500/40'}\`}
+                      className={`flex-1 py-2 rounded-xl text-sm transition-colors ${isMe ? 'bg-red-500/20 text-red-300 opacity-50 cursor-not-allowed' : 'bg-red-500/20 text-red-300 hover:bg-red-500/40'}`}
                       disabled={isMe}
                       title={isMe ? "Anda tidak bisa menghapus akun Anda sendiri" : "Hapus admin ini"}
                     >
